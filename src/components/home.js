@@ -1,9 +1,17 @@
 import React from 'react';
+import {Nav} from './navbar';
 
 export function LandingPage(props){
 	return (
-		<div className="Home">
-	        <p> The App is currently rendering</p>
-	     </div>
+		<section>
+			<header role= "banner">
+				<Nav /> 
+			</header>
+			<main>
+				<div className="Home">
+			        <p> The App is currently rendering</p>
+			    </div>
+		    </main>
+	    </section>
 		)
 }
