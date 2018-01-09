@@ -1,17 +1,16 @@
 import React from 'react';
-import {Nav} from './navbar';
+import {NavigationBar} from './navbar';
 
 export function LandingPage(props){
 	return (
-		<section className= "landing_page">
-			<header role= "banner">
-				<Nav /> 
-			</header>
-			<main role= "main">
-				<div className="home">
-			        <p> The App is currently rendering</p>
-			    </div>
-		    </main>
-	    </section>
+		<div>
+			<NavigationBar />
+			<div className= "container" style= {{paddingTop: "65px"}}> 
+				<p> This is a paragraph</p>
+			</div>
+			<div>
+				<p> newjdsjds</p>
+			</div>
+		</div>
 		)
 }

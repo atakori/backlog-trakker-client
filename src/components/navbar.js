@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function Nav(props){
+export function NavigationBar(props){
 	return ( 
 		 <nav className="nav navbar navbar-inverse navbar-fixed-top" role="navigation">
-          <div className="container-fluid">
+          <div className="container">
             <div className="nav-header">
               <button className="navbar-toggle collapsed"
                       type="button" data-toggle="collapse"
