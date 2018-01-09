@@ -3,12 +3,12 @@ import {Nav} from './navbar';
 
 export function LandingPage(props){
 	return (
-		<section>
+		<section className= "landing_page">
 			<header role= "banner">
 				<Nav /> 
 			</header>
-			<main>
-				<div className="Home">
+			<main role= "main">
+				<div className="home">
 			        <p> The App is currently rendering</p>
 			    </div>
 		    </main>
