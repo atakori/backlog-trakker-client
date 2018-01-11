@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavigationBar} from './navbar';
+import {Link} from 'react-router-dom';
 
 export function LandingPage(props){
 	return (
@@ -26,7 +27,7 @@ export function LandingPage(props){
 					<p className= "image"> [Screenshot or image here]</p>
 					<p className= "details"> Backlog Trakker helps you keep track of your video game backlog by allowing you to mark your progress for each game that you started and how close you are to completing them.</p>
 				</div>
-				<button className= "btn btn-primary">Tackle that Backlog </button>
+				<Link to= "/signup"><button className= "btn btn-primary">Tackle that Backlog </button> </Link>
 			</main>
 		</section>
 		)
