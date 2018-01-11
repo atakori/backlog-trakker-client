@@ -1,8 +1,16 @@
 import React from 'react';
+import {LoggedInNav} from './loggedNav';
 
 
 export function Dashboard(props) {
 	return (
-		<p> This is the Dashboard Page </p>
+		<section className= "signup_section">
+			<header role= "banner">
+				<LoggedInNav />
+			</header>
+			<main role="main">
+			<p> hello </p>
+			</main>
+		</section>
 		)
 }
