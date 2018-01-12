@@ -1,7 +1,9 @@
 import React from 'react';
 import {LoggedInNav} from './loggedNav';
 import {CurrentGameProgress} from './currentGameProgress';
-
+import {SearchInput} from './searchbar.js';
+import {Complete} from './searchbar.js';
+import { Progress } from 'antd';
 
 export function Dashboard(props) {
 	return (
@@ -14,6 +16,8 @@ export function Dashboard(props) {
 			<div>
 				<p> hello </p>
 			</div>
+			<Progress type= "circle" percent= "50"/>
+
 			</main>
 		</section>
 		)

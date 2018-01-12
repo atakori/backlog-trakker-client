@@ -18,7 +18,7 @@ export function LoggedInNav(props) {
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                	<SearchInput placeholder= "Game Search"/>
+                	<SearchInput placeholder= "Game Search" style= {{width: "200px"}}/>
               </ul>
               <ul className="nav navbar-nav navbar-right">
                   <li>

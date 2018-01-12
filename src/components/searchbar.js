@@ -2,6 +2,7 @@ import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import querystring from 'querystring';
 import React from 'react';
+import { AutoComplete } from 'antd';
 
 const Option = Select.Option;
 
