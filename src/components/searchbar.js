@@ -68,3 +68,14 @@ export class SearchInput extends React.Component {
     );
   }
 }
+
+export function MockSearch(props) {
+  return (
+    <AutoComplete
+      style={{ width: 200}}
+      dataSource={props.dataSource}
+      placeholder="Enter Game here"
+      filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
+    />
+  );
+}
