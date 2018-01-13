@@ -3,7 +3,7 @@ import {MockSearch} from  './searchbar.js'
 
 export function LoggedInNav(props) {
 	return (
-		<nav className="nav navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<nav className="nav navbar navbar-inverse navbar-fixed-top">
           <div className="container">
             <div className="nav-header">
               <button className="navbar-toggle collapsed"

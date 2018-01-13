@@ -2,7 +2,6 @@ import React from 'react';
 import {LoggedInNav} from './loggedNav';
 import {CurrentGameProgress} from './currentGameProgress';
 import { Progress } from 'antd';
-import { MockSearch } from './searchbar'
 
 export function Dashboard(props) {
 	return (

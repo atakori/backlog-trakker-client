@@ -2,7 +2,7 @@ import React from 'react';
 
 export function NavigationBar(props){
 	return ( 
-		 <nav className="nav navbar navbar-inverse navbar-fixed-top" role="navigation">
+		 <nav className="nav navbar navbar-inverse navbar-fixed-top" >
           <div className="container">
             <div className="nav-header">
               <button className="navbar-toggle collapsed"
@@ -17,7 +17,7 @@ export function NavigationBar(props){
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li><a href="#">[Search bar here]</a></li>
+                <li>[Search bar here] </li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
                   <li>
