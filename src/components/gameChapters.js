@@ -21,7 +21,7 @@ export class CurrentGameChapters extends React.Component {
 	getGameChapters() { 
 		//change this to get the chapters from the props
 
-		let game= this.props.currentGame
+		let game= this.props.currentGame;
 
 		let mockchapters= ['Cemetery of Ash', "Firelink Shrine", "High Wall of Lothric", "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"];
 		let list = mockchapters.map((chapter,index) => (
@@ -32,7 +32,8 @@ export class CurrentGameChapters extends React.Component {
 	}
 
 	handleChange() {
-		//make the text strikethrough
+		//makes state change to show which chapter was crossed off
+		// causes progress bar to increase/decrease
 		console.log("works")
 	}
 

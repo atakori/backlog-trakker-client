@@ -2,6 +2,7 @@ import React from 'react';
 import {LoggedInNav} from './loggedNav';
 import {CurrentGameProgress} from './currentGameProgress';
 import { CurrentGameChapters } from './gameChapters'
+import { CurrentBacklog } from './currentBacklog';
 
 export function Dashboard(props) {
 	return (
@@ -12,6 +13,7 @@ export function Dashboard(props) {
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= "gamerX_954" currentGame= "Dark Souls 3" progress= "78" criticRating= "7.4" userRating= "9.3" gameArtURL= "http://www.justpushstart.com/wp-content/uploads/2015/12/Dark-Souls-3-Box-Art-Day-One.jpg"/>
 				<CurrentGameChapters currentGame= "Dark Souls 3" gameChapters= {['Cemetery of Ash', 'Firelink Shrine', 'High Wall of Lothric', "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"]}/>
+				<CurrentBacklog gameCollection= {["Kingdom Hearts II", "Nier Automata", "Super Mario Oddessy", "Gears of War 4", "The Last of Us"]} />
 			</main>
 		</section>
 		)
