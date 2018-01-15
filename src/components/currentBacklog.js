@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+ 
 export class CurrentBacklog extends React.Component {
 	constructor(props) {
 		super(props);
@@ -34,6 +35,9 @@ export class CurrentBacklog extends React.Component {
 			<h2 className= "collection_title"> Current Backlog </h2>
 			<div className= "user_top5_games">
 				{this.renderTopBacklogGames()}
+			</div>
+			<div className="game_collection_button"> 
+				<Link to= {`/mygamelibrary/${this.props.userID}`}> <button > Full Game Collection</button> </Link>
 			</div>
 		</section>
 		)
