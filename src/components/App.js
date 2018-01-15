@@ -19,7 +19,7 @@ class App extends Component {
 	      		<Route exact path= '/signup' component= {SignUp}/>
 	    		<Route exact path= '/dashboard' component= {Dashboard}/>
 	    		<Route exact path= '/mygamelibrary/:userID' component= {GameCollection} />
-	    		<Route exact path= '/gameInfo/:gameID' component= {GamePage}/>
+	    		<Route exact path= '/gameInfo/:game' component= {GamePage}/>
 	    	</Switch>
 	    </Router>
     );

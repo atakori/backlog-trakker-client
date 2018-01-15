@@ -1,7 +1,11 @@
 import React from 'react';
 
-export default function GameInfo(props) {
-	return (
-		<p>This is the specific game info</p>
+export function GameInfo(props) {
+	return ( 
+		<div>
+			<p>This is the specific game info</p>
+			<p>{props.game}</p>
+		</div>
+
 		)
 }
