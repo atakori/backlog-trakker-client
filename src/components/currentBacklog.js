@@ -6,13 +6,18 @@ export class CurrentBacklog extends React.Component {
 		super(props);
 	}
 
+	getGameArt(game) {
+		//AJAX call to get game art
+		return `[Box Art for ${game}]`;
+	}
+
 	renderTopBacklogGames() {
 		let games = this.props.gameCollection;
 		if (games.length > 4) {
 			games= games.slice(0,5)
 			let gameslist= games.map(game => (
 			<div className= "game">
-				<p className= "Box Art Here"> [Box Art]</p>
+				<p className= "Box Art Here"> {this.getGameArt(game)}</p>
 				<p className= "game_title"><a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game} </a></p>
 			</div>))
 			return gameslist;

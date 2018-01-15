@@ -1,8 +1,32 @@
 import React from 'react';
 
-export function SimilarGames() {
+export class SimilarGames extends React.Component {
+	constructor(props) {
+		super(props)
+	}
+
+	getSimilarGames() {
+		//AJAX call to get similar games
+		let recommendedGames= ["Nier Automata", "Demon's Souls", "Hollow Knight", "Dragon's Dogma"]
+		let gamesList = recommendedGames.map(game => (
+			<li class= "game">
+              <p class="box_art">[Box Art]</p>
+            <p class= "game_title"><a href= "#">{game}</a></p>
+            </li>)
+		)
+		return gamesList;
+	}
+
+	render() {
 	return (
-		<p> SIMILAR GAMES</p>
+		<section className= "simiar_games_section">
+			<h2 className= "similar_games_title"> You might also like...</h2>
+			<ul className= "games_list">
+				{this.getSimilarGames()}
+			</ul>
+		</section>
+
 		
 		)
+}
 }

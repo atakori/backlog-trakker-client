@@ -5,6 +5,11 @@ export class ShowUserBacklog extends React.Component {
 		super(props)
 	}
 
+	getGameArt(game) {
+		//AJAX call to get game art
+		return `[Box Art for ${game}]`;
+	}
+
 	renderUsersFullBacklog() {
 		//game collection prop will have to be updated via API cal to the server
 		//to get the users current games
@@ -14,7 +19,7 @@ export class ShowUserBacklog extends React.Component {
 		let games= this.props.gameCollection;
 			let gameslist= games.map(game => (
 			<div class= "game_info">
-	             <p class= "game_art"> [Box Art]</p>
+	             <p class= "game_art"> {this.getGameArt(game)}</p>
 	             <li class= "game_title">
 	             <a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game} </a>
 	             </li>

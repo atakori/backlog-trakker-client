@@ -23,6 +23,11 @@ export class GamePage extends React.Component {
 		}
 	}
 
+	getSimilarGames(gameName) {
+		// AJAX call to get a list of similar games
+		return ["Nier Automata", "Demon's Souls", "Hollow Knight", "Dragon's Dogma"]
+	}
+
 	render() {
 	return (
 		<section className= "game_information_section">
@@ -37,7 +42,7 @@ export class GamePage extends React.Component {
            			{this.gameCollectionStatus()}
         		</div>
         		<div class= "simiar_games_section">
-        			<SimilarGames />
+        			<SimilarGames gameName= {this.props.match.params.game}/>
         		</div>
 			</main>
 		</section>
