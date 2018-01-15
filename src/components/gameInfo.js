@@ -19,8 +19,13 @@ export class GameInfo extends React.Component {
 				Nam a convallis nibh.In tincidunt orci a odio fermentum, semper porttitor tellus tincidunt.
 				Pellentesque ac massa aliquam, finibus augue in, finibus diam. Suspendisse sed feugiat arcu, vel posuere leo. 
 				Nulla nec tincidunt diam, at interdum sem. Sed porttitor pharetra feugiat. Aenean tincidunt magna non mollis ornare. 
-				Vivamus imperdiet orci eget mi laoreet luctus.
-				</p>
+				Vivamus imperdiet orci eget mi laoreet luctus. </p>
+			)
+	}
+
+	getGameGenre() {
+		//AJAX call for game genre
+		return (<span class= "genres"> Action/Adventure, RPG </span>
 			)
 	}
 
@@ -28,7 +33,8 @@ export class GameInfo extends React.Component {
 	return ( 
 		<div className= "game_information">
 			<h1 className= "main_game_title">{this.props.gameName.replace(/-/g, " ")}</h1>
-			<p className= "game_summary">{this.getGameSummary()}</p>}
+			<p className= "game_summary">{this.getGameSummary()}</p>
+			<p class= "game_genre"> Genre: {this.getGameGenre()}</p>
 		</div>
 
 		)
