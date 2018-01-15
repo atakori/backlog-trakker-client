@@ -16,7 +16,7 @@ export class CurrentGameChapters extends React.Component {
 		axios.get(url).then(function(res) {
 			alert(res);
 		})
-	}*/
+	}*/xx
 
 	getGameChapters() { 
 		//change this to get the chapters from the props
