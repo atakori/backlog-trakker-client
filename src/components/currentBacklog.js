@@ -13,7 +13,7 @@ export class CurrentBacklog extends React.Component {
 			let gameslist= games.map(game => (
 			<div className= "game">
 				<p className= "Box Art Here"> [Box Art]</p>
-				<p className= "game_title"><a href= {`/${game.replace(/\s/g, "-")}`}>{game} </a></p>
+				<p className= "game_title"><a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game} </a></p>
 			</div>))
 			return gameslist;
 			//limit the games collection to only show 5 games
@@ -37,7 +37,7 @@ export class CurrentBacklog extends React.Component {
 				{this.renderTopBacklogGames()}
 			</div>
 			<div className="game_collection_button"> 
-				<Link to= {`/mygamelibrary/${this.props.userID}`}> <button > Full Game Collection</button> </Link>
+				<Link to= {`/mygamelibrary/${this.props.userID}`}> <button className= "btn btn-primary"> Full Game Collection</button> </Link>
 			</div>
 		</section>
 		)
