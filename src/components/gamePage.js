@@ -7,6 +7,7 @@ export class GamePage extends React.Component {
 		super(props)
 	}
 
+
 	render() {
 	return (
 		<section className= "game_information_section">
@@ -15,9 +16,7 @@ export class GamePage extends React.Component {
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
-					<GameInfo/>
-					<p> {this.props.match.params.game}</p>
-					<p> skipping </p>
+					<GameInfo gameName= {this.props.match.params.game}/>
 				</div>
 			</main>
 		</section>
