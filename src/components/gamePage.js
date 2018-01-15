@@ -1,6 +1,7 @@
 import React from 'react';
 import { GameInfo } from './gameInfo'
-import { LoggedInNav } from './loggedNav.js';
+import { LoggedInNav } from './loggedNav';
+import { SimilarGames } from './similarGames'
 
 export class GamePage extends React.Component {
 	constructor(props) {
@@ -34,6 +35,9 @@ export class GamePage extends React.Component {
 				</div>
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
+        		</div>
+        		<div class= "simiar_games_section">
+        			<SimilarGames />
         		</div>
 			</main>
 		</section>
