@@ -1,4 +1,5 @@
 import React from 'react';
+import { Ratings } from './ratings.js'
 
 export class GameInfo extends React.Component {
 	constructor(props) {
@@ -29,12 +30,24 @@ export class GameInfo extends React.Component {
 			)
 	}
 
+	getUserRatings() {
+		//AJAX call for game user avg rating
+		return 9.1
+	}
+
+	getCriticRatings() {
+		//AJAX call for game critic avg rating
+		return 8.3
+	}
+
+
 	render() {
 	return ( 
 		<div className= "game_information">
 			<h1 className= "main_game_title">{this.props.gameName.replace(/-/g, " ")}</h1>
 			<p className= "game_summary">{this.getGameSummary()}</p>
 			<p class= "game_genre"> Genre: {this.getGameGenre()}</p>
+			<Ratings userAvgRating= {this.getUserRatings()} criticAvgRating= {this.getCriticRatings()} />
 		</div>
 
 		)
