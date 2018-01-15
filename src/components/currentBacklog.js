@@ -12,7 +12,7 @@ export class CurrentBacklog extends React.Component {
 			let gameslist= games.map(game => (
 			<div className= "game">
 				<p className= "Box Art Here"> [Box Art]</p>
-				<p className= "game_title">{game}</p>
+				<p className= "game_title"><a href= {`/${game.replace(/\s/g, "-")}`}>{game} </a></p>
 			</div>))
 			return gameslist;
 			//limit the games collection to only show 5 games
