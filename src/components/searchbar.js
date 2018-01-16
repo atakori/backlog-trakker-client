@@ -2,12 +2,15 @@ import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import querystring from 'querystring';
 import React from 'react';
-import { AutoComplete } from 'antd';
+import { AutoComplete, Input } from 'antd';
+import { Redirect } from 'react-router-dom';
 
 const Option = Select.Option;
 
 let timeout;
 let currentValue;
+let value;
+let option;
 
 function fetch(value, callback) {
   if (timeout) {
@@ -69,13 +72,44 @@ export class SearchInput extends React.Component {
   }
 }
 
-export function MockSearch(props) {
+export class MockSearch extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state={
+    }
+  }
+
+
+
+  onSubmit(e) {
+    e.preventDefault();
+    let game= this.input.value.trim()
+    game= game.replace(/\s+/, '-');
+    game= `/gameinfo/${game}`
+
+    this.setState({
+      location: game
+    })
+  }  
+
+
+  render() {
+     if(this.state.location) {
+      return <Redirect to= {this.state.location}/>
+    }
   return (
+    <form className= "game_search" onSubmit= {(e) => this.onSubmit(e)}>
     <AutoComplete
       style={{ width: 200}}
-      dataSource={props.dataSource}
+      dataSource={this.props.dataSource}
       placeholder="Enter Game here"
       filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
-    />
+      >
+      <input ref={input => (this.input = input)}/>
+    </AutoComplete>
+    <button type= "submit"> Search</button>
+    </form>
   );
+}
 }
