@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export class SimilarGames extends React.Component {
 	constructor(props) {
 		super(props)
@@ -11,7 +12,7 @@ export class SimilarGames extends React.Component {
 		let gamesList = recommendedGames.map(game => (
 			<li class= "game">
               <p class="box_art">[Box Art]</p>
-            <p class= "game_title"><a href= "#">{game}</a></p>
+            <p class= "game_title"><a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game}</a></p>
             </li>)
 		)
 		return gamesList;
