@@ -18,7 +18,7 @@ export class GamePage extends React.Component {
 			return (<button className= "btn btn-primary in_collection_button"> In Collection</button>
 )
 		} else { return (
-			<button className= "btn btn-primary add_button"> Add to Game Collection</button>
+			<button className= "btn btn-primary add_button" onClick= {this.handleButtonClick}> Add to Game Collection</button>
 			)
 		}
 	}
@@ -26,6 +26,12 @@ export class GamePage extends React.Component {
 	getSimilarGames(gameName) {
 		// AJAX call to get a list of similar games
 		return ["Nier Automata", "Demon's Souls", "Hollow Knight", "Dragon's Dogma"]
+	}
+
+	handleButtonClick() {
+		//adds the game to the user's game collection list
+		//in the db
+		alert("game added");
 	}
 
 	render() {
