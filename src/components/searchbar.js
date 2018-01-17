@@ -87,7 +87,7 @@ export class MockSearch extends React.Component {
     let game= this.input.value.trim()
     game= game.replace(/\s+/, '-');
     game= `/gameinfo/${game}`
-
+    
     this.setState({
       location: game
     })

@@ -16,25 +16,49 @@ export class CurrentGameChapters extends React.Component {
 		axios.get(url).then(function(res) {
 			alert(res);
 		})
-	}*/xx
+	}*/
+	checkCompletedChapters(level) {
+		let result;
+		console.log(level);
+		console.log(this.props.completedChapters);
+		this.props.completedChapters.forEach(function(completedChapter){
+			if(completedChapter.name == level) {
+				result= true;
+			}
+		});
+		return result
+		}
 
 	getGameChapters() { 
 		//change this to get the chapters from the props
 
 		let game= this.props.currentGame;
-
 		let mockchapters= ['Cemetery of Ash', "Firelink Shrine", "High Wall of Lothric", "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"];
-		let list = mockchapters.map((chapter,index) => (
-			<li>
-				<input id={chapter} type="checkbox" name="game_chapter" onChange={this.handleChange} /><label for={chapter}>{chapter}</label>
-			</li>))
-		return list;
+		//send name and ID from db
+		return this.renderGameChapters(mockchapters);
 	}
+
+	renderGameChapters(chapters) {
+		let completedLevels= this.props.completedChapters; {
+		let that = this;
+			return chapters.map((chapter,index) => (
+			<span><label for={chapter}>{<span className= {this.checkCompletedChapters(chapter)? "cross": ""}>{chapter}</span>}</label> <input checked= 
+			{that.checkCompletedChapters(chapter)} 
+			id={chapter} 
+			className= "completedChapter" 
+			type="checkbox" 
+			name="game_chapter" 
+			onChange={this.handleChange} /> </span>
+			))}
+	}		
 
 	handleChange() {
 		//makes state change to show which chapter was crossed off
 		// causes progress bar to increase/decrease
+		//add chapter to db or retract from db list and 
+		//call this.renderGameChapters(mockchapters) again
 		console.log("works")
+		//this.renderGameChapters(mockchapter);
 	}
 
 	render() {
