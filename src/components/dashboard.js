@@ -8,6 +8,7 @@ export class Dashboard extends React.Component {
 	constructor(props) {
 		super(props);
 
+		//need to get initial state variables to to match backend db values
 		this.state={
 			gameChapters: ['Cemetery of Ash', 'Firelink Shrine', 'High Wall of Lothric', "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"],
 			completedChapters: ['Cemetery of Ash']
