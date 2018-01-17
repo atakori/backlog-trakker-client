@@ -10,6 +10,7 @@ export class Dashboard extends React.Component {
 
 		//need to get initial state variables to to match backend db values
 		this.state={
+			gameCollection: ["Kingdom Hearts II", "Nier Automata", "Super Mario Oddessy", "Gears of War 4", "The Last of Us"],
 			gameChapters: ['Cemetery of Ash', 'Firelink Shrine', 'High Wall of Lothric', "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"],
 			completedChapters: ['Cemetery of Ash']
     	}
@@ -40,6 +41,11 @@ export class Dashboard extends React.Component {
 		return ((this.state.completedChapters.length) / (this.state.gameChapters.length) * 100).toFixed(2);
 	}
 
+	getCurrentGame() {
+		//triggered when another game in the user's backlog is clicked
+		//set the currentGame state
+	}
+
 	render() {
 	return (
 		<section className= "signup_section">
@@ -48,8 +54,8 @@ export class Dashboard extends React.Component {
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= "gamerX_954" currentGame= "Dark Souls 3" progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= "https://images-na.ssl-images-amazon.com/images/I/91gLzQFnCqL._AC_SX215_.jpg"/>
-				<CurrentBacklog userID= "52468" gameCollection= {["Kingdom Hearts II", "Nier Automata", "Super Mario Oddessy", "Gears of War 4", "The Last of Us"]} />
-				<CurrentGameChapters currentGame= "Dark Souls 3" gameChapters= {['Cemetery of Ash', 'Firelink Shrine', 'High Wall of Lothric', "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"]} completedChapters= {['Cemetery of Ash']}/>
+				<CurrentBacklog userID= "52468" gameCollection= {this.state.gameCollection} />
+				<CurrentGameChapters currentGame= "Dark Souls 3" gameChapters= {this.state.gameChapters} completedChapters= {this.state.completedChapters}/>
 			</main>
 		</section>
 		)
