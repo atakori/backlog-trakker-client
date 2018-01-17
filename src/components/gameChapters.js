@@ -41,14 +41,16 @@ export class CurrentGameChapters extends React.Component {
 	renderGameChapters(chapters) {
 		let completedLevels= this.props.completedChapters; {
 		let that = this;
-			return chapters.map((chapter,index) => (
-			<span><label for={chapter}>{<span className= {this.checkCompletedChapters(chapter)? "cross": ""}>{chapter}</span>}</label> <input checked= 
+			return chapters.map((chapter,index) => ( 
+			<li> <input checked= 
 			{that.checkCompletedChapters(chapter)} 
 			id={chapter} 
 			className= "completedChapter" 
 			type="checkbox" 
 			name="game_chapter" 
-			onChange={this.handleChange} /> </span>
+			onChange={this.handleChange} />
+			<label for={chapter}>{<span className= {this.checkCompletedChapters(chapter)? "cross": ""}>{chapter}</span>}</label>
+			</li>
 			))}
 	}		
 
