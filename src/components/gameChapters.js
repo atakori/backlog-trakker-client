@@ -22,7 +22,7 @@ export class CurrentGameChapters extends React.Component {
 		console.log(level);
 		console.log(this.props.completedChapters);
 		this.props.completedChapters.forEach(function(completedChapter){
-			if(completedChapter.name == level) {
+			if(completedChapter == level) {
 				result= true;
 			}
 		});

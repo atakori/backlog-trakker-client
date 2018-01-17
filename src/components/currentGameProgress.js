@@ -6,10 +6,6 @@ export class CurrentGameProgress extends React.Component{
 	constructor(props) {
 		super(props)
 	}
-
-	//going to reach out to db to get mock chapters and completed chapters
-	//pass to currentGameChapters
-
 	render() {
 		return (
 				<div classNameName= "main_dashboard"> 
@@ -25,7 +21,6 @@ export class CurrentGameProgress extends React.Component{
 		          	<Progress type= "dashboard" percent= {this.props.criticRating * 10} format={percent => `${percent / 10}`} />
 			        <p className= "user_avg_score">Avg. gamer rating </p>
 		          	<Progress type= "dashboard" percent= {this.props.userRating * 10} format={percent => `${percent / 10}`} />
-		          	<CurrentGameChapters currentGame= "Dark Souls 3" gameChapters= {['Cemetery of Ash', 'Firelink Shrine', 'High Wall of Lothric', "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"]} completedChapters= {[{name:'Cemetery of Ash', complete: true}]}/>
 		          </div>
 				</div>
 			)
