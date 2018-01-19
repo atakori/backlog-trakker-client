@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {NavigationBar} from './navbar';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
-export class Login extends React.Component {
+const renderInput = field => 
+	<div>
+		<input {...field.input} id= {field.id} type={field.type} className= "form_control" />
+	</div>
+
+
+class Login extends Component {
+	handleFormSubmit({username, password}) {
+		console.log(username, password)
+		//log user in
+	}
+
 	render() {
+	const { handleSubmit } = this.props;
+
 	return (
 		<section className= "login_section">
 			<header role= "banner">
@@ -11,16 +24,16 @@ export class Login extends React.Component {
 			</header>
 			<main role= "main"> 
 				<div className= "login_content" style= {{paddingTop: "65px"}}>
-					<form className= "login_form">
+					<form className= "login_form" onSubmit= { handleSubmit(this.handleFormSubmit.bind(this))}>
 						<h1 className= "form_title">Sign Up</h1>
-						<fieldset className= "form_group">
+						<div className= "form_group">
 							<label for = "username">Username </label>
-							<input className= "form_control" type= "text" name="username" id="username" />
-						</fieldset>
-						<fieldset className= "form_group">
+							<Field id= "username" name= "username" component={renderInput} type= "text" />
+						</div>
+						<div className= "form_group">
 							<label for= "password">Password </label>
-							<input className= "form_control" type= "password" name="password" id="password"/>
-						</fieldset>
+							<Field id="password" name= "password" component={renderInput} type= "password" />
+						</div>
 						<button className= "btn btn-danger" type= "submit">Login</button>
 					</form>
 				</div>
@@ -31,6 +44,5 @@ export class Login extends React.Component {
 }
 
 export default reduxForm({
-	form: 'login',
-	fields: ['username', 'password']
+	form: 'login'
 })(Login)
