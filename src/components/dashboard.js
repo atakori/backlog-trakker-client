@@ -3,8 +3,9 @@ import {LoggedInNav} from './loggedNav';
 import {CurrentGameProgress} from './currentGameProgress';
 import { CurrentGameChapters } from './gameChapters'
 import { CurrentBacklog } from './currentBacklog';
+import { connect } from 'react-redux'
 
-export class Dashboard extends React.Component {
+class Dashboard extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -56,8 +57,16 @@ export class Dashboard extends React.Component {
 				<CurrentGameProgress user= "gamerX_954" currentGame= "Dark Souls 3" progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= "https://images-na.ssl-images-amazon.com/images/I/91gLzQFnCqL._AC_SX215_.jpg"/>
 				<CurrentBacklog userID= "52468" gameCollection= {this.state.gameCollection} />
 				<CurrentGameChapters currentGame= "Dark Souls 3" gameChapters= {this.state.gameChapters} completedChapters= {this.state.completedChapters}/>
+				{this.props.test}
 			</main>
 		</section>
 		)
 	}
 }
+
+const mapStatetoProps= (state, props) => {
+	console.log(state);
+	return {test: "game1"}
+}
+
+export default connect(mapStatetoProps)(Dashboard);
