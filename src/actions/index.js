@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { AUTH_USER } from './types';
+import { AUTH_USER, AUTH_ERROR} from './types';
 
 const API_URL= "http://localhost:8080";
 //current port server is running on 
 
 export function loginUser({username, password}, history) {
 	return function(dispatch) {
-	//submit username and password to server
+	//submits username and password to server
 	axios.post(`${API_URL}/login`, {username, password},)
 	.then(res => {
 		//if request is good, update state with authenticated user
@@ -18,10 +18,18 @@ export function loginUser({username, password}, history) {
 	})
 	.catch(() => {
 		//if request is bad, show an error to the user
+		dispatch(authError('Incorrect username or password'))
 	})
 	
 
 	
 	}
 	
+}
+
+export function authError(error) {
+	return {
+		type: AUTH_ERROR,
+		payload: error
+	}
 }

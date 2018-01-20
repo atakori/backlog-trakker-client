@@ -18,6 +18,16 @@ class Login extends Component {
 
 	}
 
+	renderError() {
+		if(this.props.errorMessage) {
+			return (
+					<div className= "Incorrect Username or password">
+						<p>{this.props.errorMessage} </p>
+					</div>	
+				)
+		}
+	}
+
 	render() {
 	const { handleSubmit } = this.props;
 
@@ -30,6 +40,7 @@ class Login extends Component {
 				<div className= "login_content" style= {{paddingTop: "65px"}}>
 					<form className= "login_form" onSubmit= { handleSubmit(this.handleFormSubmit.bind(this))}>
 						<h1 className= "form_title">Login</h1>
+						{this.renderError()}
 						<div className= "form_group">
 							<label for = "username">Username </label>
 							<Field id= "username" name= "username" component={renderInput} type= "text" />
@@ -47,8 +58,12 @@ class Login extends Component {
 	}
 }
 
+function mapStateToProps(state) {
+	return {errorMessage: state.auth.error }
+}
+
 export default reduxForm({
 	form: 'login'
 })(
- connect(null, actions)(Login)
+ connect(mapStateToProps, actions)(Login)
  );
