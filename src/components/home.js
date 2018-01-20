@@ -1,8 +1,15 @@
 import React from 'react';
 import NavigationBar from './navbar';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux'
+import * as actions from '../actions'
 
-export function LandingPage(props){
+class LandingPage extends React.Component {
+	componentWillMount() {
+		this.props.signoutUser();
+	}
+
+	render() {
 	return (
 		<section className= "landing_page">
 			<header role= "banner">
@@ -31,4 +38,7 @@ export function LandingPage(props){
 			</main>
 		</section>
 		)
+	}
 }
+
+export default connect(null, actions)(LandingPage)

@@ -32,6 +32,14 @@ class NavigationBar extends React.Component {
     }
   }
 
+  renderLogoLink() {
+    if (this.props.authenticated) {
+      return <a className="navbar-brand" href='/dashboard'> Backlog Trakker </a>
+    } else {
+      return <a className="navbar-brand" href='/'> Backlog Trakker </a>
+    }
+  }
+
   render() {
   return ( 
 		 <nav className="nav navbar navbar-inverse navbar-fixed-top">
@@ -45,7 +53,7 @@ class NavigationBar extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
                </button>
-              <a className="navbar-brand" href='/'> Backlog Trakker </a>
+              {this.renderLogoLink()}
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">

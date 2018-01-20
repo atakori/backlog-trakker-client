@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR} from './types';
+import { AUTH_USER, AUTH_ERROR, UNAUTH_USER} from './types';
 
 const API_URL= "http://localhost:8080";
 //current port server is running on 
@@ -32,4 +32,10 @@ export function authError(error) {
 		type: AUTH_ERROR,
 		payload: error
 	}
+}
+
+export function signoutUser() {
+	//sign the user out
+	localStorage.removeItem('token');
+	return {type: UNAUTH_USER}
 }
