@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {NavigationBar} from './navbar';
 import { reduxForm, Field } from 'redux-form';
+import * as actions from '../actions';
+import { connect } from 'react-redux';
 
 const renderInput = field => 
 	<div>
@@ -12,6 +14,8 @@ class Login extends Component {
 	handleFormSubmit({username, password}) {
 		console.log(username, password)
 		//log user in
+		this.props.loginUser({username, password}, this.props.history);
+
 	}
 
 	render() {
@@ -25,7 +29,7 @@ class Login extends Component {
 			<main role= "main"> 
 				<div className= "login_content" style= {{paddingTop: "65px"}}>
 					<form className= "login_form" onSubmit= { handleSubmit(this.handleFormSubmit.bind(this))}>
-						<h1 className= "form_title">Sign Up</h1>
+						<h1 className= "form_title">Login</h1>
 						<div className= "form_group">
 							<label for = "username">Username </label>
 							<Field id= "username" name= "username" component={renderInput} type= "text" />
@@ -45,4 +49,6 @@ class Login extends Component {
 
 export default reduxForm({
 	form: 'login'
-})(Login)
+})(
+ connect(null, actions)(Login)
+ );

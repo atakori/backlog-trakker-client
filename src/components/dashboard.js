@@ -66,7 +66,7 @@ class Dashboard extends React.Component {
 
 const mapStatetoProps= (state, props) => {
 	console.log(state);
-	return {test: "game1"}
+	return {test: state.test}
 }
 
 export default connect(mapStatetoProps)(Dashboard);

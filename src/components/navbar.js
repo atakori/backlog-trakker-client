@@ -2,7 +2,7 @@ import React from 'react';
 
 export function NavigationBar(props){
 	return ( 
-		 <nav className="nav navbar navbar-inverse navbar-fixed-top" >
+		 <nav className="nav navbar navbar-inverse navbar-fixed-top">
           <div className="container">
             <div className="nav-header">
               <button className="navbar-toggle collapsed"
