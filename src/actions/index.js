@@ -20,11 +20,13 @@ export function loginUser({username, password}, history) {
 		//if request is bad, show an error to the user
 		dispatch(authError('Incorrect username or password'))
 	})
-	
-
-	
 	}
-	
+}
+
+export function signupUser({firstname, lastname, username, password}) {
+		return function(dispatch) {
+			axios.post(`${API_URL}/signup`, {firstname, lastname, username, password})
+		}
 }
 
 export function authError(error) {
@@ -39,3 +41,4 @@ export function signoutUser() {
 	localStorage.removeItem('token');
 	return {type: UNAUTH_USER}
 }
+

@@ -15,7 +15,6 @@ class Login extends Component {
 		console.log(username, password)
 		//log user in
 		this.props.loginUser({username, password}, this.props.history);
-
 	}
 
 	renderError() {

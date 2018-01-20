@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import LandingPage from './home';
 import Login from './login';
-import {SignUp} from './signup';
+import SignUp from './signup';
 import Dashboard from './dashboard';
 import {GameCollection} from './gameCollection';
 import {GamePage} from './gamePage';
