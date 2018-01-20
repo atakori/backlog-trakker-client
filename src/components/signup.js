@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationBar} from './navbar';
+import NavigationBar from './navbar';
 
 export function SignUp(props) {
 	return (

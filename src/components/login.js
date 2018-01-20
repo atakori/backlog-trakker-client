@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {NavigationBar} from './navbar';
+import NavigationBar from './navbar';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
@@ -21,7 +21,7 @@ class Login extends Component {
 	renderError() {
 		if(this.props.errorMessage) {
 			return (
-					<div className= "Incorrect Username or password">
+					<div className= "error_message">
 						<p>{this.props.errorMessage} </p>
 					</div>	
 				)

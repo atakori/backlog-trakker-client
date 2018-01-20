@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationBar} from './navbar';
+import NavigationBar from './navbar';
 import {Link} from 'react-router-dom';
 
 export function LandingPage(props){

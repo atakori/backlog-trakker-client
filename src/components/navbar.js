@@ -1,7 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { MockSearch } from  './searchbar.js'
 
-export function NavigationBar(props){
-	return ( 
+class NavigationBar extends React.Component {
+	
+  renderLinks() {
+    if (this.props.authenticated) {
+      return [
+                <li className= "nav-item" key= {1}>
+                  <a href="/mygameLibrary"> My Collection </a>
+                </li>,
+                <li className= "nav-item" key= {2}>
+                  <a href="/"> Logout </a>
+                </li>
+                ];
+        } else {
+        return [
+                <li className= "nav-item" key= {1}>
+                  <a href="/login">Login</a>
+                </li>,
+                <li className= "nav-item" key= {2}>
+                  <a href="/signup"> Sign Up </a>
+                </li>
+                ];
+      }
+    }
+
+  renderSearchBar() {
+    if(this.props.authenticated) {
+      return <MockSearch dataSource= {["Kingdom Hearts", "Dark Souls"]}/>
+    }
+  }
+
+  render() {
+  return ( 
 		 <nav className="nav navbar navbar-inverse navbar-fixed-top">
           <div className="container">
             <div className="nav-header">
@@ -17,18 +49,21 @@ export function NavigationBar(props){
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li>[Search bar here] </li>
+                {this.renderSearchBar()}
               </ul>
               <ul className="nav navbar-nav navbar-right">
-                  <li>
-                    <a href="/login">Login</a>
-                  </li>
-                  <li>
-                    <a href="/signup"> Sign Up </a>
-                  </li>
+                  {this.renderLinks()}
               </ul>
             </div>
           </div>
         </nav>
 		)
+  }
 }
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated
+  }
+}
+
+export default connect(mapStateToProps)(NavigationBar);

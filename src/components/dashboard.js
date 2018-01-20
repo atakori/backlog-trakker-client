@@ -1,5 +1,6 @@
 import React from 'react';
 import {LoggedInNav} from './loggedNav';
+import NavigationBar from './navbar';
 import {CurrentGameProgress} from './currentGameProgress';
 import { CurrentGameChapters } from './gameChapters'
 import { CurrentBacklog } from './currentBacklog';
@@ -51,7 +52,7 @@ class Dashboard extends React.Component {
 	return (
 		<section className= "signup_section">
 			<header role= "banner">
-				<LoggedInNav />
+				<NavigationBar />
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= "gamerX_954" currentGame= "Dark Souls 3" progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= "https://images-na.ssl-images-amazon.com/images/I/91gLzQFnCqL._AC_SX215_.jpg"/>

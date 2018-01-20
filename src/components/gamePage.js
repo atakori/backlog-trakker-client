@@ -1,6 +1,6 @@
 import React from 'react';
 import { GameInfo } from './gameInfo'
-import { LoggedInNav } from './loggedNav';
+import NavigationBar from './navbar';
 import { SimilarGames } from './similarGames'
 
 export class GamePage extends React.Component {
@@ -38,7 +38,7 @@ export class GamePage extends React.Component {
 	return (
 		<section className= "game_information_section">
 			<header role= "banner">
-				<LoggedInNav />
+				<NavigationBar />
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
@@ -53,5 +53,5 @@ export class GamePage extends React.Component {
 			</main>
 		</section>
 		)
-}
+	}
 }

@@ -22,7 +22,10 @@ export function LoggedInNav(props) {
               </ul>
               <ul className="nav navbar-nav navbar-right">
                   <li>
-                    <a href="/signup"> Logout </a>
+                    <a href="/mygameLibrary"> My Collection </a>
+                  </li>
+                  <li>
+                    <a href="/"> Logout </a>
                   </li>
               </ul>
             </div>
