@@ -23,9 +23,15 @@ export function loginUser({username, password}, history) {
 	}
 }
 
-export function signupUser({firstname, lastname, username, password}) {
+export function signupUser({firstname, lastname, username, password}, history) {
 		return function(dispatch) {
 			axios.post(`${API_URL}/signup`, {firstname, lastname, username, password})
+			.then(res => {
+				dispatch({type: AUTH_USER});
+				localStorage.setItem('token', res.data.token);
+				history.push("/dashboard");
+			})
+			.catch( err => dispatch(authError(err.response.data.error)));
 		}
 }
 

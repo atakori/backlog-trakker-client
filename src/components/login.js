@@ -27,6 +27,12 @@ class Login extends Component {
 		}
 	}
 
+	componentWillUnmount() {
+		if (this.props.errorMessage) {
+   			this.props.authError(null)
+ 		}
+	}
+
 	render() {
 	const { handleSubmit } = this.props;
 

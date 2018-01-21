@@ -16,7 +16,17 @@ class SignUp extends React.Component {
 
 	handleFormSubmit(formProps) {
 		//call action to create account in backend
-		this.props.signupUser(formProps)
+		this.props.signupUser(formProps, this.props.history)
+	}
+
+	renderError() {
+		if(this.props.errorMessage) {
+			return (
+					<div className= "error_message">
+						<p>{this.props.errorMessage} </p>
+					</div>	
+				)
+		}
 	}
 
 	render(){
@@ -30,6 +40,7 @@ class SignUp extends React.Component {
 				<div className= "signup_content" style= {{paddingTop: "65px"}}>
 					<form className= "sign_up_form" onSubmit= {handleSubmit(this.handleFormSubmit.bind(this))}>
 						<h1 className= "form_title">Sign Up</h1>
+						{this.renderError()}
 						<div className= "form_group"> 
 							<label for= "first_name" >First Name </label>
 							<Field id= "first_name" name= "first_name" component={renderInput} type= "text" />
@@ -79,10 +90,16 @@ function validate(formProps) {
 	return errors
 }
 
+function mapStateToProps(state) {
+	return {
+		errorMessage: state.auth.error
+	}
+}
+
 export default reduxForm({
 	form: 'signup',
 	fields: ['firstname', 'lastname', 'username', 'password', 'passwordConfirm'],
 	validate: validate
 })(
- connect(null, actions)(SignUp)
+ connect(mapStateToProps, actions)(SignUp)
  );

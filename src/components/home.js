@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationBar from './navbar';
 import {Link} from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import * as actions from '../actions'
 
 class LandingPage extends React.Component {
