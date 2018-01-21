@@ -5,6 +5,7 @@ import {CurrentGameProgress} from './currentGameProgress';
 import { CurrentGameChapters } from './gameChapters'
 import { CurrentBacklog } from './currentBacklog';
 import { connect } from 'react-redux'
+import * as actions from '../actions'
 
 class Dashboard extends React.Component {
 	constructor(props) {
@@ -16,6 +17,11 @@ class Dashboard extends React.Component {
 			gameChapters: ['Cemetery of Ash', 'Firelink Shrine', 'High Wall of Lothric', "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"],
 			completedChapters: ['Cemetery of Ash']
     	}
+	}
+
+	componentWillMount() {
+		//before rendering of components
+		this.props.fetchMessage();
 	}
 
 	getUserGameCollection(){
@@ -58,16 +64,15 @@ class Dashboard extends React.Component {
 				<CurrentGameProgress user= "gamerX_954" currentGame= "Dark Souls 3" progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= "https://images-na.ssl-images-amazon.com/images/I/91gLzQFnCqL._AC_SX215_.jpg"/>
 				<CurrentBacklog userID= "52468" gameCollection= {this.state.gameCollection} />
 				<CurrentGameChapters currentGame= "Dark Souls 3" gameChapters= {this.state.gameChapters} completedChapters= {this.state.completedChapters}/>
-				{this.props.test}
+				{this.props.message}
 			</main>
 		</section>
 		)
 	}
 }
 
-const mapStatetoProps= (state, props) => {
-	console.log(state);
-	return {test: state.test}
+const mapStatetoProps= (state) => {
+	return { message: state.auth.message };
 }
 
-export default connect(mapStatetoProps)(Dashboard);
+export default connect(mapStatetoProps, actions)(Dashboard);

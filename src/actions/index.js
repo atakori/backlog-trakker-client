@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER} from './types';
+import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE} from './types';
 
 const API_URL= "http://localhost:8080";
 //current port server is running on 
@@ -48,3 +48,16 @@ export function signoutUser() {
 	return {type: UNAUTH_USER}
 }
 
+//testing authenticated requests to db (WORKS)
+export function fetchMessage() {
+	return function(dispatch) {
+		axios.get(API_URL, {
+			headers: {authorization: localStorage.getItem('token')}})
+		.then(res => {
+			dispatch({
+				type: FETCH_MESSAGE,
+				payload: res.data.message
+			}) 
+		})
+	}
+}
