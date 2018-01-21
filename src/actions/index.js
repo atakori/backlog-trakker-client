@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE} from './types';
+import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE, FETCH_GAME_INFO, FETCH_GAME_SUMMARY} from './types';
 
 const API_URL= "http://localhost:8080";
 //current port server is running on 
@@ -59,6 +59,20 @@ export function fetchMessage() {
 				type: FETCH_MESSAGE,
 				payload: res.data
 			}) 
+		})
+	}
+}
+
+export function fetchGameInfo(gameName) {
+	return function(dispatch) {
+		axios.get(`${API_URL}/games?name=${gameName}`)
+		.then( res => {
+			const game = res.data[0]
+			console.log(game.name);
+			dispatch({
+				type: FETCH_GAME_SUMMARY,
+				payload: game.summary
+			})
 		})
 	}
 }

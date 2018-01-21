@@ -2,10 +2,20 @@ import React from 'react';
 import { GameInfo } from './gameInfo'
 import NavigationBar from './navbar';
 import { SimilarGames } from './similarGames'
+import { connect } from 'react-redux';
+import * as actions from '../actions'
 
-export class GamePage extends React.Component {
+class GamePage extends React.Component {
 	constructor(props) {
 		super(props)
+	}
+
+	componentWillMount() {
+		//before rendering of components
+		let gameName = this.props.match.params.game;
+		gameName = gameName.replace('-', ' ');
+		console.log(gameName);
+		this.props.fetchGameInfo(gameName);
 	}
 
 	gameCollectionStatus() {
@@ -47,11 +57,18 @@ export class GamePage extends React.Component {
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
         		</div>
-        		<div class= "simiar_games_section">
+        		<div className= "simiar_games_section">
         			<SimilarGames gameName= {this.props.match.params.game}/>
         		</div>
+        		{this.props.gameSummary}
 			</main>
 		</section>
 		)
 	}
 }
+
+const mapStatetoProps= (state) => {
+	return { gameSummary: state.game.summary };
+}
+
+export default connect(mapStatetoProps, actions)(GamePage);

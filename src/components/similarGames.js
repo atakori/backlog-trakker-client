@@ -9,10 +9,10 @@ export class SimilarGames extends React.Component {
 	getSimilarGames() {
 		//AJAX call to get similar games
 		let recommendedGames= ["Nier Automata", "Demon's Souls", "Hollow Knight", "Dragon's Dogma"]
-		let gamesList = recommendedGames.map(game => (
-			<li class= "game">
-              <p class="box_art">[Box Art]</p>
-            <p class= "game_title"><a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game}</a></p>
+		let gamesList = recommendedGames.map((game, index) => (
+			<li className= "game" key= {index}>
+              <p className="box_art">[Box Art]</p>
+            <p className= "game_title"><a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game}</a></p>
             </li>)
 		)
 		return gamesList;
