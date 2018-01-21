@@ -52,7 +52,7 @@ class GamePage extends React.Component {
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
-					<GameInfo gameName= {this.props.match.params.game}/>
+					<GameInfo gameName= {this.props.match.params.game} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore}/>
 				</div>
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
@@ -60,7 +60,6 @@ class GamePage extends React.Component {
         		<div className= "simiar_games_section">
         			<SimilarGames gameName= {this.props.match.params.game}/>
         		</div>
-        		{this.props.gameSummary}
 			</main>
 		</section>
 		)
@@ -68,7 +67,27 @@ class GamePage extends React.Component {
 }
 
 const mapStatetoProps= (state) => {
-	return { gameSummary: state.game.summary };
+	return { 
+		gameSummary: state.game.summary,
+		gameGenres: state.game.genreIds,
+		criticScore: state.game.criticScore,
+		userScore:state.game.userScore,
+		similarGameIds:state.game.similarGameIds
+	};
 }
+
+/*	case FETCH_GAME_INFO: 
+			return {...state, data: action.payload.data};
+		case FETCH_GAME_SUMMARY:
+			return {...state, summary: action.payload}
+		case FETCH_GAME_GENRE_IDS:
+			return {...state, genreIds: action.payload}
+		case FETCH_CRITIC_SCORES:
+			return {...state, criticScore: action.payload}
+		case FETCH_USER_SCORES:
+			return {...state, userScore: action.payload}
+		case FETCH_SIMILAR_GAME_IDS:
+			return {...state, similarGameIds: action.payload}
+		*/
 
 export default connect(mapStatetoProps, actions)(GamePage);

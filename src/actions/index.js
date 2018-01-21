@@ -1,5 +1,16 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE, FETCH_GAME_INFO, FETCH_GAME_SUMMARY} from './types';
+import { 
+	AUTH_USER, 
+	AUTH_ERROR,
+	UNAUTH_USER,
+	FETCH_MESSAGE,
+	FETCH_GAME_INFO,
+	FETCH_GAME_SUMMARY,
+	FETCH_GAME_GENRE_IDS,
+	FETCH_CRITIC_SCORES,
+	FETCH_USER_SCORES,
+	FETCH_SIMILAR_GAME_IDS } from './types';
+
 
 const API_URL= "http://localhost:8080";
 //current port server is running on 
@@ -68,10 +79,25 @@ export function fetchGameInfo(gameName) {
 		axios.get(`${API_URL}/games?name=${gameName}`)
 		.then( res => {
 			const game = res.data[0]
-			console.log(game.name);
 			dispatch({
 				type: FETCH_GAME_SUMMARY,
 				payload: game.summary
+			});
+			dispatch({
+				type:FETCH_GAME_GENRE_IDS,
+				payload:game.genres
+			});
+			dispatch({
+				type: FETCH_CRITIC_SCORES,
+				payload: game.aggregated_rating.toFixed(2)
+			});
+			dispatch({
+				type: FETCH_USER_SCORES,
+				payload: game.rating.toFixed(2)
+			})
+			dispatch({
+				type: FETCH_SIMILAR_GAME_IDS,
+				payload: game.games
 			})
 		})
 	}
