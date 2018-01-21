@@ -22,6 +22,7 @@ class Dashboard extends React.Component {
 	componentWillMount() {
 		//before rendering of components
 		this.props.fetchMessage();
+		
 	}
 
 	getUserGameCollection(){

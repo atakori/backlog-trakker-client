@@ -54,9 +54,10 @@ export function fetchMessage() {
 		axios.get(API_URL, {
 			headers: {authorization: localStorage.getItem('token')}})
 		.then(res => {
+			console.log(res);
 			dispatch({
 				type: FETCH_MESSAGE,
-				payload: res.data.message
+				payload: res.data
 			}) 
 		})
 	}
