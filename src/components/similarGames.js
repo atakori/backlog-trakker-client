@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export class SimilarGames extends React.Component {
 	constructor(props) {
 		super(props)
@@ -8,7 +7,7 @@ export class SimilarGames extends React.Component {
 
 	getSimilarGames() {
 		//AJAX call to get similar games
-		let recommendedGames= ["Nier Automata", "Demon's Souls", "Hollow Knight", "Dragon's Dogma"]
+		const recommendedGames= this.props.similarGamesList
 		let gamesList = recommendedGames.map((game, index) => (
 			<li className= "game" key= {index}>
               <p className="box_art">[Box Art]</p>
@@ -18,16 +17,18 @@ export class SimilarGames extends React.Component {
 		return gamesList;
 	}
 
+	renderGames(list) {
+		return list
+	}
+
 	render() {
 	return (
-		<section className= "simiar_games_section">
+		<section className= "similar_games_section">
 			<h2 className= "similar_games_title"> You might also like...</h2>
 			<ul className= "games_list">
 				{this.getSimilarGames()}
 			</ul>
 		</section>
-
-		
 		)
 }
 }

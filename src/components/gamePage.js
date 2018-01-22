@@ -57,9 +57,8 @@ class GamePage extends React.Component {
            			{this.gameCollectionStatus()}
         		</div>
         		<div className= "simiar_games_section">
-        			<SimilarGames gameName= {this.props.match.params.game}/>
+        			<SimilarGames gameName= {this.props.match.params.game} similarGamesList={this.props.similarGamesList}/>
         		</div>
-        		
 			</main>
 		</section>
 		)
@@ -72,7 +71,7 @@ const mapStatetoProps= (state) => {
 		gameGenres: state.game.genreIds,
 		criticScore: state.game.criticScore,
 		userScore:state.game.userScore,
-		similarGameIds:state.game.similarGameIds
+		similarGamesList:state.game.similarGamesList
 	};
 }
 

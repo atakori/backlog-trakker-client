@@ -1,6 +1,7 @@
 import { FETCH_GAME_INFO, FETCH_GAME_SUMMARY, FETCH_GAME_GENRE_IDS, FETCH_CRITIC_SCORES, FETCH_USER_SCORES, FETCH_SIMILAR_GAME_IDS } from '../actions/types'
 
 const initialState = {
+	similarGamesList: []
 
 }
 
@@ -17,7 +18,7 @@ export default function (state=initialState, action) {
 		case FETCH_USER_SCORES:
 			return {...state, userScore: action.payload}
 		case FETCH_SIMILAR_GAME_IDS:
-			return {...state, similarGameIds: action.payload}
+			return {...state, similarGamesList: action.payload}
 		
 	}
 	return state;

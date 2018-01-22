@@ -79,7 +79,8 @@ export function fetchGameInfo(gameName) {
 		axios.get(`${API_URL}/games?name=${gameName}`)
 		.then( res => {
 			const game = res.data[0]
-			const gameGenres= game.genres.join(',')
+			const gameGenres= game.genres.join(',');
+			const similarGameIds= game.games.join(',');
 			dispatch({
 				type: FETCH_GAME_SUMMARY,
 				payload: game.summary
@@ -96,16 +97,23 @@ export function fetchGameInfo(gameName) {
 				type: FETCH_USER_SCORES,
 				payload: game.rating.toFixed(2)
 			})
-			dispatch({
+			/*dispatch({
 				type: FETCH_SIMILAR_GAME_IDS,
 				payload: game.games
-			})
+			})*/
 			axios.get(`${API_URL}/games/genre?ids=${gameGenres}`)
 			.then(res => {
-				console.log(res.data)
 				dispatch({
 					type:FETCH_GAME_GENRE_IDS,
 					payload: res.data.join(', ')
+				})
+			})
+			axios.get(`${API_URL}/games/similarGames?gameIds=${similarGameIds}`)
+			.then(res => {
+				console.log(res.data);
+				dispatch({
+				type: FETCH_SIMILAR_GAME_IDS,
+				payload: res.data
 				})
 			})
 		})
