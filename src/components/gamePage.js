@@ -14,7 +14,6 @@ class GamePage extends React.Component {
 		//before rendering of components
 		let gameName = this.props.match.params.game;
 		gameName = gameName.replace('-', ' ');
-		console.log(gameName);
 		this.props.fetchGameInfo(gameName);
 	}
 
@@ -52,7 +51,7 @@ class GamePage extends React.Component {
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
-					<GameInfo gameName= {this.props.match.params.game} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore}/>
+					<GameInfo gameName= {this.props.match.params.game} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
 				</div>
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
@@ -60,6 +59,7 @@ class GamePage extends React.Component {
         		<div className= "simiar_games_section">
         			<SimilarGames gameName= {this.props.match.params.game}/>
         		</div>
+        		
 			</main>
 		</section>
 		)

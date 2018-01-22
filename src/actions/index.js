@@ -65,7 +65,6 @@ export function fetchMessage() {
 		axios.get(API_URL, {
 			headers: {authorization: localStorage.getItem('token')}})
 		.then(res => {
-			console.log(res);
 			dispatch({
 				type: FETCH_MESSAGE,
 				payload: res.data
@@ -75,18 +74,20 @@ export function fetchMessage() {
 }
 
 export function fetchGameInfo(gameName) {
+	//gets game information for GamePage component
 	return function(dispatch) {
 		axios.get(`${API_URL}/games?name=${gameName}`)
 		.then( res => {
 			const game = res.data[0]
+			const gameGenres= game.genres.join(',')
 			dispatch({
 				type: FETCH_GAME_SUMMARY,
 				payload: game.summary
 			});
-			dispatch({
+			/*dispatch({
 				type:FETCH_GAME_GENRE_IDS,
-				payload:game.genres
-			});
+				payload:gameGenres
+			});*/
 			dispatch({
 				type: FETCH_CRITIC_SCORES,
 				payload: game.aggregated_rating.toFixed(2)
@@ -98,6 +99,14 @@ export function fetchGameInfo(gameName) {
 			dispatch({
 				type: FETCH_SIMILAR_GAME_IDS,
 				payload: game.games
+			})
+			axios.get(`${API_URL}/games/genre?ids=${gameGenres}`)
+			.then(res => {
+				console.log(res.data)
+				dispatch({
+					type:FETCH_GAME_GENRE_IDS,
+					payload: res.data.join(', ')
+				})
 			})
 		})
 	}
