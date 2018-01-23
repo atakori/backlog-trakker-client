@@ -23,7 +23,7 @@ class GamePage extends React.Component {
 		console.log(gameNameDashed);
 		console.log(gameName);
 		this.props.fetchGameInfo(gameName);
-		this.props.addGameToCollection(gameNameDashed)
+		this.props.addGameToCollection(gameNameDashed, gameName)
 	}
 
 	gameCollectionStatus() {

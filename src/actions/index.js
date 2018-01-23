@@ -120,20 +120,29 @@ export function fetchGameInfo(gameName) {
 	}
 }
 
-export function addGameToCollection(gameName) {
+export function addGameToCollection(gameNameDashed, gameName) {
 	//Gets the current username
 	//looks up game and Data Scrapes form ign
 	//Locate user in db and add game + chapters
 	return function(dispatch) {
 		//first get the currentUserName
+		//(Can delete first api call)
 		axios.get(`${API_URL}/api/user`, {
 			headers: {authorization: localStorage.getItem('token')}})
 		.then(res => {
 			const username= res.data;
 			/*console.log(gameName)*/
-			axios.get(`${API_URL}/games/chapters?gameName=${gameName}`)
+			axios.get(`${API_URL}/games/chapters?gameName=${gameNameDashed}`)
 			.then( chapters => {
 				console.log(chapters.data);
+				/*chapters= chapters.join(',')*/
+				axios.post(`${API_URL}/api/user?username=${username}&name=${gameName}&gameChapters=${chapters.data}`, {
+					headers: {authorization: localStorage.getItem('token')}})
+				.then(postedRes=> {
+					console.log("Success");
+					console.log(postedRes.data);
+				})
+				.catch(err=> {console.log(err)})
 			})
 		})
 		.catch(err=> {console.log(err)})
