@@ -4,6 +4,9 @@ import { Ratings } from './ratings.js'
 export class GameInfo extends React.Component {
 	constructor(props) {
 		super(props)
+		/*this.state= {
+			loading: false
+		}*/
 	}
 
 	getGameSummary() {
@@ -45,6 +48,12 @@ export class GameInfo extends React.Component {
 		return 31.5
 	}
 
+/*	componentReady(){
+		this.setState({
+			loading:false
+		})
+	}*/
+
 	render() {
 	return ( 
 		<div className= "game_information">
@@ -53,8 +62,9 @@ export class GameInfo extends React.Component {
 			{this.props.gameSummary}
 			<p className= "game_genre"> Genre: {this.props.gameGenres}</p>
 			<Ratings userAvgRating= {this.props.userScore} criticAvgRating={this.props.criticScore} />
+			{/*this.props.gameSummary && this.props.gameGenres && this.props.userScore && this.props.criticScore && this.componentReady()*/}
+			{/*!this.state.loading && this.props.ready({gameInfo: true})*/}
 		</div>
-
 		)
 	}
 }

@@ -9,7 +9,8 @@ import {
 	FETCH_GAME_GENRE_IDS,
 	FETCH_CRITIC_SCORES,
 	FETCH_USER_SCORES,
-	FETCH_SIMILAR_GAME_IDS } from './types';
+	FETCH_SIMILAR_GAME_IDS,
+	ADD_GAME_TO_COLLECTION } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -110,12 +111,38 @@ export function fetchGameInfo(gameName) {
 			})
 			axios.get(`${API_URL}/games/similarGames?gameIds=${similarGameIds}`)
 			.then(res => {
-				console.log(res.data);
 				dispatch({
 				type: FETCH_SIMILAR_GAME_IDS,
 				payload: res.data
 				})
 			})
 		})
+	}
+}
+
+export function addGameToCollection(gameName) {
+	//Gets the current username
+	//looks up game and Data Scrapes form ign
+	//Locate user in db and add game + chapters
+	return function(dispatch) {
+		//first get the currentUserName
+		axios.get(`${API_URL}/api/user`, {
+			headers: {authorization: localStorage.getItem('token')}})
+		.then(res => {
+			const username= res.data;
+			/*console.log(gameName)*/
+			axios.get(`${API_URL}/games/chapters?gameName=${gameName}`)
+			.then( chapters => {
+				console.log(chapters.data);
+			})
+		})
+		.catch(err=> {console.log(err)})
+
+	}
+}
+
+export function getCurrentUser() {
+	return function(dispatch) {
+		axios.get()
 	}
 }

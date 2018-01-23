@@ -4,17 +4,26 @@ import NavigationBar from './navbar';
 import { SimilarGames } from './similarGames'
 import { connect } from 'react-redux';
 import * as actions from '../actions'
+import LoadingScreen from './loading';
+
+let allStatuses= {}
 
 class GamePage extends React.Component {
 	constructor(props) {
 		super(props)
+		this.state= {
+			loading: true
+		}
 	}
 
 	componentWillMount() {
 		//before rendering of components
-		let gameName = this.props.match.params.game;
-		gameName = gameName.replace('-', ' ');
+		let gameNameDashed = this.props.match.params.game;
+		let gameName = gameNameDashed.replace(/-/g, ' ');
+		console.log(gameNameDashed);
+		console.log(gameName);
 		this.props.fetchGameInfo(gameName);
+		this.props.addGameToCollection(gameNameDashed)
 	}
 
 	gameCollectionStatus() {
@@ -41,7 +50,24 @@ class GamePage extends React.Component {
 		//adds the game to the user's game collection list
 		//in the db
 		alert("game added");
+
 	}
+
+	getCurrentUsername() {
+		/*this.props.addGameToCollection()*/
+		console.log("Works");
+	}
+
+/*	ready = (status) => {
+		allStatuses[Object.keys(status)[0]] = true;
+		console.log(allStatuses);
+		Object.keys(allStatuses).length
+		if (Object.keys(allStatuses).length == 1) {
+			this.setState({
+				loading: false
+			})
+		}
+	}*/
 
 	render() {
 	return (
@@ -51,7 +77,7 @@ class GamePage extends React.Component {
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
-					<GameInfo gameName= {this.props.match.params.game} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
+					<GameInfo ready={this.ready} gameName= {this.props.match.params.game} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
 				</div>
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
@@ -60,6 +86,12 @@ class GamePage extends React.Component {
         			<SimilarGames gameName= {this.props.match.params.game} similarGamesList={this.props.similarGamesList}/>
         		</div>
 			</main>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			{/*<LoadingScreen />*/}
+			{/*this.state.loading && <LoadingScreen />*/}
 		</section>
 		)
 	}
@@ -71,7 +103,8 @@ const mapStatetoProps= (state) => {
 		gameGenres: state.game.genreIds,
 		criticScore: state.game.criticScore,
 		userScore:state.game.userScore,
-		similarGamesList:state.game.similarGamesList
+		similarGamesList:state.game.similarGamesList,
+		username: state.auth.username
 	};
 }
 
