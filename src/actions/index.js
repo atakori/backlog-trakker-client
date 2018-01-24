@@ -141,6 +141,10 @@ export function addGameToCollection(gameNameDashed, gameName) {
 				.then(postedRes=> {
 					console.log("Success");
 					console.log(postedRes.data);
+					dispatch({
+						type:ADD_GAME_TO_COLLECTION,
+						payload: postedRes.data
+					})
 				})
 				.catch(err=> {console.log(err)})
 			})

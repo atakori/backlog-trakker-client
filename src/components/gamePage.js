@@ -22,8 +22,7 @@ class GamePage extends React.Component {
 		let gameName = gameNameDashed.replace(/-/g, ' ');
 		console.log(gameNameDashed);
 		console.log(gameName);
-		this.props.fetchGameInfo(gameName);
-		this.props.addGameToCollection(gameNameDashed, gameName)
+		this.props.fetchGameInfo(gameName);	
 	}
 
 	gameCollectionStatus() {
@@ -36,7 +35,7 @@ class GamePage extends React.Component {
 			return (<button className= "btn btn-primary in_collection_button"> In Collection</button>
 )
 		} else { return (
-			<button className= "btn btn-primary add_button" onClick= {this.handleButtonClick}> Add to Game Collection</button>
+			<button className= "btn btn-primary add_button" onClick= {this.handleButtonClick.bind(this)}> Add to Game Collection</button>
 			)
 		}
 	}
@@ -50,12 +49,17 @@ class GamePage extends React.Component {
 		//adds the game to the user's game collection list
 		//in the db
 		alert("game added");
-
+		let gameNameDashed = this.props.match.params.game;
+		let gameName = gameNameDashed.replace(/-/g, ' ');
+		console.log(gameNameDashed);
+		console.log(gameName);
+		this.props.addGameToCollection(gameNameDashed, gameName)
 	}
 
 	getCurrentUsername() {
 		/*this.props.addGameToCollection()*/
 		console.log("Works");
+
 	}
 
 /*	ready = (status) => {
