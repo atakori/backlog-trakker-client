@@ -82,7 +82,7 @@ class GamePage extends React.Component {
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
-					<GameInfo ready={this.ready} gameName= {this.props.match.params.game} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
+					<GameInfo ready={this.ready} gameName= {this.props.match.params.game} gameArtURL={this.props.gameArtURL} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
 				</div>
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
@@ -106,11 +106,11 @@ const mapStatetoProps= (state) => {
 	return { 
 		gameSummary: state.game.summary,
 		gameGenres: state.game.genreIds,
+		gameArtURL: state.game.gameArtURL,
 		criticScore: state.game.criticScore,
 		userScore:state.game.userScore,
 		similarGamesList:state.game.similarGamesList,
 		username: state.auth.username,
-		gameAdded:state.auth.gameAdded,
 		gameAdded: state.game.gameAdded
 	};
 }

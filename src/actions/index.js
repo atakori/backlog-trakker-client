@@ -10,6 +10,7 @@ import {
 	FETCH_CRITIC_SCORES,
 	FETCH_USER_SCORES,
 	FETCH_SIMILAR_GAME_IDS,
+	FETCH_GAME_ART,
 	ADD_GAME_TO_COLLECTION,
 	CHECK_GAME_COLLECTION } from './types';
 
@@ -87,10 +88,10 @@ export function fetchGameInfo(gameName) {
 				type: FETCH_GAME_SUMMARY,
 				payload: game.summary
 			});
-			/*dispatch({
-				type:FETCH_GAME_GENRE_IDS,
-				payload:gameGenres
-			});*/
+			dispatch({
+				type:FETCH_GAME_ART,
+				payload:game.cover.url
+			});
 			dispatch({
 				type: FETCH_CRITIC_SCORES,
 				payload: game.aggregated_rating.toFixed(2)
