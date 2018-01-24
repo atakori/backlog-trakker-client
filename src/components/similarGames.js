@@ -1,17 +1,29 @@
 import React from 'react';
 
+
+let game_art_url;
 export class SimilarGames extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 
-	getSimilarGames() {
-		//AJAX call to get similar games
-		const recommendedGames= this.props.similarGamesList
-		let gamesList = recommendedGames.map((game, index) => (
+	renderSimilarGames() {
+		//renders Similar Games section with game names and Box Arts
+		const recommendedGamesArray= this.props.similarGamesList
+		let transformedArray= []
+		for(let i=0; i< recommendedGamesArray.length; i++) {
+			let name= recommendedGamesArray[i].name;
+			let game_art_url= recommendedGamesArray[i].gameArtUrl;
+			game_art_url= "http:" + game_art_url;
+			game_art_url= game_art_url.replace("thumb", "cover_small")
+			transformedArray.push({name: name, game_art_url: game_art_url})
+		}
+		console.log(transformedArray)
+		let gamesList = transformedArray.map((game, index) => (
 			<li className= "game" key= {index}>
+			  <img src= {game.game_art_url} alt="Game Box Art" className= "game_box_art"/>
               <p className="box_art">[Box Art]</p>
-            <p className= "game_title"><a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game}</a></p>
+            <p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
             </li>)
 		)
 		return gamesList;
@@ -26,7 +38,7 @@ export class SimilarGames extends React.Component {
 		<section className= "similar_games_section">
 			<h2 className= "similar_games_title"> You might also like...</h2>
 			<ul className= "games_list">
-				{this.getSimilarGames()}
+				{this.renderSimilarGames()}
 			</ul>
 		</section>
 		)
