@@ -43,12 +43,7 @@ export class GameInfo extends React.Component {
 		return 8.3
 	}
 
-	getCompletionTime() {
-		//AJAX call for game critic avg rating
-		return 31.5
-	}
 	renderGameArt() {
-		console.log(this.props.gameArtURL)
 		let Url= this.props.gameArtURL;
 		Url= "http:" + Url;
 		Url= Url.replace("thumb", "cover_big");
@@ -70,7 +65,8 @@ export class GameInfo extends React.Component {
 		<div className= "game_information">
 			<h1 className= "main_game_title">{this.props.gameName.replace(/-/g, " ")}</h1>
 			{this.renderGameArt()}
-			<p className= "completion_time"> Time to beat main story: {this.getCompletionTime()} Hours</p>
+			{/*only renders time to beat if available*/}
+			{this.props.completionTime && <p className= "completion_time"> Estimated time to beat: {this.props.completionTime} Hours</p>}
 			{this.props.gameSummary}
 			<p className= "game_genre"> Genre: {this.props.gameGenres}</p>
 			<Ratings userAvgRating= {this.props.userScore} criticAvgRating={this.props.criticScore} />

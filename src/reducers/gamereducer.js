@@ -5,6 +5,7 @@ import { FETCH_GAME_INFO,
 		FETCH_USER_SCORES, 
 		FETCH_SIMILAR_GAME_IDS, 
 		FETCH_GAME_ART,
+		FETCH_COMPLETION_TIME,
 		ADD_GAME_TO_COLLECTION, 
 		CHECK_GAME_COLLECTION } from '../actions/types'
 
@@ -29,6 +30,8 @@ export default function (state=initialState, action) {
 			return {...state, similarGamesList: action.payload}
 		case FETCH_GAME_ART: 
 			return {...state, gameArtURL: action.payload}
+		case FETCH_COMPLETION_TIME:
+			return {...state, completionTime: action.payload}
 		case ADD_GAME_TO_COLLECTION:
 			return{...state, gameAdded: action.payload}
 		case CHECK_GAME_COLLECTION:

@@ -11,6 +11,7 @@ import {
 	FETCH_USER_SCORES,
 	FETCH_SIMILAR_GAME_IDS,
 	FETCH_GAME_ART,
+	FETCH_COMPLETION_TIME,
 	ADD_GAME_TO_COLLECTION,
 	CHECK_GAME_COLLECTION } from './types';
 
@@ -100,10 +101,10 @@ export function fetchGameInfo(gameName) {
 				type: FETCH_USER_SCORES,
 				payload: game.rating.toFixed(2)
 			})
-			/*dispatch({
-				type: FETCH_SIMILAR_GAME_IDS,
-				payload: game.games
-			})*/
+			dispatch({
+				type: FETCH_COMPLETION_TIME,
+				payload: game.time_to_beat
+			})
 			axios.get(`${API_URL}/games/genre?ids=${gameGenres}`)
 			.then(res => {
 				dispatch({

@@ -13,3 +13,4 @@ export const FETCH_SIMILAR_GAME_IDS= 'fetch_similar_game_ids';
 export const FETCH_GAME_ART = 'fetch_game_art';
 export const ADD_GAME_TO_COLLECTION= 'add_game_to_collection';
 export const CHECK_GAME_COLLECTION= 'check_game_collection';
+export const FETCH_COMPLETION_TIME= 'fetch_completion_time';
