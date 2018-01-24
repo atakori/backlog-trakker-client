@@ -21,8 +21,9 @@ class Dashboard extends React.Component {
 
 	componentWillMount() {
 		//before rendering of components
-		this.props.fetchMessage();
-		
+		/*this.props.fetchMessage();*/
+		this.props.getCurrentUser();
+
 	}
 
 	getUserGameCollection(){
@@ -33,6 +34,7 @@ class Dashboard extends React.Component {
 		//gets the game chapters from scraping the ign webpage
 		// then sets the state for gameChapters
 	}
+
 
 	getUserCompletedChapters(game) {
 		//gets completedChapters from the backend then sets state
@@ -62,7 +64,7 @@ class Dashboard extends React.Component {
 				<NavigationBar />
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
-				<CurrentGameProgress user= "gamerX_954" currentGame= "Dark Souls 3" progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= "https://images-na.ssl-images-amazon.com/images/I/91gLzQFnCqL._AC_SX215_.jpg"/>
+				<CurrentGameProgress user= {this.props.currentUser} currentGame= "Dark Souls 3" progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= "https://images-na.ssl-images-amazon.com/images/I/91gLzQFnCqL._AC_SX215_.jpg"/>
 				<CurrentBacklog userID= "52468" gameCollection= {this.state.gameCollection} />
 				<CurrentGameChapters currentGame= "Dark Souls 3" gameChapters= {this.state.gameChapters} completedChapters= {this.state.completedChapters}/>
 				{this.props.message}
@@ -73,7 +75,10 @@ class Dashboard extends React.Component {
 }
 
 const mapStatetoProps= (state) => {
-	return { message: state.auth.message };
+	return { 
+		message: state.auth.message,
+		currentUser: state.auth.currentUser
+	};
 }
 
 export default connect(mapStatetoProps, actions)(Dashboard);
