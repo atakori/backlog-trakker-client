@@ -31,11 +31,11 @@ class GamePage extends React.Component {
 		let gameInCollection= false;
 		//this should go through the db to check and render
 		//a true or false value
-		if(gameInCollection) {
-			return (<button className= "btn btn-primary in_collection_button"> In Collection</button>
+		if(this.props.gameAdded) {
+			return (<button className= "btn btn-primary in_collection_button"> Game In Collection</button>
 )
 		} else { return (
-			<button className= "btn btn-primary add_button" onClick= {this.handleButtonClick.bind(this)}> Add to Game Collection</button>
+			<button className= "btn btn-danger add_button" onClick= {this.handleButtonClick.bind(this)}> Add to Game Collection</button>
 			)
 		}
 	}
@@ -108,7 +108,8 @@ const mapStatetoProps= (state) => {
 		criticScore: state.game.criticScore,
 		userScore:state.game.userScore,
 		similarGamesList:state.game.similarGamesList,
-		username: state.auth.username
+		username: state.auth.username,
+		gameAdded:state.auth.gameAdded
 	};
 }
 

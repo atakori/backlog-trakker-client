@@ -15,7 +15,7 @@ export default function (state=initialState, action) {
 		case FETCH_MESSAGE: 
 			return {...state, message: action.payload}
 		case ADD_GAME_TO_COLLECTION:
-			return{...state, username: action.payload}
+			return{...state, gameAdded: action.payload}
 	}
 	return state;
 }
