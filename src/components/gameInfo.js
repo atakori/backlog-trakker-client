@@ -47,6 +47,17 @@ export class GameInfo extends React.Component {
 		//AJAX call for game critic avg rating
 		return 31.5
 	}
+	renderGameArt() {
+		console.log(this.props.gameArtURL)
+		let Url= this.props.gameArtURL;
+		Url= "http:" + Url;
+		Url= Url.replace("thumb", "cover_big");
+		return(
+			<div className= "Game_Art_container">
+				<img src= {Url} alt="Game Box Art" className= "game_box_art"/>
+			</div>
+			)
+	}
 
 /*	componentReady(){
 		this.setState({
@@ -58,7 +69,7 @@ export class GameInfo extends React.Component {
 	return ( 
 		<div className= "game_information">
 			<h1 className= "main_game_title">{this.props.gameName.replace(/-/g, " ")}</h1>
-			<p> URL HERE: {this.props.gameArtURL}</p>
+			{this.renderGameArt()}
 			<p className= "completion_time"> Time to beat main story: {this.getCompletionTime()} Hours</p>
 			{this.props.gameSummary}
 			<p className= "game_genre"> Genre: {this.props.gameGenres}</p>
