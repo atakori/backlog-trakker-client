@@ -1,14 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { MockSearch } from  './searchbar.js'
+import * as actions from '../actions'
 
 class NavigationBar extends React.Component {
-	
+
+  componentWillMount() {
+    this.props.getCurrentUser();
+  }	
   renderLinks() {
     if (this.props.authenticated) {
+      let currentUser = this.props.currentUser;
       return [
                 <li className= "nav-item" key= {1}>
-                  <a href="/mygameLibrary"> My Collection </a>
+                  <a href= {`/mygameLibrary/${currentUser}`}> My Collection </a>
                 </li>,
                 <li className= "nav-item" key= {2}>
                   <a href="/"> Logout </a>
@@ -53,7 +58,7 @@ class NavigationBar extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
                </button>
-              {this.renderLogoLink()}
+            {this.renderLogoLink()}
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
@@ -70,8 +75,9 @@ class NavigationBar extends React.Component {
 }
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    currentUser: state.auth.currentUser
   }
 }
 
-export default connect(mapStateToProps)(NavigationBar);
+export default connect(mapStateToProps, actions)(NavigationBar);

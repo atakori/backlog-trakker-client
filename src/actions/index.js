@@ -3,6 +3,7 @@ import {
 	AUTH_USER, 
 	AUTH_ERROR,
 	UNAUTH_USER,
+	GET_CURRENT_USER,
 	FETCH_MESSAGE,
 	FETCH_GAME_INFO,
 	FETCH_GAME_SUMMARY,
@@ -114,6 +115,7 @@ export function fetchGameInfo(gameName) {
 			})
 			axios.get(`${API_URL}/games/similarGames?gameIds=${similarGameIds}`)
 			.then(res => {
+				console.log(res.data)
 				dispatch({
 				type: FETCH_SIMILAR_GAME_IDS,
 				payload: res.data
@@ -142,7 +144,6 @@ export function addGameToCollection(gameNameDashed, gameName) {
 					headers: {authorization: localStorage.getItem('token')}})
 				.then(postedRes=> {
 					console.log("Added game to collection success");
-					console.log(postedRes.data);
 					dispatch({
 						type:ADD_GAME_TO_COLLECTION,
 						payload: postedRes.data
@@ -176,6 +177,13 @@ export function checkGameCollection(gameName) {
 
 export function getCurrentUser() {
 	return function(dispatch) {
-		axios.get()
+		axios.get(`${API_URL}/api/user`, {
+			headers: {authorization: localStorage.getItem('token')}})
+		.then(res => {
+			dispatch({
+				type: GET_CURRENT_USER,
+				payload: res.data
+			})
+		})
 	}
 }
