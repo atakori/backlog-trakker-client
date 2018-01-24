@@ -23,14 +23,15 @@ class GamePage extends React.Component {
 		console.log(gameNameDashed);
 		console.log(gameName);
 		this.props.fetchGameInfo(gameName);	
+		////this should go through the db to check if the game
+		//is already in the users collection
+		this.props.checkGameCollection(gameName);
 	}
 
 	gameCollectionStatus() {
 		//checks for whether or not the game is in the users
 		//collection or not
-		let gameInCollection= false;
-		//this should go through the db to check and render
-		//a true or false value
+		
 		if(this.props.gameAdded) {
 			return (<button className= "btn btn-primary in_collection_button"> Game In Collection</button>
 )
@@ -109,7 +110,8 @@ const mapStatetoProps= (state) => {
 		userScore:state.game.userScore,
 		similarGamesList:state.game.similarGamesList,
 		username: state.auth.username,
-		gameAdded:state.auth.gameAdded
+		gameAdded:state.auth.gameAdded,
+		gameAdded: state.game.gameAdded
 	};
 }
 

@@ -10,7 +10,8 @@ import {
 	FETCH_CRITIC_SCORES,
 	FETCH_USER_SCORES,
 	FETCH_SIMILAR_GAME_IDS,
-	ADD_GAME_TO_COLLECTION } from './types';
+	ADD_GAME_TO_COLLECTION,
+	CHECK_GAME_COLLECTION } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -134,12 +135,11 @@ export function addGameToCollection(gameNameDashed, gameName) {
 			/*console.log(gameName)*/
 			axios.get(`${API_URL}/games/chapters?gameName=${gameNameDashed}`)
 			.then( chapters => {
-				console.log(chapters.data);
 				/*chapters= chapters.join(',')*/
 				axios.post(`${API_URL}/api/user?username=${username}&name=${gameName}&gameChapters=${chapters.data}`, {
 					headers: {authorization: localStorage.getItem('token')}})
 				.then(postedRes=> {
-					console.log("Success");
+					console.log("Added game to collection success");
 					console.log(postedRes.data);
 					dispatch({
 						type:ADD_GAME_TO_COLLECTION,
@@ -151,6 +151,24 @@ export function addGameToCollection(gameNameDashed, gameName) {
 		})
 		.catch(err=> {console.log(err)})
 
+	}
+}
+
+export function checkGameCollection(gameName) {
+	return function(dispatch) {
+			axios.get(`${API_URL}/api/user`, {
+			headers: {authorization: localStorage.getItem('token')}})
+		.then(res => {
+			const username= res.data;
+			axios.get(`${API_URL}/api/user/collection?username=${username}&name=${gameName}`)
+			.then(response => {
+				dispatch({
+					type: CHECK_GAME_COLLECTION,
+					payload: response.data
+				})
+			})
+			.catch(err=> {console.log(err)})
+		})
 	}
 }
 
