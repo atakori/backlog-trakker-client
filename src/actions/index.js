@@ -14,7 +14,8 @@ import {
 	FETCH_GAME_ART,
 	FETCH_COMPLETION_TIME,
 	ADD_GAME_TO_COLLECTION,
-	CHECK_GAME_COLLECTION } from './types';
+	CHECK_GAME_COLLECTION,
+	GET_GAME_COLLECTION } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -184,6 +185,17 @@ export function getCurrentUser() {
 				type: GET_CURRENT_USER,
 				payload: res.data
 			})
+		})
+	}
+}
+
+export function getGameCollection() {
+	return function(dispatch) {
+		axios.get(`${API_URL}/api/user`, {
+			headers: {authorization: localStorage.getItem('token')}})
+		.then(res => {
+			const username= res.data;
+			axios.get(`${API_URL}/api/user/getgames?username=${username}`) 
 		})
 	}
 }

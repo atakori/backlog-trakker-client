@@ -7,7 +7,8 @@ import { FETCH_GAME_INFO,
 		FETCH_GAME_ART,
 		FETCH_COMPLETION_TIME,
 		ADD_GAME_TO_COLLECTION, 
-		CHECK_GAME_COLLECTION } from '../actions/types'
+		CHECK_GAME_COLLECTION,
+		GET_GAME_COLLECTION } from '../actions/types'
 
 const initialState = {
 	similarGamesList: []
@@ -36,6 +37,8 @@ export default function (state=initialState, action) {
 			return{...state, gameAdded: action.payload}
 		case CHECK_GAME_COLLECTION:
 			return {...state, gameAdded: action.payload}
+		case GET_GAME_COLLECTION:
+			return{...state, gameCollection: action.payload}
 	}
 	return state;
 }

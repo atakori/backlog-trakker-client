@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
 		//before rendering of components
 		/*this.props.fetchMessage();*/
 		this.props.getCurrentUser();
-
+		this.props.getGameCollection();
 	}
 
 	getUserGameCollection(){
@@ -65,8 +65,8 @@ class Dashboard extends React.Component {
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= {this.props.currentUser} currentGame= "Dark Souls 3" progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= "https://images-na.ssl-images-amazon.com/images/I/91gLzQFnCqL._AC_SX215_.jpg"/>
-				<CurrentBacklog userID= "52468" gameCollection= {this.state.gameCollection} />
 				<CurrentGameChapters currentGame= "Dark Souls 3" gameChapters= {this.state.gameChapters} completedChapters= {this.state.completedChapters}/>
+				<CurrentBacklog userID= "52468" gameCollection= {this.state.gameCollection} />
 				{this.props.message}
 			</main>
 		</section>
