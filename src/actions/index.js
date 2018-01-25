@@ -16,7 +16,8 @@ import {
 	FETCH_COMPLETION_TIME,
 	ADD_GAME_TO_COLLECTION,
 	CHECK_GAME_COLLECTION,
-	GET_GAME_COLLECTION } from './types';
+	GET_GAME_COLLECTION,
+	HANDLE_CHAPTER_CHANGE } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -218,3 +219,11 @@ export function getGameCollection() {
 		})
 	}
 }
+
+export function handleChapterChange(gameName, chapter) {
+	//search user's gameCollection for game
+	//look through completedChapters array for chapter name
+}	//if found, pull(delete) the chapter from array
+	//if not found, add name to array
+	//dispatch GET_GAME_COLLECTION to ReRender
+	 

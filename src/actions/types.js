@@ -17,3 +17,4 @@ export const CHECK_GAME_COLLECTION= 'check_game_collection';
 export const FETCH_COMPLETION_TIME= 'fetch_completion_time';
 // dashboard
 export const GET_GAME_COLLECTION= 'get_game_collection';
+export const HANDLE_CHAPTER_CHANGE=	'handle_chapter_change';

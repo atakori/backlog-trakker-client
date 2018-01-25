@@ -3,6 +3,7 @@ import React from 'react';
 export class CurrentGameChapters extends React.Component {
 	constructor(props) {
 		super(props)
+		this.handleChange= this.handleChange.bind(this);
 	}
 
 /*	testGameChapters() {
@@ -42,25 +43,32 @@ export class CurrentGameChapters extends React.Component {
 		let completedLevels= this.props.completedChapters; {
 		let that= this;
 		let chapters= this.props.gameChapters;
-			return chapters.map((chapter,index) => ( 
+			return (
+				chapters.map((chapter,index) => ( 
 			<li> <input checked= 
 			{that.checkCompletedChapters(chapter)} 
 			id={chapter} 
 			className= "completedChapter" 
 			type="checkbox" 
 			name="game_chapter" 
-			onChange={this.handleChange} />
+			onChange={that.handleChange.bind(this,chapter)}
+			ref={input => {(this.input = input)}} 
+			/>
 			<label for={chapter}>{<span className= {this.checkCompletedChapters(chapter)? "cross": ""}>{chapter}</span>}</label>
 			</li>
-			))}
+			))
+		)}
 	}		
 
-	handleChange() {
+	handleChange(chapter) {
 		//makes state change to show which chapter was crossed off
 		// causes progress bar to increase/decrease
 		//add chapter to db or retract from db list and 
-		//call this.renderGameChapters(mockchapters) again
-		console.log("works")
+		console.log(chapter)
+		/*    let game= this.input.value.trim()
+    game= game.replace(/\s+/, '-');*/
+		console.log("working");
+		/*this.props.handleChapterChange();*/
 		//this.renderGameChapters(mockchapter);
 	}
 
