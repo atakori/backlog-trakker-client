@@ -140,7 +140,7 @@ export function addGameToCollection(gameNameDashed, gameName) {
 			/*console.log(gameName)*/
 			axios.get(`${API_URL}/games/chapters?gameName=${gameNameDashed}`)
 			.then( chapters => {
-				chapters= chapters.data
+				/*chapters= chapters.data*/
 				axios.get(`${API_URL}/games?name=${gameName}`)
 				.then(gameObject => {
 					const gameArtUrl = gameObject.data[0].cover.url;
@@ -195,12 +195,17 @@ export function getCurrentUser() {
 }
 
 export function getGameCollection() {
+	//get username
 	return function(dispatch) {
 		axios.get(`${API_URL}/api/user`, {
 			headers: {authorization: localStorage.getItem('token')}})
 		.then(res => {
 			const username= res.data;
 			axios.get(`${API_URL}/api/user/getgames?username=${username}`) 
+	//search through database to get gameCollectionObj
+			.then(gameCollection => {
+				console.log(gameCollection);
+			})
 		})
 	}
 }
