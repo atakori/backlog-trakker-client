@@ -4,6 +4,10 @@ import { ShowUserBacklog } from './userBacklog';
 
 
 export function GameCollection(props) {
+	//on click of the backlog game to bring to dashboard
+	//make sure to dispatch an action to update the currentGame state
+	//dashboard will check to see if there is a game set as the props
+	//to render the game and its info
 	return (
 		<section className= "game_collection_section"> 
 			<header role= "banner">

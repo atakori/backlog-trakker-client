@@ -1,4 +1,5 @@
-import { FETCH_GAME_INFO, 
+import {LOADING_FINISHED, 
+		FETCH_GAME_INFO, 
 		FETCH_GAME_SUMMARY, 
 		FETCH_GAME_GENRE_IDS, 
 		FETCH_CRITIC_SCORES, 
@@ -17,6 +18,8 @@ const initialState = {
 
 export default function (state=initialState, action) {
 	switch(action.type) {
+		case LOADING_FINISHED:
+			return {...state, loading: false}
 		case FETCH_GAME_INFO: 
 			return {...state, data: action.payload.data};
 		case FETCH_GAME_SUMMARY:

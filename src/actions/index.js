@@ -3,6 +3,7 @@ import {
 	AUTH_USER, 
 	AUTH_ERROR,
 	UNAUTH_USER,
+	LOADING_FINISHED,
 	GET_CURRENT_USER,
 	FETCH_MESSAGE,
 	FETCH_GAME_INFO,
@@ -204,7 +205,15 @@ export function getGameCollection() {
 			axios.get(`${API_URL}/api/user/getgames?username=${username}`) 
 	//search through database to get gameCollectionObj
 			.then(gameCollection => {
-				console.log(gameCollection);
+				dispatch({
+					type: GET_GAME_COLLECTION,
+					payload: gameCollection.data
+				})
+			})
+			.then(done => {
+				dispatch({
+					type: LOADING_FINISHED
+				})
 			})
 		})
 	}

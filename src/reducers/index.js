@@ -5,7 +5,7 @@ import gameReducer from './gamereducer';
 
 const initialState = {
 	data: [
-
+		
 	]
 }
 

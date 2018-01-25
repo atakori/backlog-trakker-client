@@ -16,12 +16,6 @@ export class CurrentGameProgress extends React.Component{
 		          	<p> Perecentage complete</p>
 		          	<Progress type= "circle" percent= {this.props.progress}/>
 		          </div>
-		          <div className= "review_scores">
-		          	<p className= "critic_scores"> Avg. critic rating </p>
-		          	<Progress type= "dashboard" percent= {this.props.criticRating * 10} format={percent => `${percent / 10}`} />
-			        <p className= "user_avg_score">Avg. gamer rating </p>
-		          	<Progress type= "dashboard" percent= {this.props.userRating * 10} format={percent => `${percent / 10}`} />
-		          </div>
 				</div>
 			)
 	}
