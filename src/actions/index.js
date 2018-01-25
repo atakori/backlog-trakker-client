@@ -140,15 +140,20 @@ export function addGameToCollection(gameNameDashed, gameName) {
 			/*console.log(gameName)*/
 			axios.get(`${API_URL}/games/chapters?gameName=${gameNameDashed}`)
 			.then( chapters => {
-				/*chapters= chapters.join(',')*/
-				axios.post(`${API_URL}/api/user?username=${username}&name=${gameName}&gameChapters=${chapters.data}`, {
+				chapters= chapters.data
+				axios.get(`${API_URL}/games?name=${gameName}`)
+				.then(gameObject => {
+					const gameArtUrl = gameObject.data[0].cover.url;
+					console.log(gameArtUrl);
+					axios.post(`${API_URL}/api/user?username=${username}&name=${gameName}&gameChapters=${chapters.data}&gameArtUrl=${gameArtUrl}`, {
 					headers: {authorization: localStorage.getItem('token')}})
-				.then(postedRes=> {
+					.then(postedRes=> {
 					console.log("Added game to collection success");
 					dispatch({
 						type:ADD_GAME_TO_COLLECTION,
 						payload: postedRes.data
 					})
+				})
 				})
 				.catch(err=> {console.log(err)})
 			})
