@@ -6,9 +6,13 @@ export class CurrentBacklog extends React.Component {
 		super(props);
 	}
 
-	getGameArt(game) {
+	renderGameArt(url) {
 		//AJAX call to get game art
-		return `[Box Art for ${game}]`;
+		let game_art_url= "http:" + url;
+		game_art_url= game_art_url.replace("thumb", "cover_small")
+		return (
+			<img src= {game_art_url} alt="Game Box Art" className= "game_box_art"/>
+			)
 	}
 
 	renderTopBacklogGames() {
@@ -17,16 +21,16 @@ export class CurrentBacklog extends React.Component {
 			games= games.slice(0,5)
 			let gameslist= games.map(game => (
 			<div className= "game">
-				<p className= "Box Art Here"> {this.getGameArt(game)}</p>
-				<p className= "game_title"><a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game} </a></p>
+				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
+				<p className= "game_title">{game.name} </p>
 			</div>))
 			return gameslist;
 			//limit the games collection to only show 5 games
 		} else {
 			let gameslist= games.map(game => (
 			<div className= "game">
-				<p className= "Box Art Here"> [Box Art]</p>
-				<p className= "game_title"><a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game} </a></p>
+				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
+				<p className= "game_title">{game.name}</p>
 			</div> 
 			))
 			return gameslist;

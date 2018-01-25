@@ -73,7 +73,7 @@ class Dashboard extends React.Component {
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= {this.props.currentUser} currentGame= {this.props.gameCollection[0].name} progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= {this.renderGameArtUrl()}/>
 				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters}/>
-				<CurrentBacklog userID= "52468" gameCollection= {this.state.gameCollection} />
+				<CurrentBacklog userID= "52468" gameCollection= {this.props.gameCollection} />
 			</main>
 			)
 	}
