@@ -221,9 +221,11 @@ export function getGameCollection() {
 }
 
 export function handleChapterChange(gameName, chapter) {
+	return function(dispatch) {
+		console.log("works")
+	}
 	//search user's gameCollection for game
 	//look through completedChapters array for chapter name
 }	//if found, pull(delete) the chapter from array
 	//if not found, add name to array
 	//dispatch GET_GAME_COLLECTION to ReRender
-	 

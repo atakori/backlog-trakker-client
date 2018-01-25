@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-export class CurrentGameChapters extends React.Component {
+class CurrentGameChapters extends React.Component {
 	constructor(props) {
 		super(props)
 		this.handleChange= this.handleChange.bind(this);
@@ -65,10 +67,9 @@ export class CurrentGameChapters extends React.Component {
 		// causes progress bar to increase/decrease
 		//add chapter to db or retract from db list and 
 		console.log(chapter)
-		/*    let game= this.input.value.trim()
-    game= game.replace(/\s+/, '-');*/
 		console.log("working");
-		/*this.props.handleChapterChange();*/
+		let gameName= this.props.currentGame;
+		this.props.handleChapterChange(gameName, chapter);
 		//this.renderGameChapters(mockchapter);
 	}
 
@@ -84,3 +85,14 @@ export class CurrentGameChapters extends React.Component {
 			)
 	}
 }
+
+const mapStatetoProps= (state) => {
+	return { 
+		/*selectedGame: state.game.selectedGame*/
+		/*above is for checking if there was a specific
+		game selected by user from their collection*/
+	};
+}
+
+export default connect(mapStatetoProps, actions)(CurrentGameChapters);
+

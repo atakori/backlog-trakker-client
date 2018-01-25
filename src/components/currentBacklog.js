@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
  
 export class CurrentBacklog extends React.Component {
 	constructor(props) {
@@ -50,5 +51,5 @@ export class CurrentBacklog extends React.Component {
 			</div>
 		</section>
 		)
-}
+	}
 }
