@@ -38,9 +38,10 @@ export class CurrentGameChapters extends React.Component {
 		return this.renderGameChapters(mockchapters);
 	}
 
-	renderGameChapters(chapters) {
+	renderGameChapters() {
 		let completedLevels= this.props.completedChapters; {
-		let that = this;
+		let that= this;
+		let chapters= this.props.gameChapters;
 			return chapters.map((chapter,index) => ( 
 			<li> <input checked= 
 			{that.checkCompletedChapters(chapter)} 
