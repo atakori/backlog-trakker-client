@@ -15,9 +15,6 @@ class Dashboard extends React.Component {
 		//need to get initial state variables to to match backend db values
 		this.state={
 			loading: true,
-			gameCollection: ["Kingdom Hearts II", "Nier Automata", "Super Mario Oddessy", "Gears of War 4", "The Last of Us"],
-			gameChapters: ['Cemetery of Ash', 'Firelink Shrine', 'High Wall of Lothric', "Undead Settlement", "Road of Sacrifices", "Cathedral of the Deep", "Farron Keep"],
-			completedChapters: ['Cemetery of Ash']
     	}
 	}
 

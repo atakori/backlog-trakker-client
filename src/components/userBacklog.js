@@ -10,24 +10,36 @@ export class ShowUserBacklog extends React.Component {
 		return `[Box Art for ${game}]`;
 	}
 
+	renderGameArtUrl(url) {
+		let transformedUrl= "http:" + url;
+		transformedUrl= transformedUrl.replace("thumb", "cover_small_2x");
+		console.log(transformedUrl);
+		return transformedUrl;
+	}
+/*
+	renderGameStatus(startStatus) {
+		if()
+	}*/
+
 	renderUsersFullBacklog() {
-		//game collection prop will have to be updated via API cal to the server
-		//to get the users current games
-		//need to do AJAX call for box art
-		//STARTED/ NOT STARTED status must be an AJAX call for if there are any 
-		//completed chapters for that game for the user 
+		// render full backlog from user's game collection
 		let games= this.props.gameCollection;
-			let gameslist= games.map(game => (
-			<div class= "game_info">
-	             <p class= "game_art"> {this.getGameArt(game)}</p>
-	             <li class= "game_title">
-	             <a href= {`/gameInfo/${game.replace(/\s/g, "-")}`}>{game} </a>
-	             </li>
+			let gameslist= games.map((game, index) => (
+			<div className= "game_info">
+	            <li className= "game" key= {index}>
+			  	<img src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "game_box_art"/>
+            	<p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
+            	</li>
             	 <p className= "game_completion_status"> [Game Status goes here] </p>
             </div>
 			))
 			return gameslist;
 	}	
+
+	/*<li className= "game" key= {index}>
+			  <img src= {game.game_art_url} alt="Game Box Art" className= "game_box_art"/>
+            <p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
+            </li>)*/
 
 	render() {
 	return (
