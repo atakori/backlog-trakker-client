@@ -223,9 +223,22 @@ export function getGameCollection() {
 export function handleChapterChange(gameName, chapter) {
 	return function(dispatch) {
 		console.log("works")
-	}
+		axios.get(`${API_URL}/api/user`, {
+			headers: {authorization: localStorage.getItem('token')}})
+		.then(res => {
+			const username= res.data;
+			axios.get(`${API_URL}/api/user/handleChapter?username=${username}&name=${gameName}&chapter=${chapter}`)
+			.then(gameCollection => {
+				console.log(gameCollection);
+				dispatch({
+					type:GET_GAME_COLLECTION,
+					payload: gameCollection.data
+				})
+			})
+		})
 	//search user's gameCollection for game
-	//look through completedChapters array for chapter name
-}	//if found, pull(delete) the chapter from array
+	//look through completedChapters array for chapter name	//if found, pull(delete) the chapter from array
 	//if not found, add name to array
 	//dispatch GET_GAME_COLLECTION to ReRender
+	}
+}
