@@ -53,12 +53,11 @@ class CurrentGameChapters extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div className= "game_chapters">
 				<h2 className= "chapters_section_title"> {this.props.currentGame} Progress </h2>
 				<ul>
-            		{this.renderGameChapters()}
+            		{this.renderGameChapters(this.props.completedChapters)}
           		</ul>
 			</div>
 			)
