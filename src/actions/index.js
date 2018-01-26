@@ -196,7 +196,33 @@ export function getCurrentUser() {
 	}
 }
 
-export function getGameCollection() {
+export function getGameCollection(gameName) {
+	//if gameName is passed in, search for specific gameObject in Users Backlog
+	if (gameName) {
+		return function(dispatch) {
+		console.log("GameName was provided!")
+		console.log(gameName);
+		axios.get(`${API_URL}/api/user`, {
+			headers: {authorization: localStorage.getItem('token')}})
+		.then(res => {
+			const username = res.data;
+			axios.get(`${API_URL}/api/user/getgames?username=${username}&name=${gameName}`)
+			.then( gameCollection => {
+				console.log(gameCollection);
+				dispatch({
+					type:GET_GAME_COLLECTION,
+					payload: gameCollection.data
+				})
+			})
+			.then( done=> {
+				dispatch({
+					type: LOADING_FINISHED
+				})
+			})
+		})
+		}
+	} else {
+	//else return full gameCollection and pick at random
 	//get username
 	return function(dispatch) {
 		axios.get(`${API_URL}/api/user`, {
@@ -218,6 +244,7 @@ export function getGameCollection() {
 			})
 		})
 	}
+}
 }
 
 export function handleChapterChange(gameName, chapter) {

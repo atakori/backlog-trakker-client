@@ -60,17 +60,12 @@ class Dashboard extends React.Component {
 		return url;
 	}
 
-	getCurrentGame() {
-		//triggered when another game in the user's backlog is clicked
-		//set the currentGame state
-	}
-
 	renderGameProgress() {
 		return(
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= {this.props.currentUser} currentGame= {this.props.gameCollection[0].name} progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= {this.renderGameArtUrl()}/>
 				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters} />
-				<CurrentBacklog gameCollection= {this.props.gameCollection} />
+				<CurrentBacklog gameCollection= {this.props.gameCollection} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)}/>
 			</main>
 			)
 	}

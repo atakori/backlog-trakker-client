@@ -9,9 +9,7 @@ class CurrentGameChapters extends React.Component {
 	}
 
 	checkCompletedChapters(level) {
-		let result;
-		console.log(level);
-		console.log(this.props.completedChapters);
+		let result= false;
 		this.props.completedChapters.forEach(function(completedChapter){
 			if(completedChapter == level) {
 				result= true;
@@ -27,7 +25,7 @@ class CurrentGameChapters extends React.Component {
 			return (
 				chapters.map((chapter,index) => ( 
 			<li> <input checked= 
-			{that.checkCompletedChapters(chapter)} 
+			{this.checkCompletedChapters(chapter)} 
 			id={chapter} 
 			className= "completedChapter" 
 			type="checkbox" 
@@ -47,6 +45,7 @@ class CurrentGameChapters extends React.Component {
 		//add chapter to db or retract from db list and 
 		console.log(chapter)
 		console.log("working");
+		console.log(this.input[chapter]);
 		let gameName= this.props.currentGame;
 		this.props.handleChapterChange(gameName, chapter);
 		//this.renderGameChapters(mockchapter);

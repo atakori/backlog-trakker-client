@@ -16,6 +16,14 @@ export class CurrentBacklog extends React.Component {
 			)
 	}
 
+	renderGameInfoButton(gameName) {
+		let gameUrl= gameName.replace(/\s+/g, "-");
+		console.log(gameUrl);
+		return (
+			<Link to={`/gameInfo/${gameUrl}`}> <button className= "game_info_button btn btn-primary"> Game Info</button> </Link>
+			)
+	}
+
 	renderTopBacklogGames() {
 		let games = this.props.gameCollection;
 		if (games.length > 4) {
@@ -24,6 +32,7 @@ export class CurrentBacklog extends React.Component {
 			<div className= "game">
 				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
 				<p className= "game_title">{game.name} </p>
+				{this.renderGameInfoButton(game.name)}
 			</div>))
 			return gameslist;
 			//limit the games collection to only show 5 games
@@ -31,7 +40,9 @@ export class CurrentBacklog extends React.Component {
 			let gameslist= games.map(game => (
 			<div className= "game">
 				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
-				<p className= "game_title">{game.name}</p>
+				<button className= "game_title btn btn-danger" onClick= {()=> this.props.getSpecificGame(game.name)}>{game.name}</button>
+				{this.renderGameInfoButton(game.name)}
+
 			</div> 
 			))
 			return gameslist;
