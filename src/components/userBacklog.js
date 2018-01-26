@@ -1,5 +1,6 @@
 import React from 'react';
 import { Progress } from 'antd';
+import { Link } from 'react-router-dom';
 
 export class ShowUserBacklog extends React.Component {
 	constructor(props) {
@@ -35,6 +36,13 @@ export class ShowUserBacklog extends React.Component {
 			)
 	}
 
+	renderGameInfoButton(gameName) {
+		let gameUrl= gameName.replace(/\s+/g, "-");
+		console.log(gameUrl);
+		return (
+			<Link to={`/gameInfo/${gameUrl}`}> <button className= "game_info_button btn btn-primary"> Game Info</button> </Link>
+			)
+	}
 
 	renderUsersFullBacklog() {
 		// render full backlog from user's game collection
@@ -45,7 +53,9 @@ export class ShowUserBacklog extends React.Component {
 			  	<img src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "game_box_art"/>
             	<p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
             	</li>
+            	{this.renderGameInfoButton(game.name)}
             	 <p className= "game_completion_status"> {this.renderGameStatus(game.completedChapters, game.gameChapters)}</p>
+            	}
             </div>
 			))
 			return gameslist;
