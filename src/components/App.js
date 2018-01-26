@@ -6,7 +6,7 @@ import LandingPage from './home';
 import Login from './login';
 import SignUp from './signup';
 import Dashboard from './dashboard';
-import {GameCollection} from './gameCollection';
+import GameCollection from './gameCollection';
 import GamePage from './gamePage';
 import RequireAuth from './requireAuth';
 
