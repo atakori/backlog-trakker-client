@@ -44,6 +44,12 @@ export class ShowUserBacklog extends React.Component {
 			)
 	}
 
+	renderRedirectButton(gameName) {
+		return (
+			<Link to={{pathname:"/dashboard", state: {specificGame: {gameName}}}}><button className= "btn btn-danger"> Update Progress for {gameName}</button></Link>
+			)	
+	}
+
 	renderUsersFullBacklog() {
 		// render full backlog from user's game collection
 		let games= this.props.gameCollection;	
@@ -53,6 +59,7 @@ export class ShowUserBacklog extends React.Component {
 			  	<img src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "game_box_art"/>
             	<p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
             	</li>
+            	{this.renderRedirectButton(game.name)}
             	{this.renderGameInfoButton(game.name)}
             	 <p className= "game_completion_status"> {this.renderGameStatus(game.completedChapters, game.gameChapters)}</p>
             	}

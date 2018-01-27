@@ -20,9 +20,12 @@ class Dashboard extends React.Component {
 
 	componentWillMount() {
 		//before rendering of components
-		/*this.props.fetchMessage();*/
 		this.props.getCurrentUser();
-		this.props.getGameCollection();
+		if(this.props.location.state){
+			this.props.getGameCollection(this.props.location.state.specificGame.gameName);
+		} else {
+			this.props.getGameCollection();
+		}
 	}
 
 	getUserGameCollection(){
