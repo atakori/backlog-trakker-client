@@ -20,7 +20,8 @@ import {
 	GET_GAME_COLLECTION,
 	HANDLE_CHAPTER_CHANGE,
 	FETCH_ENTIRE_BACKLOG,
-	SEARCH_FOR_GAME } from './types';
+	SEARCH_FOR_GAME,
+	SEND_ERROR } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -89,7 +90,8 @@ export function fetchGameInfo(gameName) {
 	return function(dispatch) {
 		axios.get(`${API_URL}/games?name=${gameName}`)
 		.then( res => {
-			const game = res.data[0]
+			const game = res.data[0];
+			console.log(game.name);
 			const gameGenres= game.genres.join(',');
 			const similarGameIds= game.games.join(',');
 			dispatch({
@@ -106,11 +108,11 @@ export function fetchGameInfo(gameName) {
 			});
 			dispatch({
 				type: FETCH_CRITIC_SCORES,
-				payload: game.aggregated_rating.toFixed(2)
+				payload: game.aggregated_rating
 			});
 			dispatch({
 				type: FETCH_USER_SCORES,
-				payload: game.rating.toFixed(2)
+				payload: game.rating
 			})
 			dispatch({
 				type: FETCH_COMPLETION_TIME,
@@ -125,11 +127,24 @@ export function fetchGameInfo(gameName) {
 			})
 			axios.get(`${API_URL}/games/similarGames?gameIds=${similarGameIds}`)
 			.then(res => {
-				console.log(res.data)
 				dispatch({
 				type: FETCH_SIMILAR_GAME_IDS,
 				payload: res.data
 				})
+			})
+			.catch(err => {
+			console.log("ERROR")
+			dispatch({
+				type: SEND_ERROR,
+				payload: err
+			})
+		})
+		})
+		.catch(err => {
+			console.log("ERROR")
+			dispatch({
+				type: SEND_ERROR,
+				payload: err
 			})
 		})
 	}

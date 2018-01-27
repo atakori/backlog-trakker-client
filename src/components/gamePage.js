@@ -20,8 +20,6 @@ class GamePage extends React.Component {
 		//before rendering of components
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
-		console.log(gameNameDashed);
-		console.log(gameName);
 		this.props.fetchGameInfo(gameName);	
 		////this should go through the db to check if the game
 		//is already in the users collection
@@ -52,8 +50,6 @@ class GamePage extends React.Component {
 		alert("game added");
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
-		console.log(gameNameDashed);
-		console.log(gameName);
 		this.props.addGameToCollection(gameNameDashed, gameName)
 	}
 
@@ -77,9 +73,11 @@ class GamePage extends React.Component {
 	}
 
 	renderGamePage() {
+		if(this.props.gameName) {
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
-		if(gameName == this.props.gameName) {
+		let responseGameName= this.props.gameName;
+		if(gameName.toLowerCase() == responseGameName.toLowerCase()) {
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
@@ -97,14 +95,33 @@ class GamePage extends React.Component {
 		} else {
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>
-				<p> Info not available! </p>
-			</main>
+					<div className= "not_found_message">
+						<h1 className="not_found_title"> Sorry, {this.props.gameName} was not found :(</h1>
+						<p className="not_found_subtitle"> Please search for another game</p>
+					</div>
+				</main>
 				)
 		}
+	} else if (this.props.error) {
+		let gameNameDashed = this.props.match.params.game;
+		let gameName = gameNameDashed.replace(/-/g, ' ');
+		return(
+				<main role="main" style= {{paddingTop: "65px"}}>
+					<div className= "not_found_message">
+						<h1 className="not_found_title"> Sorry, "{gameName}" was not found :(</h1>
+						<p className="not_found_subtitle"> Please search for another game</p>
+					</div>
+				</main>
+				)
+	} else {
+		return (
+			<LoadingScreen />
+			)
+	}
 	}
 
-	render() {
-	return (
+	render()  {
+		return (
 		<section className= "game_information_section">
 			<header role= "banner">
 				<NavigationBar />
@@ -126,7 +143,8 @@ const mapStatetoProps= (state) => {
 		similarGamesList:state.game.similarGamesList,
 		completionTime: state.game.completionTime,
 		username: state.auth.username,
-		gameAdded: state.game.gameAdded
+		gameAdded: state.game.gameAdded,
+		error: state.game.error
 	};
 }
 

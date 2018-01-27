@@ -21,3 +21,5 @@ export const HANDLE_CHAPTER_CHANGE=	'handle_chapter_change';
 export const FETCH_ENTIRE_BACKLOG= 'fetch_entire_backlog';
 export const SEARCH_FOR_GAME= 'search_for_game';
 export const FETCH_GAME_NAME= 'fetch_game_name';
+
+export const SEND_ERROR= 'send_error';
