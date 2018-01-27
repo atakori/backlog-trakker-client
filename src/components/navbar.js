@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { MockSearch } from  './searchbar.js'
+import { MockSearch, SearchInput } from  './searchbar.js'
 import * as actions from '../actions'
 
 class NavigationBar extends React.Component {
@@ -8,6 +8,11 @@ class NavigationBar extends React.Component {
   componentWillMount() {
     this.props.getCurrentUser();
   }	
+
+  searchForGame(value){
+    this.props.searchForGame(value);
+  }
+  
   renderLinks() {
     if (this.props.authenticated) {
       let currentUser = this.props.currentUser;
@@ -33,7 +38,7 @@ class NavigationBar extends React.Component {
 
   renderSearchBar() {
     if(this.props.authenticated) {
-      return <MockSearch dataSource= {["Kingdom Hearts", "Dark Souls"]}/>
+      return <MockSearch searchForGame= {(value) => this.searchForGame(value)}dataSource= {["Kingdom Hearts", "Dark Souls"]}/>
     }
   }
 
@@ -76,7 +81,8 @@ class NavigationBar extends React.Component {
 function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated,
-    currentUser: state.auth.currentUser
+    currentUser: state.auth.currentUser,
+    dataSource: state.game.dataSource
   }
 }
 

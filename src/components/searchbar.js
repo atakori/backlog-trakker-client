@@ -24,7 +24,7 @@ function fetch(value, callback) {
       code: 'utf-8',
       q: value,
     });
-    jsonp(`https://suggest.taobao.com/sug?${str}`)
+    fetch(`https://api-2445582011268.apicast.io/games/?search=${str}&fields=name&limit=10`)
       .then(response => response.json())
       .then((d) => {
         if (currentValue === value) {
@@ -57,6 +57,7 @@ export class SearchInput extends React.Component {
     const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
     return (
       <Select
+        style={{ width: 200}}
         mode="combobox"
         value={this.state.value}
         placeholder={this.props.placeholder}
@@ -105,6 +106,7 @@ export class MockSearch extends React.Component {
       dataSource={this.props.dataSource}
       placeholder="Enter Game here"
       filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
+      onChange={(value, label) => this.props.searchForGame(value)}
       >
       <input ref={input => (this.input = input)}/>
     </AutoComplete>

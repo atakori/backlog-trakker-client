@@ -18,7 +18,8 @@ import {
 	CHECK_GAME_COLLECTION,
 	GET_GAME_COLLECTION,
 	HANDLE_CHAPTER_CHANGE,
-	FETCH_ENTIRE_BACKLOG } from './types';
+	FETCH_ENTIRE_BACKLOG,
+	SEARCH_FOR_GAME } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -275,5 +276,11 @@ export function handleChapterChange(gameName, chapter) {
 	//look through completedChapters array for chapter name	//if found, pull(delete) the chapter from array
 	//if not found, add name to array
 	//dispatch GET_GAME_COLLECTION to ReRender
+	}
+}
+
+export function searchForGame(value) {
+	return function(dispatch) {
+		console.log(value)
 	}
 }

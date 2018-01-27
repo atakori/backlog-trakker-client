@@ -11,7 +11,8 @@ import {LOADING_FINISHED,
 		CHECK_GAME_COLLECTION,
 		GET_GAME_COLLECTION,
 		HANDLE_CHAPTER_CHANGE,
-		FETCH_ENTIRE_BACKLOG } from '../actions/types'
+		FETCH_ENTIRE_BACKLOG,
+		SEARCH_FOR_GAME } from '../actions/types'
 
 const initialState = {
 	similarGamesList: []
@@ -48,6 +49,8 @@ export default function (state=initialState, action) {
 			return {...state, chapterChange: action.payload}
 		case FETCH_ENTIRE_BACKLOG:
 			return{...state, userBacklog: action.payload}
+		case SEARCH_FOR_GAME: 
+			return{...state, dataSource: action.payload}
 	}
 	return state;
 }
