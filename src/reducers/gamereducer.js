@@ -10,7 +10,8 @@ import {LOADING_FINISHED,
 		ADD_GAME_TO_COLLECTION, 
 		CHECK_GAME_COLLECTION,
 		GET_GAME_COLLECTION,
-		HANDLE_CHAPTER_CHANGE } from '../actions/types'
+		HANDLE_CHAPTER_CHANGE,
+		FETCH_ENTIRE_BACKLOG } from '../actions/types'
 
 const initialState = {
 	similarGamesList: []
@@ -45,6 +46,8 @@ export default function (state=initialState, action) {
 			return{...state, gameCollection: action.payload}
 		case HANDLE_CHAPTER_CHANGE:
 			return {...state, chapterChange: action.payload}
+		case FETCH_ENTIRE_BACKLOG:
+			return{...state, userBacklog: action.payload}
 	}
 	return state;
 }

@@ -68,7 +68,7 @@ class Dashboard extends React.Component {
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= {this.props.currentUser} currentGame= {this.props.gameCollection[0].name} progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= {this.renderGameArtUrl()}/>
 				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters} />
-				<CurrentBacklog gameCollection= {this.props.gameCollection} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)}/>
+				<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)}/>
 			</main>
 			)
 	}
@@ -79,7 +79,7 @@ class Dashboard extends React.Component {
 	//to render the game and its info
 
 	render() {
-	if(!this.props.gameCollection) {
+	if(!this.props.gameCollection | !this.props.userBacklog) {
 		return(
 		<section className= "signup_section">
 			<header role= "banner">
@@ -108,6 +108,7 @@ const mapStatetoProps= (state) => {
 		message: state.auth.message,
 		currentUser: state.auth.currentUser,
 		gameCollection: state.game.gameCollection,
+		userBacklog: state.game.userBacklog,
 		loading: state.game.loading
 		/*selectedGame: state.game.selectedGame*/
 		/*above is for checking if there was a specific

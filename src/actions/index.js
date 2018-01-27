@@ -17,7 +17,8 @@ import {
 	ADD_GAME_TO_COLLECTION,
 	CHECK_GAME_COLLECTION,
 	GET_GAME_COLLECTION,
-	HANDLE_CHAPTER_CHANGE } from './types';
+	HANDLE_CHAPTER_CHANGE,
+	FETCH_ENTIRE_BACKLOG } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -208,15 +209,9 @@ export function getGameCollection(gameName) {
 			const username = res.data;
 			axios.get(`${API_URL}/api/user/getgames?username=${username}&name=${gameName}`)
 			.then( gameCollection => {
-				console.log(gameCollection);
 				dispatch({
 					type:GET_GAME_COLLECTION,
 					payload: gameCollection.data
-				})
-			})
-			.then( done=> {
-				dispatch({
-					type: LOADING_FINISHED
 				})
 			})
 		})
@@ -230,13 +225,26 @@ export function getGameCollection(gameName) {
 		.then(res => {
 			const username= res.data;
 			axios.get(`${API_URL}/api/user/getgames?username=${username}`) 
-	//search through database to get gameCollectionObj
+	//search through database to get gameCollectionObject and FullBacklogObject
 			.then(gameCollection => {
 				dispatch({
 					type: GET_GAME_COLLECTION,
 					payload: gameCollection.data
 				})
+				axios.get(`${API_URL}/api/user/getUserBacklog?username=${username}`)
+				.then( userBacklog=> {
+				dispatch({
+					type: FETCH_ENTIRE_BACKLOG,
+					payload: userBacklog.data
+				})
 			})
+			.then( done=> {
+				dispatch({
+					type: LOADING_FINISHED
+				})
+			})
+			})
+
 			.then(done => {
 				dispatch({
 					type: LOADING_FINISHED

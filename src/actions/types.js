@@ -18,3 +18,4 @@ export const FETCH_COMPLETION_TIME= 'fetch_completion_time';
 // dashboard
 export const GET_GAME_COLLECTION= 'get_game_collection';
 export const HANDLE_CHAPTER_CHANGE=	'handle_chapter_change';
+export const FETCH_ENTIRE_BACKLOG= 'fetch_entire_backlog';
