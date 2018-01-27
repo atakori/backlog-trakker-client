@@ -282,5 +282,18 @@ export function handleChapterChange(gameName, chapter) {
 export function searchForGame(value) {
 	return function(dispatch) {
 		console.log(value)
+		axios.get(`${API_URL}/games/searchGames?value=${value}`)
+		.then( res=> {
+			let resultsObject= res.data;
+			let resultsArray= [];
+			resultsObject.map(resultObject => {
+				resultsArray.push(resultObject.name)
+			})
+			dispatch({
+				type: SEARCH_FOR_GAME,
+				payload: resultsArray
+			})
+		})
+		// access api /games/?search=${value}&fields=name&limit=10
 	}
 }

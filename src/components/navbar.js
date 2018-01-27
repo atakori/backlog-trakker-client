@@ -38,7 +38,7 @@ class NavigationBar extends React.Component {
 
   renderSearchBar() {
     if(this.props.authenticated) {
-      return <MockSearch searchForGame= {(value) => this.searchForGame(value)}dataSource= {["Kingdom Hearts", "Dark Souls"]}/>
+      return <MockSearch searchForGame= {(value) => this.searchForGame(value)}dataSource= {this.props.dataSource}/>
     }
   }
 
