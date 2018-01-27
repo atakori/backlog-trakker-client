@@ -7,6 +7,7 @@ import {
 	GET_CURRENT_USER,
 	FETCH_MESSAGE,
 	FETCH_GAME_INFO,
+	FETCH_GAME_NAME,
 	FETCH_GAME_SUMMARY,
 	FETCH_GAME_GENRE_IDS,
 	FETCH_CRITIC_SCORES,
@@ -94,6 +95,10 @@ export function fetchGameInfo(gameName) {
 			dispatch({
 				type: FETCH_GAME_SUMMARY,
 				payload: game.summary
+			});
+			dispatch({
+				type: FETCH_GAME_NAME,
+				payload: game.name
 			});
 			dispatch({
 				type:FETCH_GAME_ART,

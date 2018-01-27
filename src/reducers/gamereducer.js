@@ -1,5 +1,6 @@
 import {LOADING_FINISHED, 
 		FETCH_GAME_INFO, 
+		FETCH_GAME_NAME,
 		FETCH_GAME_SUMMARY, 
 		FETCH_GAME_GENRE_IDS, 
 		FETCH_CRITIC_SCORES, 
@@ -24,7 +25,9 @@ export default function (state=initialState, action) {
 		case LOADING_FINISHED:
 			return {...state, loading: false}
 		case FETCH_GAME_INFO: 
-			return {...state, data: action.payload.data};
+			return {...state, data: action.payload.data}
+		case FETCH_GAME_NAME:
+			return{...state, gameName: action.payload}
 		case FETCH_GAME_SUMMARY:
 			return {...state, summary: action.payload}
 		case FETCH_GAME_GENRE_IDS:

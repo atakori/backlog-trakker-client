@@ -19,4 +19,5 @@ export const FETCH_COMPLETION_TIME= 'fetch_completion_time';
 export const GET_GAME_COLLECTION= 'get_game_collection';
 export const HANDLE_CHAPTER_CHANGE=	'handle_chapter_change';
 export const FETCH_ENTIRE_BACKLOG= 'fetch_entire_backlog';
-export const SEARCH_FOR_GAME= 'search_for_game;'
+export const SEARCH_FOR_GAME= 'search_for_game';
+export const FETCH_GAME_NAME= 'fetch_game_name';

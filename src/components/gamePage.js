@@ -76,26 +76,14 @@ class GamePage extends React.Component {
 		}
 	}
 
-/*	ready = (status) => {
-		allStatuses[Object.keys(status)[0]] = true;
-		console.log(allStatuses);
-		Object.keys(allStatuses).length
-		if (Object.keys(allStatuses).length == 1) {
-			this.setState({
-				loading: false
-			})
-		}
-	}*/
-
-	render() {
-	return (
-		<section className= "game_information_section">
-			<header role= "banner">
-				<NavigationBar />
-			</header>
-			<main role="main" style= {{paddingTop: "65px"}}>
+	renderGamePage() {
+		let gameNameDashed = this.props.match.params.game;
+		let gameName = gameNameDashed.replace(/-/g, ' ');
+		if(gameName == this.props.gameName) {
+			return(
+				<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
-					<GameInfo ready={this.ready} gameName= {this.props.match.params.game} gameArtURL={this.props.gameArtURL} completionTime={this.props.completionTime && this.getCompletionTime()} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
+					<GameInfo gameName= {this.props.match.params.game} gameArtURL={this.props.gameArtURL} completionTime={this.props.completionTime && this.getCompletionTime()} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
 				</div>
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
@@ -103,13 +91,25 @@ class GamePage extends React.Component {
         		<div className= "simiar_games_section">
         			<SimilarGames gameName= {this.props.match.params.game} similarGamesList={this.props.similarGamesList}/>
         		</div>
+        		{this.props.gameName}
 			</main>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			{/*<LoadingScreen />*/}
-			{/*this.state.loading && <LoadingScreen />*/}
+				)
+		} else {
+			return(
+				<main role="main" style= {{paddingTop: "65px"}}>
+				<p> Info not available! </p>
+			</main>
+				)
+		}
+	}
+
+	render() {
+	return (
+		<section className= "game_information_section">
+			<header role= "banner">
+				<NavigationBar />
+			</header>
+			{this.renderGamePage()}
 		</section>
 		)
 	}
@@ -117,6 +117,7 @@ class GamePage extends React.Component {
 
 const mapStatetoProps= (state) => {
 	return { 
+		gameName: state.game.gameName,
 		gameSummary: state.game.summary,
 		gameGenres: state.game.genreIds,
 		gameArtURL: state.game.gameArtURL,
