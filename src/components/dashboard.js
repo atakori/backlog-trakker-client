@@ -15,6 +15,9 @@ class Dashboard extends React.Component {
 		//need to get initial state variables to to match backend db values
 		this.state={
 			loading: true,
+			intervalId: 0,
+			scrollStepInPx: "50",
+			delayInMs: "18"
     	}
 	}
 
@@ -28,8 +31,16 @@ class Dashboard extends React.Component {
 		}
 	}
 
-	getUserGameCollection(){
-		//checks backend to get users entire backlog
+	scrollStep() {
+    if (window.pageYOffset === 0) {
+        clearInterval(this.state.intervalId);
+    }
+    window.scroll(0, window.pageYOffset - this.state.scrollStepInPx);
+  }
+  
+	scrollToTop() {
+	  let intervalId = setInterval(this.scrollStep.bind(this), this.state.delayInMs);
+	  this.setState({ intervalId: intervalId });
 	}
 
 	getGameChapters(){
@@ -68,7 +79,7 @@ class Dashboard extends React.Component {
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= {this.props.currentUser} currentGame= {this.props.gameCollection[0].name} progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= {this.renderGameArtUrl()}/>
 				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters} />
-				<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)}/>
+				<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)} scrollToTop={()=> this.scrollToTop()}/>
 			</main>
 			)
 	}

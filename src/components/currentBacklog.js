@@ -24,6 +24,11 @@ export class CurrentBacklog extends React.Component {
 			)
 	}
 
+	getSpecificGame(gameName) {
+		this.props.getSpecificGame(gameName);
+		this.props.scrollToTop();
+	}
+
 	renderTopBacklogGames() {
 		let games = this.props.gameCollection;
 		if (games.length > 4) {
@@ -40,7 +45,7 @@ export class CurrentBacklog extends React.Component {
 			let gameslist= games.map(game => (
 			<div className= "game">
 				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
-				<button className= "game_title btn btn-danger" onClick= {()=> this.props.getSpecificGame(game.name)}>{game.name}</button>
+				<button className= "game_title btn btn-danger" onClick= {() => this.getSpecificGame(game.name)}>{game.name}</button>
 				{this.renderGameInfoButton(game.name)}
 
 			</div> 
