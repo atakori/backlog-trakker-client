@@ -1,8 +1,9 @@
 import React from 'react';
 import { Spin, Row, Col } from 'antd';
+import loadingGif from  '../loading.gif'
 
 export default function loadingScreen() {
 	return (
-			<Row type="flex" justify="center"> <Col> <Spin size="large"/> </Col> </Row>
+			<Row type="flex" justify="center"> <Col> <img src= {loadingGif} alt= "Now loading..."/> </Col> </Row>
 		)
 }
