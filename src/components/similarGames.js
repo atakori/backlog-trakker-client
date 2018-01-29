@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-let game_art_url;
 export class SimilarGames extends React.Component {
 	constructor(props) {
 		super(props)

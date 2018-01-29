@@ -1,6 +1,5 @@
 import React from 'react';
 import { Progress } from 'antd';
-import { CurrentGameChapters } from './gameChapters';
 
 export class CurrentGameProgress extends React.Component{
 	constructor(props) {

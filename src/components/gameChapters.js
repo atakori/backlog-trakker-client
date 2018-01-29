@@ -19,7 +19,7 @@ class CurrentGameChapters extends React.Component {
 		}
 
 	renderGameChapters() {
-		let completedLevels= this.props.completedChapters; {
+		{
 		let that= this;
 		let chapters= this.props.gameChapters;
 			return (

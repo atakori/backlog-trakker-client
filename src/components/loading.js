@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spin, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import loadingGif from  '../loading.gif'
 
 export default function loadingScreen() {

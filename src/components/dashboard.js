@@ -1,5 +1,4 @@
 import React from 'react';
-import {LoggedInNav} from './loggedNav';
 import NavigationBar from './navbar';
 import {CurrentGameProgress} from './currentGameProgress';
 import CurrentGameChapters from './gameChapters'
