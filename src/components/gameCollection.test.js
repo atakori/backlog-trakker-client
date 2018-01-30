@@ -3,7 +3,7 @@ import {shallow, mount} from 'enzyme';
 import {createStore} from 'redux';
 import backlogReducer from '../reducers/index';
 
-import {gameCollection}  from './gameCollection';
+import {GameCollection}  from './gameCollection';
 
 let store= createStore(backlogReducer)
 
