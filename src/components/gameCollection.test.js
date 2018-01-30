@@ -3,13 +3,13 @@ import {shallow, mount} from 'enzyme';
 import {createStore} from 'redux';
 import backlogReducer from '../reducers/index';
 
-import {gameChapters}  from './gameChapters';
+import {gameCollection}  from './gameCollection';
 
 let store= createStore(backlogReducer)
 
 describe('<CurrentBacklog />', () => {
 	it('Renders without crashing', () => {
-		shallow(<gameChapters />);
+		shallow(<gameCollection />);
 	})
 
 })
