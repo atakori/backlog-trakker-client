@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { MockSearch } from  './searchbar.js'
 import * as actions from '../actions'
 
-class NavigationBar extends React.Component {
+export class NavigationBar extends React.Component {
 
   componentWillMount() {
     this.props.getCurrentUser();

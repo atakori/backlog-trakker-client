@@ -7,11 +7,9 @@ export function Ratings(props) {
 		<div className= "scores">
           <h2 className= "rating_title"> Ratings</h2>
           <p className= "critic_avg_score">Critic Score</p>
-          {props.criticAvgRating ? <Progress type= "dashboard" percent= {props.criticAvgRating * 10} format={percent => `${percent / 10}`}/> : <LoadingScreen/>}
+          <Progress type= "dashboard" percent= {props.criticAvgRating * 10} format={percent => `${percent / 10}`}/>
           <p className= "user_avg_score"> User Score</p>
           <Progress type= "dashboard" percent= {props.userAvgRating * 10} format={percent => `${percent / 10}`} />
         </div>
 		)
 }
-
-//          {props.criticAvgRating && <Progress type= "dashboard" percent= {props.criticAvgRating * 10} format={percent => `${percent / 10}`} />}

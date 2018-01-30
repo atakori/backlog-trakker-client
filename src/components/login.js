@@ -10,7 +10,7 @@ const renderInput = field =>
 	</div>
 
 
-class Login extends Component {
+export class Login extends Component {
 	handleFormSubmit({username, password}) {
 		console.log(username, password)
 		//log user in
