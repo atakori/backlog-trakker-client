@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions'
 
-class LandingPage extends React.Component {
+export class LandingPage extends React.Component {
 	componentWillMount() {
 		this.props.signoutUser();
 	}

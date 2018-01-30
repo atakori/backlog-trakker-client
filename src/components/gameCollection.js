@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import LoadingScreen from './loading';
 import * as actions from '../actions';
 
-class GameCollection extends React.Component {
+export class GameCollection extends React.Component {
 	//on click of the backlog game to bring to dashboard
 	//make sure to dispatch an action to update the currentGame state
 	//dashboard will check to see if there is a game set as the props

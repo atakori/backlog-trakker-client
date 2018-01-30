@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 
-import {GameInfo}  from './gameInfo';
+import {GamePage}  from './gamePage';
 
-describe('<GameInfo />', () => {
+describe('<GamePage />', () => {
 	it('Renders without crashing', () => {
-		shallow(<gameInfo />);
+		shallow(<gamePage />);
 	})
 })
