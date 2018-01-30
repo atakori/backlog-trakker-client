@@ -7,5 +7,4 @@ describe('<Ratings />', () => {
 	it('Renders without crashing', () => {
 		shallow(<Ratings />);
 	})
-
 })
