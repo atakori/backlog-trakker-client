@@ -12,7 +12,7 @@ function renderInput(field) {
 	)
 }
 
-class SignUp extends React.Component {
+export class SignUp extends React.Component {
 
 	handleFormSubmit(formProps) {
 		//call action to create account in backend
