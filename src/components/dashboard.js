@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 import LoadingScreen from './loading'
 
-class Dashboard extends React.Component {
+export class Dashboard extends React.Component {
 	constructor(props) {
 		super(props);
 
