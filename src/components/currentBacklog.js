@@ -33,8 +33,8 @@ export class CurrentBacklog extends React.Component {
 		let games = this.props.gameCollection;
 		if (games.length > 4) {
 			games= games.slice(0,5)
-			let gameslist= games.map(game => (
-			<div className= "game">
+			let gameslist= games.map((game,index) => (
+			<div key= {index}className= "game">
 				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
 				<p className= "game_title">{game.name} </p>
 				{this.renderGameInfoButton(game.name)}
@@ -42,8 +42,8 @@ export class CurrentBacklog extends React.Component {
 			return gameslist;
 			//limit the games collection to only show 5 games
 		} else {
-			let gameslist= games.map(game => (
-			<div className= "game">
+			let gameslist= games.map((game,index) => (
+			<div key= {index} className= "game">
 				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
 				<button className= "game_title btn btn-danger" onClick= {() => this.getSpecificGame(game.name)}>{game.name}</button>
 				{this.renderGameInfoButton(game.name)}

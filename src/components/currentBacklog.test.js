@@ -33,11 +33,15 @@ const fakeCollection= [
 describe('<CurrentBacklog />', () => {
 	it('Renders without crashing', () => {
 		const dispatch = jest.fn();
-		shallow(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {(gameName) => dispatch(gameName)} scrollToTop={()=> this.scrollToTop()}/>
-		);
+		shallow(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {(gameName) => dispatch(gameName)} scrollToTop={()=> this.scrollToTop()}/>)
 	})
-
 })
 
-/*<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)} scrollToTop={()=> this.scrollToTop()}/>
-*/
+/*	it('should fire the getSpecificGame callback when clicked', () => {
+		const callback = jest.fn();
+		const wrapper= mount(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {callback}/>)
+		const gameName= "Mario";
+		wrapper.simulate('click');
+		expect(callback).toHaveBeenCalled()
+	})
+})*/
