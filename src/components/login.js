@@ -47,11 +47,11 @@ export class Login extends Component {
 						<h1 className= "form_title">Login</h1>
 						{this.renderError()}
 						<div className= "form_group">
-							<label for = "username">Username </label>
+							<label htmlFor = "username">Username </label>
 							<Field id= "username" name= "username" component={renderInput} type= "text" />
 						</div>
 						<div className= "form_group">
-							<label for= "password">Password </label>
+							<label htmlFor= "password">Password </label>
 							<Field id="password" name= "password" component={renderInput} type= "password" />
 						</div>
 						<button className= "btn btn-danger" type= "submit">Login</button>

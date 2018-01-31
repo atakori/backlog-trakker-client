@@ -12,5 +12,10 @@ describe('<Login />', () => {
 		const dispatch= jest.fn()
 		shallow(<Login store={store} handleSubmit= {() => dispatch}/>);
 	})
-
+	it('should call LoginUser once the form is submitted', () => {
+		const dispatch= jest.fn();
+		const callback= jest.fn();
+		const wrapper= shallow(<Login store={store} handleSubmit= {dispatch} loginUser= {callback}/>)
+		expect(dispatch).toHaveBeenCalled()
+	})
 })

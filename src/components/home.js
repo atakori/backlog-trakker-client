@@ -18,7 +18,7 @@ export class LandingPage extends React.Component {
 			<main role= "main">
 				<div className= "container title_section" style= {{paddingTop: "65px"}}> 
 					<h1 className= "main_title">Checkpoint </h1>
-					<p className= "subtitle"> Tackle that backlog</p>
+					<p className= "subtitle"> Track your backlog to the next level</p>
 				</div>
 				<div className= "more_info info_one">
 					<h2 className= "title"> Too many unfinished games?</h2>
