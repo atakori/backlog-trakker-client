@@ -42,24 +42,6 @@ export class Dashboard extends React.Component {
 	  this.setState({ intervalId: intervalId });
 	}
 
-	getGameChapters(){
-		//gets the game chapters from scraping the ign webpage
-		// then sets the state for gameChapters
-	}
-
-
-	getUserCompletedChapters(game) {
-		//gets completedChapters from the backend then sets state
-		//then sets state for completed chapters
-		this.setState({
-
-		})
-	}
-
-	addChaptertoCompleted(chapter){
-		//initiates during onClickhandler in currentGameChapters
-	}
-
 	calculateProgress(){
 		let completedChapters= this.props.gameCollection[0].completedChapters;
 		let totalGameChapters= this.props.gameCollection[0].gameChapters;
@@ -75,7 +57,7 @@ export class Dashboard extends React.Component {
 
 	renderGameProgress() {
 		return(
-			<main role="main" style= {{paddingTop: "65px"}}>
+			<main role="main" className= "main" style= {{paddingTop: "65px"}}>
 				<CurrentGameProgress user= {this.props.currentUser} currentGame= {this.props.gameCollection[0].name} progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= {this.renderGameArtUrl()}/>
 				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters} />
 				<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)} scrollToTop={()=> this.scrollToTop()}/>

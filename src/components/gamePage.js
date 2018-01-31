@@ -24,6 +24,7 @@ class GamePage extends React.Component {
 		////this should go through the db to check if the game
 		//is already in the users collection
 		this.props.checkGameCollection(gameName);
+		console.log("I was here")
 	}
 
 	gameCollectionStatus() {

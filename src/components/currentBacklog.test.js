@@ -1,5 +1,6 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
+import {Router} from 'react-router-dom';
 
 import { CurrentBacklog } from './currentBacklog';
 
@@ -15,33 +16,29 @@ const fakeCollection= [
             "Prologue - Northern Undead Asylum",
             "Firelink Shrine",
         ]
-    },
-    {
-        "_id": "5a6a7f8b4c1f894b3098ea71",
-        "gameArtUrl": "//images.igdb.com/igdb/image/upload/t_thumb/lxuvogkwn3lexvr7herw.jpg",
-        "name": "Fake Game #2",
-        "completedChapters": [
-            "Wonderland"
-        ],
-        "gameChapters": [
-            "Wonderland",
-            "Olympus Coliseum",
-        ]
     }
 ]
 
 describe('<CurrentBacklog />', () => {
 	it('Renders without crashing', () => {
 		const dispatch = jest.fn();
-		shallow(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {(gameName) => dispatch(gameName)} scrollToTop={()=> this.scrollToTop()}/>)
+		shallow(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {(gameName) => dispatch(gameName)} scrollToTop={()=> console.log("scroll")}/>)
 	})
-})
 
-/*	it('should fire the getSpecificGame callback when clicked', () => {
+	it('should fire the getSpecificGame callback when clicked', () => {
 		const callback = jest.fn();
-		const wrapper= mount(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {callback}/>)
-		const gameName= "Mario";
-		wrapper.simulate('click');
-		expect(callback).toHaveBeenCalled()
-	})
-})*/
+		const secondCallback = jest.fn();
+        const wrapper= mount(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {callback} scrollToTop= {secondCallback}/>)
+		console.log(wrapper.find('.game_title'))
+        const gameName= wrapper.find('.game_title').text()
+        wrapper.find('.game_title').simulate('click')
+		expect(callback).toHaveBeenCalledWith(gameName)
+        expect(secondCallback).toHaveBeenCalled()
+    })
+    
+    it('should render the correct gameCollection button with correct userName', () => {
+        const callback= jest.fn();
+        const wrapper= mount(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {callback} scrollToTop= {() => console.log("scrolling")} userID= 'test_user'/>)
+        expect(wrapper.find({href: "/mygamelibrary/test_user"}));
+    })
+})

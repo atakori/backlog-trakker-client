@@ -22,16 +22,24 @@ import {
 	SEARCH_FOR_GAME,
 	SEND_ERROR } from './types';
 
-import {authError, signoutUser, fetchGameInfo,
+import {authError, fetchGameInfo,
 	addGameToCollection, checkGameCollection, 
 	getCurrentUser, getGameCollection,
 	handleChapterChange, searchForGame } from './index';
 
 describe('authError', () => {
-	it('should return the action', () => {
+	it('should return the game', () => {
 		const error= 'Error message';
 		const action= authError(error);
 		expect(action.type).toEqual(AUTH_ERROR);
 		expect(action.payload).toEqual(error);
 	})
 })
+
+/*describe('fetchGameInfo', () => {
+	it('should return the action', () => {
+		const usertoken= 'token'
+		const action= signoutUser();
+		expect(action.type).toEqual(UNAUTH_USER);
+	})
+})*/

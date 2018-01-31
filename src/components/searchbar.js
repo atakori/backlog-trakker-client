@@ -18,6 +18,8 @@ export class MockSearch extends React.Component {
     game= game.replace(/\s+/, '-');
     game= `/gameinfo/${game}`
     
+
+    //this.props.history.push(game)
     this.setState({
       location: game
     })

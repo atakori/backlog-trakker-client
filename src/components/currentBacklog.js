@@ -20,7 +20,7 @@ export class CurrentBacklog extends React.Component {
 		let gameUrl= gameName.replace(/\s+/g, "-");
 		console.log(gameUrl);
 		return (
-			<Link to={`/gameInfo/${gameUrl}`}> <button className= "game_info_button btn btn-primary"> Game Info</button> </Link>
+			<a href={`/gameInfo/${gameUrl}`}> <button className= "game_info_button btn btn-primary"> Game Info</button> </a>
 			)
 	}
 
@@ -63,7 +63,7 @@ export class CurrentBacklog extends React.Component {
 				{this.renderTopBacklogGames()}
 			</div>
 			<div className="game_collection_button"> 
-				<Link to= {`/mygamelibrary/${this.props.userID}`}> <button className= "btn btn-primary"> Full Game Collection</button> </Link>
+				<a className= "game_backlog_link" href= {`/mygamelibrary/${this.props.userID}`}> <button className= "btn btn-primary">Full Game Collection</button> </a>
 			</div>
 		</section>
 		)
