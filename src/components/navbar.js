@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import  MockSearch  from  './searchbar.js'
+import  {MockSearch}  from  './searchbar.js'
 import * as actions from '../actions'
 
 export class NavigationBar extends React.Component {

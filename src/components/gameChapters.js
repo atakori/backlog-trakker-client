@@ -24,7 +24,7 @@ export class CurrentGameChapters extends React.Component {
 		let chapters= this.props.gameChapters;
 			return (
 				chapters.map((chapter,index) => ( 
-			<li> <input checked= 
+			<li key= {index}> <input checked= 
 			{this.checkCompletedChapters(chapter)} 
 			id={chapter} 
 			className= "completedChapter" 
@@ -45,7 +45,6 @@ export class CurrentGameChapters extends React.Component {
 		//add chapter to db or retract from db list and 
 		console.log(chapter)
 		console.log("working");
-		console.log(this.input[chapter]);
 		let gameName= this.props.currentGame;
 		this.props.handleChapterChange(gameName, chapter);
 		//this.renderGameChapters(mockchapter);
