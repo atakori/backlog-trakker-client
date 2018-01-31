@@ -78,7 +78,7 @@ export class Dashboard extends React.Component {
 				<NavigationBar />
 			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
-				<LoadingScreen />
+				<LoadingScreen className= "loading_component"/>
 			</main>
 		</section>
 			)
