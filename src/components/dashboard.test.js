@@ -6,7 +6,6 @@ import backlogReducer from '../reducers/index';
 import {CurrentGameProgress} from './currentGameProgress';
 import {CurrentBacklog} from './currentBacklog'
 import {Dashboard}  from './dashboard';
-import {Sinon} from 'sinon-spy-react'
 
 let store= createStore(backlogReducer)
 

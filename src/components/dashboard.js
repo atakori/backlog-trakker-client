@@ -70,29 +70,50 @@ export class Dashboard extends React.Component {
 	//dashboard will check to see if there is a game set as the props
 	//to render the game and its info
 
-	render() {
-	if(!this.props.gameCollection | !this.props.userBacklog) {
+	renderNoGamesPage() {
+		<main role="main" className= "main" style= {{paddingTop: "65px"}}>
+			<h1> Looks like you need to add some games</h1>
+		</main>
+	}
+
+	renderDashboardView() {
+		if(!this.props.gameCollection | !this.props.userBacklog) {
 		return(
-		<section className= "signup_section">
-			<header role= "banner">
-				<NavigationBar />
-			</header>
 			<main role="main" style= {{paddingTop: "65px"}}>
 				<LoadingScreen className= "loading_component"/>
 			</main>
-		</section>
+			)
+	} else if (this.props.gameCollection[0] === undefined) {
+		return(
+			<main role="main" className= "main" style= {{paddingTop: "65px"}}>
+				<h1 className= "no_games_title"> {this.props.currentUser}'s Dashboard</h1>
+				<div>
+					<h2 className=  "welcome_message">Welcome to Checkpoint! Looks like You don't have any games in your collection</h2>
+					<h3 className= "start_searching_message">Start searching for games and build your virtual collection in the searchbar above</h3>
+				</div>
+			</main>
 			)
 	} else {
 		return (
-			<section className= "signup_section">
+			<main role="main" className= "main" style= {{paddingTop: "65px"}}>
+				<CurrentGameProgress user= {this.props.currentUser} currentGame= {this.props.gameCollection[0].name} progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= {this.renderGameArtUrl()}/>
+				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters} />
+				<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)} scrollToTop={()=> this.scrollToTop()}/>
+			</main>
+			)
+		}
+	}
+
+	render() {
+		return (
+			<section className= "dashboard_section">
 				<header role= "banner">
 					<NavigationBar />
 				</header>
-				{this.renderGameProgress()}
+				{this.renderDashboardView()}
 			</section>
 		)
 	}
-}
 }
 
 const mapStatetoProps= (state) => {
