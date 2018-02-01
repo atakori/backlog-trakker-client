@@ -1,5 +1,5 @@
 import authReducer from './authreducer'
-import {AUTH_USER} from '../actions/types'
+import {AUTH_USER, UNAUTH_USER} from '../actions/types'
 
 describe('Auth User', () => {
 	it('should return a true authenticated state', () => {
@@ -11,6 +11,18 @@ describe('Auth User', () => {
 	expect(state).toEqual({
 		error: '',
 		authenticated: true
+	})
+	})
+})
+
+describe('UnAuth User', () => {
+	it('should return a false authenticated state', () => {
+	let state= {
+		authenticated: true
+		}
+	state = authReducer(state, {type: UNAUTH_USER})
+	expect(state).toEqual({
+		authenticated: false
 	})
 	})
 })
