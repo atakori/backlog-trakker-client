@@ -1,8 +1,7 @@
-import backlogReducer from './index';
 import gameReducer from './gamereducer'
 import {LOADING_FINISHED} from '../actions/types'
 
-describe('loading finished', () => {
+describe('Auth User', () => {
 	it('should return a false loading state', () => {
 	let state= {
 		loading: true
