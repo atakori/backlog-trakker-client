@@ -1,6 +1,8 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 export class MockSearch extends React.Component {
   constructor(props) {
@@ -8,12 +10,6 @@ export class MockSearch extends React.Component {
 
     this.state={
     }
-  }
-
-  ComponentWillUnmount() {
-    this.setState({
-        location: false
-      })
   }
 
   onSubmit(e) {
@@ -25,16 +21,25 @@ export class MockSearch extends React.Component {
     } else{
 
     let game= this.input.value.trim()
-    game= game.replace(/\s+/, '-');
-    game= `/gameinfo/${game}`
+    let gameUrl= game.replace(/\s+/, '-');
+    gameUrl= `/gameinfo/${game}`
     
+    this.props.history.push(gameUrl)
+    this.props.fetchGameInfo(game); 
+    this.props.checkGameCollection(game);
 
-    //this.props.history.push(game)
-    this.setState({
-      location: game
-    })
   }  
 }
+
+/*  componentWillMount() {
+    //before rendering of components
+    let gameNameDashed = this.props.match.params.game;
+    let gameName = gameNameDashed.replace(/-/g, ' ');
+    this.props.fetchGameInfo(gameName); 
+    ////this should go through the db to check if the game
+    //is already in the users collection
+    this.props.checkGameCollection(gameName);
+  }*/
 
 
   render() {
@@ -53,7 +58,10 @@ export class MockSearch extends React.Component {
       <input ref={input => (this.input = input)}/>
     </AutoComplete>
     <button type= "submit"> Search</button>
+    {console.log(this.props.history)}
     </form>
   );
 }
 }
+
+export default connect(null, actions)(MockSearch);

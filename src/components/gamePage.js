@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 import * as actions from '../actions'
 import LoadingScreen from './loading';
 
-let allStatuses= {}
-
 export class GamePage extends React.Component {
 	constructor(props) {
 		super(props)
@@ -124,7 +122,7 @@ export class GamePage extends React.Component {
 		return (
 		<section className= "game_information_section">
 			<header role= "banner">
-				<NavigationBar />
+				<NavigationBar history={this.props.history}/>
 			</header>
 			{this.renderGamePage()}
 		</section>

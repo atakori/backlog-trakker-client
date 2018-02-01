@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import  {MockSearch}  from  './searchbar.js'
+import  MockSearch  from  './searchbar.js'
 import * as actions from '../actions'
 
 export class NavigationBar extends React.Component {
@@ -38,7 +38,7 @@ export class NavigationBar extends React.Component {
 
   renderSearchBar() {
     if(this.props.authenticated) {
-      return <MockSearch searchForGame= {(value) => this.searchForGame(value)}dataSource= {this.props.dataSource}/>
+      return <MockSearch history= {this.props.history} searchForGame= {(value) => this.searchForGame(value)}dataSource= {this.props.dataSource}/>
     }
   }
 
