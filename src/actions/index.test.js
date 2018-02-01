@@ -36,10 +36,32 @@ describe('authError', () => {
 	})
 })
 
+//routes are being tested on server-side
+
 /*describe('fetchGameInfo', () => {
-	it('should return the action', () => {
-		const usertoken= 'token'
-		const action= signoutUser();
-		expect(action.type).toEqual(UNAUTH_USER);
+	it('should return the gameSummary', () => {
+		const gameName= 'Dark Souls'
+		const action= fetchGameInfo(gameName);
+		expect(action.type).toEqual(FETCH_GAME_INFO);
 	})
+
+describe('addGameToCollection', () => {
+	it('should return the users Game Collection', () => {
+		const gameName= 'Dark Souls'
+		const action= addGameToCollection('Dark-Souls', 'Dark Souls');
+		expect(action.type).toEqual(ADD_GAME_TO_COLLECTION);
+	})
+describe('getCurrentUser', () => {
+	it('should return the userName', () => {
+		const action= getCurrentUser();
+		expect(action.type).toEqual(GET_CURRENT_USER);
+	})
+})
+
+describe('searchForGame', () => {
+	it('should return the games that the user searches for', () => {
+		const action= searchForGame('Dark Souls');
+		expect(action.type).toEqual(SEARCH_FOR_GAME);
+	})
+})
 })*/
