@@ -10,10 +10,20 @@ export class MockSearch extends React.Component {
     }
   }
 
-
+  ComponentWillUnmount() {
+    this.setState({
+        location: false
+      })
+  }
 
   onSubmit(e) {
     e.preventDefault();
+    if(this.input == undefined) {
+      this.setState({
+      location: null
+    })
+    } else{
+
     let game= this.input.value.trim()
     game= game.replace(/\s+/, '-');
     game= `/gameinfo/${game}`
@@ -24,6 +34,7 @@ export class MockSearch extends React.Component {
       location: game
     })
   }  
+}
 
 
   render() {

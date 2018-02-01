@@ -15,13 +15,10 @@ export class ShowUserBacklog extends React.Component {
 	renderGameArtUrl(url) {
 		let transformedUrl= "http:" + url;
 		transformedUrl= transformedUrl.replace("thumb", "cover_small_2x");
-		console.log(transformedUrl);
 		return transformedUrl;
 	}
 
 	renderGameStatus(completedChapters, totalChapters) {
-		console.log(completedChapters);
-		console.log(totalChapters);
 		let percentComplete = ((completedChapters.length / totalChapters.length) *100)
 		if (percentComplete === 0) {
 			return (
@@ -30,7 +27,7 @@ export class ShowUserBacklog extends React.Component {
 		}
 		return (
 			<div className= "start_status">
-				<p> Perecentage complete</p>
+				<p>Percentage complete</p>
 		        <Progress type= "circle" percent= {percentComplete.toFixed(2)}/>
 			</div>
 			)
@@ -38,7 +35,6 @@ export class ShowUserBacklog extends React.Component {
 
 	renderGameInfoButton(gameName) {
 		let gameUrl= gameName.replace(/\s+/g, "-");
-		console.log(gameUrl);
 		return (
 			<Link to={`/gameInfo/${gameUrl}`}> <button className= "game_info_button btn btn-primary"> Game Info</button> </Link>
 			)
@@ -54,7 +50,7 @@ export class ShowUserBacklog extends React.Component {
 		// render full backlog from user's game collection
 		let games= this.props.gameCollection;	
 			let gameslist= games.map((game, index) => (
-			<div className= "game_info">
+			<div className= "game_info" key={index}>
 	            <li className= "game" key= {index}>
 			  	<img src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "game_box_art"/>
             	<p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>

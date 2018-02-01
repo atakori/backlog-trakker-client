@@ -12,7 +12,6 @@ const renderInput = field =>
 
 export class Login extends Component {
 	handleFormSubmit({username, password}) {
-		console.log(username, password)
 		//log user in
 		this.props.loginUser({username, password}, this.props.history);
 	}

@@ -42,23 +42,23 @@ export class SignUp extends React.Component {
 						<h1 className= "form_title">Sign Up</h1>
 						{this.renderError()}
 						<div className= "form_group"> 
-							<label for= "first_name" >First Name </label>
+							<label htmlFor= "first_name" >First Name </label>
 							<Field id= "first_name" name= "first_name" component={renderInput} type= "text" />
 						</div>
 						<div className= "form_group"> 
-							<label for= "last_name" >Last Name </label>
+							<label htmlFor= "last_name" >Last Name </label>
 							<Field id= "last_name" name= "last_name" component={renderInput} type= "text" />
 						</div>
 						<div className= "form_group"> 
-							<label for= "user_name" >Username </label>
+							<label htmlFor= "user_name" >Username </label>
 							<Field id= "username" name= "username" component={renderInput} type= "" />
 						</div>
 						<div className= "form_group"> 
-							<label for= "password" >Password </label>
+							<label htmlFor= "password" >Password </label>
 							<Field id= "password" name= "password" component={renderInput} type= "password" />
 						</div>
 						<div className= "form_group"> 
-							<label for= "passwordConfirm" >Confirm Password </label>
+							<label htmlFor= "passwordConfirm" >Confirm Password </label>
 							<Field id= "passwordConfirm" name= "passwordConfirm" component={renderInput} type= "password" />
 						</div>
 						<button type= "submit" className= "btn btn-danger">Sign Up </button>

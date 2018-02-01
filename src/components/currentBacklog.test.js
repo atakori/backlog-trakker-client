@@ -1,6 +1,5 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import {Router} from 'react-router-dom';
 
 import { CurrentBacklog } from './currentBacklog';
 
