@@ -108,7 +108,7 @@ export class Dashboard extends React.Component {
 		return (
 			<section className= "dashboard_section">
 				<header role= "banner">
-					<NavigationBar />
+					<NavigationBar history= {this.props.history}/>
 				</header>
 				{this.renderDashboardView()}
 			</section>

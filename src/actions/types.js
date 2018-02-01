@@ -23,3 +23,4 @@ export const SEARCH_FOR_GAME= 'search_for_game';
 export const FETCH_GAME_NAME= 'fetch_game_name';
 
 export const SEND_ERROR= 'send_error';
+export const NULL_ERROR= 'null_error';

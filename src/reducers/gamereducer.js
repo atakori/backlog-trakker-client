@@ -14,7 +14,8 @@ import {LOADING_FINISHED,
 		HANDLE_CHAPTER_CHANGE,
 		FETCH_ENTIRE_BACKLOG,
 		SEARCH_FOR_GAME,
-		SEND_ERROR } from '../actions/types'
+		SEND_ERROR,
+		NULL_ERROR } from '../actions/types'
 
 const initialState = {
 	similarGamesList: []
@@ -56,6 +57,8 @@ export default function (state=initialState, action) {
 		case SEARCH_FOR_GAME: 
 			return{...state, dataSource: action.payload}
 		case SEND_ERROR:
+			return{...state, error:action.payload}
+		case NULL_ERROR:
 			return{...state, error:action.payload}
 	}
 	return state;

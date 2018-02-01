@@ -21,7 +21,8 @@ import {
 	HANDLE_CHAPTER_CHANGE,
 	FETCH_ENTIRE_BACKLOG,
 	SEARCH_FOR_GAME,
-	SEND_ERROR } from './types';
+	SEND_ERROR,
+	NULL_ERROR } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -130,6 +131,12 @@ export function fetchGameInfo(gameName) {
 				dispatch({
 				type: FETCH_SIMILAR_GAME_IDS,
 				payload: res.data
+				})
+			})
+			.then(res => {
+				dispatch({
+					type: NULL_ERROR,
+					payload: false
 				})
 			})
 			.catch(err => {

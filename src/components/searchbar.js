@@ -21,9 +21,10 @@ export class MockSearch extends React.Component {
     } else{
 
     let game= this.input.value.trim()
-    let gameUrl= game.replace(/\s+/, '-');
-    gameUrl= `/gameinfo/${game}`
-    
+    let gameUrl= game.replace(':', '').replace(/\s+/g, '-')
+    console.log(gameUrl)
+    gameUrl= `/gameinfo/${gameUrl}`
+
     this.props.history.push(gameUrl)
     this.props.fetchGameInfo(game); 
     this.props.checkGameCollection(game);
@@ -58,7 +59,6 @@ export class MockSearch extends React.Component {
       <input ref={input => (this.input = input)}/>
     </AutoComplete>
     <button type= "submit"> Search</button>
-    {console.log(this.props.history)}
     </form>
   );
 }

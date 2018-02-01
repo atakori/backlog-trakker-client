@@ -87,7 +87,6 @@ export class GamePage extends React.Component {
         		<div className= "simiar_games_section">
         			<SimilarGames gameName= {this.props.match.params.game} similarGamesList={this.props.similarGamesList}/>
         		</div>
-        		{this.props.gameName}
 			</main>
 				)
 		} else {
