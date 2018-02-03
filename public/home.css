@@ -43,6 +43,21 @@ body {
 	font-size: 1.2em;
 }
 
+.crash_character {
+	max-width: 250px;
+	max-height: 250px;
+}
+
+.layton_character {
+	max-width: 200px;
+	max-height: 250px;
+}
+
+.mario_character {
+	max-width: 300px;
+	max-height: 250px;
+}
+
 .ready_button_title {
 	margin-top: 30px;
 	text-decoration: underline;
