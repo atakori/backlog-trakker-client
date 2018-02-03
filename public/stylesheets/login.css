@@ -1,15 +1,21 @@
+.login_content {
+	margin-top: 30px;
+}
 .login_form {
-	border: 2px solid black;
+	/*border: 2px solid black;*/
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
 	text-align: center;
-	margin-left: 10%;
-	margin-right: 10%;
-	background-color: rgba(77, 210, 255, 0.3);
+/*	margin-left: 10%;
+	margin-right: 10%;*/
+	background-color: rgba(0, 19, 77, 0.7);
 }
 
 .form_title {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	font-size: 4.0em;
+	color: white;
 }
 
 .login_character_container {
@@ -18,7 +24,7 @@
 
 .login_label {
 	font-size: 2.0em;
-	color: black;
+	color: white;
 }
 
 .login_input {
