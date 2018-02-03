@@ -44,9 +44,9 @@ export class NavigationBar extends React.Component {
 
   renderLogoLink() {
     if (this.props.authenticated) {
-      return <a className="navbar-brand" href='/dashboard'> Backlog Trakker </a>
+      return <a className="navbar-brand" href='/dashboard'><i className="fas fa-flag-checkered"></i> Checkpoint </a>
     } else {
-      return <a className="navbar-brand" href='/'> Backlog Trakker </a>
+      return <a className="navbar-brand" href='/'><i className="fas fa-flag-checkered"></i> Checkpoint </a>
     }
   }
 
