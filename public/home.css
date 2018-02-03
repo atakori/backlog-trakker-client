@@ -20,14 +20,19 @@ body {
   min-height: 325px
 }
 
-.main_title{
+.main_title {
+	margin-top: 20px;
 	font-size: 5.5em;
 	text-align: center;
+	font-family: 'Audiowide', cursive;
+	margin-left: 2%;
+	margin-right:2%;
 }
 
 #main_subtitle {
-	font-size: 2.0em;
+	font-size: 2.3em;
 	text-align: center;
+	font-family: 'Audiowide', cursive;
 }
 
 .landing_page_info {
@@ -37,12 +42,15 @@ body {
 .title_text {
 	text-decoration: underline;
 	font-size: 1.1em;
+	font-family: 'Bungee Inline', cursive;
 }
 
 .landing_page_details {
-	font-size: 1.2em;
+	font-size: 1.4em;
 	padding-left: 5%;
 	padding-right: 5%;
+	font-family: 'Audiowide', cursive;
+/*	font-family: 'Merienda One', cursive;*/
 }
 
 .crash_character {
@@ -64,10 +72,12 @@ body {
 	margin-top: 30px;
 	text-decoration: underline;
 	margin-bottom: 10px;
+	font-family: 'Merienda One', cursive;
 }
 
 .home_sign_up_button {
 	font-size: 1.3em;
+	font-family: 'Merienda One', cursive;
 }
 
 /*.more_info {
