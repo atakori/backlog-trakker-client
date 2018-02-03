@@ -41,6 +41,8 @@ body {
 
 .landing_page_details {
 	font-size: 1.2em;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 .crash_character {
@@ -61,13 +63,19 @@ body {
 .ready_button_title {
 	margin-top: 30px;
 	text-decoration: underline;
+	margin-bottom: 10px;
 }
 
 .home_sign_up_button {
 	font-size: 1.3em;
 }
 
+/*.more_info {
+	border: 1px solid black;
+}*/
+
 hr.style11 {
+	width: 50%;
 	height: 6px;
 	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
     border: 0;
