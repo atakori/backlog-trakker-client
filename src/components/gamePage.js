@@ -51,12 +51,6 @@ export class GamePage extends React.Component {
 		this.props.addGameToCollection(gameNameDashed, gameName)
 	}
 
-	getCurrentUsername() {
-		/*this.props.addGameToCollection()*/
-		console.log("Works");
-
-	}
-
 	getCompletionTime() {
 		//get number and convert to # of hours
 		if(this.props.completionTime.normally) {
@@ -147,18 +141,5 @@ const mapStatetoProps= (state) => {
 	};
 }
 
-/*	case FETCH_GAME_INFO: 
-			return {...state, data: action.payload.data};
-		case FETCH_GAME_SUMMARY:
-			return {...state, summary: action.payload}
-		case FETCH_GAME_GENRE_IDS:
-			return {...state, genreIds: action.payload}
-		case FETCH_CRITIC_SCORES:
-			return {...state, criticScore: action.payload}
-		case FETCH_USER_SCORES:
-			return {...state, userScore: action.payload}
-		case FETCH_SIMILAR_GAME_IDS:
-			return {...state, similarGameIds: action.payload}
-		*/
 
 export default connect(mapStatetoProps, actions)(GamePage);
