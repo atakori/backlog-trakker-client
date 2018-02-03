@@ -6,7 +6,9 @@ import * as actions from '../actions'
 export class NavigationBar extends React.Component {
 
   componentWillMount() {
+    if(localStorage.getItem('token')) {
     this.props.getCurrentUser();
+    }
   }	
 
   searchForGame(value){
