@@ -75,6 +75,8 @@ export class GamePage extends React.Component {
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
 		let responseGameName= this.props.gameName;
+		console.log(responseGameName)
+		console.log(gameName)
 		if(gameName.toLowerCase() == responseGameName.toLowerCase()) {
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>
