@@ -16,7 +16,7 @@ export class LandingPage extends React.Component {
 				<NavigationBar />
 			</header>
 			<main role= "main">
-				<div className= "container title_section" style= {{paddingTop: "65px"}}> 
+				<div className= "jumbotron title_section" style= {{paddingTop: "65px"}}> 
 					<h1 className= "main_title">Checkpoint </h1>
 					<p className= "subtitle"> Track your backlog to the next level</p>
 				</div>
