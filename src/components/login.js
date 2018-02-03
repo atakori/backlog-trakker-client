@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const renderInput = field => 
 	<div>
-		<input {...field.input} id= {field.id} type={field.type} className= "form_control" />
+		<input {...field.input} id= {field.id} type={field.type} className= "form_control login_input" />
 	</div>
 
 
@@ -46,15 +46,18 @@ export class Login extends Component {
 						<h1 className= "form_title">Login</h1>
 						{this.renderError()}
 						<div className= "form_group">
-							<label htmlFor = "username">Username </label>
+							<label className= "login_label" htmlFor = "username">Username </label>
 							<Field id= "username" name= "username" component={renderInput} type= "text" />
 						</div>
 						<div className= "form_group">
-							<label htmlFor= "password">Password </label>
+							<label  className= "login_label" htmlFor= "password">Password </label>
 							<Field id="password" name= "password" component={renderInput} type= "password" />
 						</div>
-						<button className= "btn btn-danger" type= "submit">Login</button>
+						<button className= "login_button btn btn-danger" type= "submit">Login</button>
 					</form>
+				</div>
+				<div className= "login_character_container">
+					<img width= "426" height= "426" className= "login_character" src= "Pac-man.png" alt= "login character" />
 				</div>
 			</main>
 		</section>
