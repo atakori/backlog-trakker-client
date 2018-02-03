@@ -44,6 +44,7 @@ export class Login extends Component {
 				<div className= "login_content" style= {{paddingTop: "65px"}}>
 					<form className= "login_form" onSubmit= { handleSubmit(this.handleFormSubmit.bind(this))}>
 						<h1 className= "form_title">Login</h1>
+						<hr className="style2"/>
 						{this.renderError()}
 						<div className= "form_group">
 							<label className= "login_label" htmlFor = "username">Username </label>
@@ -53,11 +54,12 @@ export class Login extends Component {
 							<label  className= "login_label" htmlFor= "password">Password </label>
 							<Field id="password" name= "password" component={renderInput} type= "password" />
 						</div>
+						<hr className="style2"/>
 						<button className= "login_button btn btn-danger" type= "submit">Login</button>
 					</form>
 				</div>
 				<div className= "login_character_container">
-					<img width= "426" height= "426" className= "login_character" src= "Pac-man.png" alt= "login character" />
+					<img width= "300" height= "300" className= "login_character" src= "Pac-man.png" alt= "login character" />
 				</div>
 			</main>
 		</section>

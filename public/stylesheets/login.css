@@ -1,22 +1,19 @@
-/*Fonts used: font-family: 'Orbitron', sans-serif;
+/*Fonts used: font-family: 'Orbitron', sans-serif; font-family: 'Bungee Inline', cursive;
 			  font-family: 'Merienda One', cursive;*/
 .login_content {
 	margin-top: 30px;
 }
 .login_form {
-	/*border: 2px solid black;*/
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 	text-align: center;
-/*	margin-left: 10%;
-	margin-right: 10%;*/
 	background-color: rgba(0, 19, 77, 0.7);
 }
 
 .form_title {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	font-size: 4.0em;
+	font-size: 5.0em;
 	color: white;
 	font-family: 'Orbitron', sans-serif;
 }
@@ -26,8 +23,9 @@
 }
 
 .login_label {
-	font-size: 2.0em;
+	font-size: 1.7em;
 	color: white;
+	font-family: 'Bungee Inline', cursive;
 }
 
 .login_input {
@@ -36,9 +34,33 @@
 }
 
 .login_button {
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	font-size: 1.3em;
 	width: 40%;
 	font-family: 'Merienda One', cursive;
 }
+
+
+hr.style2 {
+	border-top: 3px double #8c8b8b;
+	width: 60%;
+}
+
+
+
+@media (min-width:1050px) {
+    .login_form {
+		border: 2px solid black;
+		text-align: center;
+		margin-left: 10%;
+		margin-right: 10%;
+		}
+  }
+
+  @media (min-width:500px) {
+    .login_character {
+	width: 426px;
+	height: 426px;
+	}
+  }
