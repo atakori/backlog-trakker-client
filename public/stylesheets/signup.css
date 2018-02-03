@@ -1,0 +1,77 @@
+.signup_content {
+	margin-top: 30px;
+}
+.sign_up_form {
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	/*text-align: center;*/
+	background-color: rgba(0, 19, 77, 0.7);
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.signup_form_title {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 5.0em;
+	color: white;
+	font-family: 'Orbitron', sans-serif;
+	text-align:center;
+}
+
+.signup_character_container {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.signup_label {
+	font-size: 1.5em;
+	color: white;
+	font-family: 'Bungee Inline', cursive;
+}
+
+.signup_input {
+	font-size: 1.5em;
+	width: 50%;
+}
+
+.signup_button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 1.3em;
+	width: 40%;
+	font-family: 'Merienda One', cursive;
+	text-align: center;
+}
+
+.signup_button_container {
+	text-align: center;
+}
+
+.signup_error {
+	color: red;
+	font-size: 1.2em;
+}
+
+
+hr.signup_line_style2 {
+	border-top: 3px double #8c8b8b;
+	width: 75%;
+}
+
+
+
+@media (min-width:1050px) {
+    .sign_up_form {
+		border: 2px solid black;
+		margin-left: 10%;
+		margin-right: 10%;
+		}
+  }
+
+  @media (min-width:500px) {
+    .signup_character {
+	width: 390px;
+	height: 310px;
+	}
+  }

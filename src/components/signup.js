@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 function renderInput(field) { 
 	return (<div>
-		{field.meta.touched && field.meta.error && <span className="error">{field.meta.error}</span>}
+		{field.meta.touched && field.meta.error && <span className="signup_error">{field.meta.error}</span>}
 		<input {...field.input} type={field.type} className="form-control" />
     </div>
 	)
@@ -39,31 +39,38 @@ export class SignUp extends React.Component {
 			<main role= "main"> 
 				<div className= "signup_content" style= {{paddingTop: "65px"}}>
 					<form className= "sign_up_form" onSubmit= {handleSubmit(this.handleFormSubmit.bind(this))}>
-						<h1 className= "form_title">Sign Up</h1>
+						<h1 className= "signup_form_title">Sign Up</h1>
+						<hr className= "signup_line_style2" />
 						{this.renderError()}
 						<div className= "form_group"> 
-							<label htmlFor= "first_name" >First Name </label>
+							<label className= "signup_label" htmlFor= "first_name" >First Name </label>
 							<Field id= "first_name" name= "first_name" component={renderInput} type= "text" />
 						</div>
 						<div className= "form_group"> 
-							<label htmlFor= "last_name" >Last Name </label>
+							<label className= "signup_label" htmlFor= "last_name" >Last Name </label>
 							<Field id= "last_name" name= "last_name" component={renderInput} type= "text" />
 						</div>
 						<div className= "form_group"> 
-							<label htmlFor= "user_name" >Username </label>
+							<label className= "signup_label" htmlFor= "user_name" >Username </label>
 							<Field id= "username" name= "username" component={renderInput} type= "" />
 						</div>
 						<div className= "form_group"> 
-							<label htmlFor= "password" >Password </label>
+							<label className= "signup_label" htmlFor= "password" >Password </label>
 							<Field id= "password" name= "password" component={renderInput} type= "password" />
 						</div>
 						<div className= "form_group"> 
-							<label htmlFor= "passwordConfirm" >Confirm Password </label>
+							<label className= "signup_label" htmlFor= "passwordConfirm" >Confirm Password </label>
 							<Field id= "passwordConfirm" name= "passwordConfirm" component={renderInput} type= "password" />
 						</div>
-						<button type= "submit" className= "btn btn-danger">Sign Up </button>
+						<hr className= "signup_line_style2" />
+						<div className= "signup_button_container">
+						<button type= "submit" className= "signup_button btn btn-danger">Sign Up </button>
+						</div>
 					</form>
-				</div>
+						<div className= "signup_character_container">
+							<img width= "270" height= "220" className= "signup_character" src= "./images/sonic.jpg" alt= "login character" />
+						</div>
+					</div>
 			</main>
 		</section>
 		)
