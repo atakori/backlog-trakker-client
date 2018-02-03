@@ -51,3 +51,9 @@ body {
 .home_sign_up_button {
 	font-size: 1.3em;
 }
+
+hr.style11 {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
+}
