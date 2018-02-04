@@ -52,9 +52,9 @@ export class CurrentGameChapters extends React.Component {
 
 	render() {
 		return (
-			<div className= "game_chapters">
+			<div className= "dash_game_chapters">
 				<h2 className= "chapters_section_title"> {this.props.currentGame} Progress </h2>
-				<ul>
+				<ul className= "dash_chapter_list">
             		{this.renderGameChapters(this.props.completedChapters)}
           		</ul>
 			</div>
