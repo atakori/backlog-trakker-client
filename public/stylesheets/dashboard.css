@@ -1,0 +1,41 @@
+.no_games_title {
+	text-align: center;
+	text-decoration: underline;
+}
+
+.dpad {
+	display: inline;
+}
+
+.welcome_message_container {
+	text-align: center;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	text-align: center;
+	background-color: rgba(0, 19, 77, 0.7);
+}
+
+.no_games_title_container {
+	text-align: center;
+}
+.no_games_title {
+	font-size: 1.5em;
+}
+
+.welcome_message {
+	color: white;
+	font-size: 2.8em;
+}
+
+.dashboard_image_container {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.start_searching_message{
+	color: white;
+}
+
+.nogames_subtitle {
+	color: white;
+}

@@ -86,11 +86,18 @@ export class Dashboard extends React.Component {
 	} else if (this.props.gameCollection[0] === undefined) {
 		return(
 			<main role="main" className= "main" style= {{paddingTop: "65px"}}>
-				<h1 className= "no_games_title"> {this.props.currentUser}'s Dashboard</h1>
-				<div>
-					<h2 className=  "welcome_message">Welcome to Checkpoint! Looks like You don't have any games in your collection</h2>
+				<h1 className= "no_games_title_container"><img height= "50" height= "50" className= "dpad" src= "./images/Dpad-up.png" alt= "Dpad_Up" />     
+  				<span className= "no_games_title">{this.props.currentUser}'s Dashboard</span> <img height= "50" height= "50" className= "dpad" src= "./images/Dpad-up.png" alt= "Dpad_Up" />
+				</h1>
+				<div className= "welcome_message_container">
+						<h2 className=  "welcome_message">Welcome to Checkpoint!</h2>
+					<div className= "dashboard_image_container">
+						<img height= "300" className= "dpad" src= "./images/no_game.jpg" alt= "Dpad_Up" />
+					</div>
+					<h2 className= "nogames_subtitle">Looks like You don't have any games in your collection</h2>
 					<h3 className= "start_searching_message">Start searching for games and build your virtual collection in the searchbar above</h3>
 				</div>
+				
 			</main>
 			)
 	} else {
