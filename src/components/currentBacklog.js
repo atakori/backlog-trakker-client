@@ -10,9 +10,9 @@ export class CurrentBacklog extends React.Component {
 	renderGameArt(url) {
 		//AJAX call to get game art
 		let game_art_url= "http:" + url;
-		game_art_url= game_art_url.replace("thumb", "cover_small")
+		game_art_url= game_art_url.replace("thumb", "cover_big")
 		return (
-			<img src= {game_art_url} alt="Game Box Art" className= "game_box_art"/>
+			<img src= {game_art_url} alt="Game Box Art" className= "collection_game_box_art"/>
 			)
 	}
 
@@ -44,8 +44,9 @@ export class CurrentBacklog extends React.Component {
 		} else {
 			let gameslist= games.map((game,index) => (
 			<div key= {index} className= "game">
+				<p className= "collection_game_title">{game.name}</p>
 				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
-				<button className= "game_title btn btn-danger" onClick= {() => this.getSpecificGame(game.name)}>{game.name}</button>
+				<button className= "update_progress_button btn btn-danger" onClick= {() => this.getSpecificGame(game.name)}>Update Progress</button>
 				{this.renderGameInfoButton(game.name)}
 
 			</div> 
@@ -62,8 +63,8 @@ export class CurrentBacklog extends React.Component {
 			<div className= "user_top5_games">
 				{this.renderTopBacklogGames()}
 			</div>
-			<div className="game_collection_button"> 
-				<a className= "game_backlog_link" href= {`/mygamelibrary/${this.props.userID}`}> <button className= "btn btn-primary">Full Game Collection</button> </a>
+			<div className="full_game_collection_button"> 
+				<a className= "game_backlog_link" href= {`/mygamelibrary/${this.props.userID}`}> <button className= "backlog_link_button btn btn-success">Full Game Collection</button> </a>
 			</div>
 		</section>
 		)
