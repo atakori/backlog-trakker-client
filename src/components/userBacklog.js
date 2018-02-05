@@ -27,7 +27,7 @@ export class ShowUserBacklog extends React.Component {
 		}
 		return (
 			<div className= "start_status">
-				<p>Percentage complete</p>
+				<p className= "backlog_percent_header">Percentage complete</p>
 		        <Progress type= "circle" percent= {percentComplete.toFixed(2)}/>
 			</div>
 			)
@@ -54,11 +54,13 @@ export class ShowUserBacklog extends React.Component {
 	            <li className= "game" key= {index}>
 	            <p className= "backlog_game_title">{game.name}</p>
 			  	<img src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "backlog_game_box_art"/>
+            	<div className= "game_completion_status"> 
+            		{this.renderGameStatus(game.completedChapters, game.gameChapters)}
+            	</div>
             	</li>
             	{this.renderRedirectButton(game.name)}
             	{this.renderGameInfoButton(game.name)}
-            	 <p className= "game_completion_status"> {this.renderGameStatus(game.completedChapters, game.gameChapters)}</p>
-            	}
+       
             </div>
 			))
 			return gameslist;
