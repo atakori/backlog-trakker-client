@@ -53,7 +53,7 @@ export class ShowUserBacklog extends React.Component {
 			<div className= "game_info" key={index}>
 	            <li className= "game" key= {index}>
 	            <p className= "backlog_game_title">{game.name}</p>
-			  	<img src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "backlog_game_box_art"/>
+			  	<img width= "300" src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "backlog_game_box_art"/>
             	<div className= "game_completion_status"> 
             		{this.renderGameStatus(game.completedChapters, game.gameChapters)}
             	</div>
