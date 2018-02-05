@@ -55,7 +55,6 @@
 	text-align: center;
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
-	text-align: center;
 	background-color: rgba(0, 19, 77, 0.7);
 }
 
@@ -147,7 +146,51 @@
     .empty_case_image {
 		height: 300px;
 	}
+
 /*	.collection_game_box_art {
 	width: 150px;
 } Increase for bigger box arts*/
   }
+@media(min-width:900px) {
+  /*<CurrentGameChapters/> CSS*/
+	.currentGameProgress_contents {
+		border: 2px solid black;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+	.progress_stats {
+		float: right;
+    	margin-right: 10%;
+	}
+	.ant-progress-circle-trail {
+		text-align: center;
+	}
+	.dash_game_title {
+		text-align: center;
+	}
+	.dash_percent_title {
+		text-decoration: underline
+	}
+	.dash_game_box_art {
+    	margin-bottom: 25px;
+	}
+}
+
+@media(min-width:1050px) {
+	.currentGameProgress_contents {
+		width: 50%;
+		border: 2px solid black;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	.dash_game_box_art {
+		margin-bottom: 0px;
+	}
+
+	.progress_stats {
+		float: none;
+    	margin-right: 0%;
+    	margin-bottom: 10px;
+	}
+}
