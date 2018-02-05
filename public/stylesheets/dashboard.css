@@ -151,7 +151,7 @@
 	width: 150px;
 } Increase for bigger box arts*/
   }
-@media(min-width:900px) {
+@media(min-width:700px) {
   /*<CurrentGameChapters/> CSS*/
 	.currentGameProgress_contents {
 		border: 2px solid black;
@@ -178,10 +178,28 @@
 
 @media(min-width:1050px) {
 	.currentGameProgress_contents {
-		width: 50%;
+		width: 100%;
+   		border: 2px solid black;
+    	margin-left: 2%;
+    	margin-right: 2%;
+    	float: left;
+	}
+	.main_dashboard {
+		width: 45%;
+	}
+
+	.chapters_section_title{
+		color: white;
+	}
+
+	.dash_game_chapters {
 		border: 2px solid black;
-		margin-left: 2%;
+		background-color: rgba(0, 19, 77, 0.7);
+		width: 45%;
+		float: right;
+		margin-top: 0px;
 		margin-right: 2%;
+		color: white;
 	}
 
 	.dash_game_box_art {
@@ -192,5 +210,30 @@
 		float: none;
     	margin-right: 0%;
     	margin-bottom: 10px;
+	}
+
+	.mini_game_collection {
+		clear: both;
+		margin-top: 20px;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-bottom: 20px;
+	}
+
+	.user_top5_games {
+		display: flex;
+		justify-content: space-around;
+	}
+	.game{
+		display: inline-block;
+	}
+
+	.full_game_collection_button {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	br {
+		clear: both;
 	}
 }
