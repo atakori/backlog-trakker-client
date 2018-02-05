@@ -37,7 +37,7 @@ export class GameCollection extends React.Component {
 				<header role= "banner">
 					<NavigationBar />
 				</header>
-				<main role= "main">
+				<main role= "main" className= "main" style= {{paddingTop: "65px"}}>
 		        	<h2 className= "collection_title"> My Game Collection</h2>
 					<ShowUserBacklog gameCollection= {this.props.gameCollection} />
 				</main>

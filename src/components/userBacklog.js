@@ -14,7 +14,7 @@ export class ShowUserBacklog extends React.Component {
 
 	renderGameArtUrl(url) {
 		let transformedUrl= "http:" + url;
-		transformedUrl= transformedUrl.replace("thumb", "cover_small_2x");
+		transformedUrl= transformedUrl.replace("thumb", "cover_big");
 		return transformedUrl;
 	}
 
@@ -42,7 +42,7 @@ export class ShowUserBacklog extends React.Component {
 
 	renderRedirectButton(gameName) {
 		return (
-			<Link to={{pathname:"/dashboard", state: {specificGame: {gameName}}}}><button className= "btn btn-danger"> Update Progress for {gameName}</button></Link>
+			<Link to={{pathname:"/dashboard", state: {specificGame: {gameName}}}}><button className= "backlog_update_button btn btn-danger"> Update Progress for {gameName}</button></Link>
 			)	
 	}
 
@@ -52,8 +52,8 @@ export class ShowUserBacklog extends React.Component {
 			let gameslist= games.map((game, index) => (
 			<div className= "game_info" key={index}>
 	            <li className= "game" key= {index}>
-			  	<img src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "game_box_art"/>
-            	<p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
+	            <p className= "backlog_game_title">{game.name}</p>
+			  	<img src= {this.renderGameArtUrl(game.gameArtUrl)} alt="Game Box Art" className= "backlog_game_box_art"/>
             	</li>
             	{this.renderRedirectButton(game.name)}
             	{this.renderGameInfoButton(game.name)}
