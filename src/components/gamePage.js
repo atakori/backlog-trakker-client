@@ -29,10 +29,10 @@ export class GamePage extends React.Component {
 		//collection or not
 		
 		if(this.props.gameAdded) {
-			return (<button className= "btn btn-primary in_collection_button"> Game In Collection</button>
+			return (<button className= "add_to_collection_button btn btn-primary in_collection_button"> Game In Collection</button>
 )
 		} else { return (
-			<button className= "btn btn-danger add_button" onClick= {this.handleButtonClick.bind(this)}> Add to Game Collection</button>
+			<button className= "add_to_collection_button btn btn-danger add_button" onClick= {this.handleButtonClick.bind(this)}> Add to Game Collection</button>
 			)
 		}
 	}

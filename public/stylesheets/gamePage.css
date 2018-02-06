@@ -1,7 +1,8 @@
 .info_main_game_title {
 	text-align: center;
 	font-size: 3.0em;
-	text-decoration: underline
+	text-decoration: underline;
+	font-family: 'Audiowide', cursive;
 }
 
 .main_game_info_container {
@@ -20,17 +21,20 @@
 
 .info_completion_time {
 	font-size: 1.2em;
+	font-family: 'Orbitron', sans-serif;
 }
 
 .info_game_summary {
 	margin-left: 2%;
 	margin-right: 2%;
 	font-size: 1.2em;
+	font-family: 'Audiowide', cursive;
 
 }
 
 .info_game_genre {
 	font-size: 1.2em;
+	font-family: 'Bungee Inline', cursive;
 }
 
 /*<Ratings /> CSS*/
@@ -50,20 +54,31 @@
 	font-size:2.7em;
 	text-decoration: underline;
 	color: white;
+	font-family: 'Audiowide', cursive;
+	padding-top: 10px;
 }
 
 .critic_avg_score {
 	font-size:1.4em;
+	font-family: 'Audiowide', cursive;
 }
 
 .user_avg_score {
 	font-size:1.4em;	
 	margin-top: 10px;
+	font-family: 'Audiowide', cursive;
 }
 
 .add_game_to_collection_section {
 	margin-top: 20px;
 	text-align: center;
+}
+
+.add_to_collection_button {
+    font-size: 2.0em;
+    margin-left: 2%;
+    margin-right: 2%;;
+	font-family: 'Audiowide', cursive;
 }
 
 /*<SimilarGames /> CSS*/
@@ -80,6 +95,8 @@
 .similar_games_title {
 	color: white;
 	text-decoration: underline;
+	font-family: 'Audiowide', cursive;
+	padding-top: 10px;
 }
 
 .info_games_list {
@@ -93,6 +110,8 @@
 
 .info_game_title {
 	font-size: 1.2em;
+	margin-top: 5px;
+	font-family: 'Orbitron', sans-serif;
 }
 
 .info_game_link {
