@@ -1,0 +1,100 @@
+.info_main_game_title {
+	text-align: center;
+	font-size: 3.0em;
+	text-decoration: underline
+}
+
+.main_game_info_container {
+	text-align: center;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	background-color: rgba(0, 19, 77, 0.7);
+	padding-top: 10px;
+	color: white;
+}
+
+.info_game_box_art {
+	width: 50%;
+	max-width: 400px;
+}
+
+.info_completion_time {
+	font-size: 1.2em;
+}
+
+.info_game_summary {
+	margin-left: 2%;
+	margin-right: 2%;
+	font-size: 1.2em;
+
+}
+
+.info_game_genre {
+	font-size: 1.2em;
+}
+
+/*<Ratings /> CSS*/
+.info_scores {
+	margin-top: 20px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	background-color: rgba(0, 19, 77, 0.7);
+	text-align: center;
+	padding-bottom: 10px;
+	color: white;
+}
+
+
+
+.info_rating_title {
+	font-size:2.7em;
+	text-decoration: underline;
+	color: white;
+}
+
+.critic_avg_score {
+	font-size:1.4em;
+}
+
+.user_avg_score {
+	font-size:1.4em;	
+	margin-top: 10px;
+}
+
+.add_game_to_collection_section {
+	margin-top: 20px;
+	text-align: center;
+}
+
+/*<SimilarGames /> CSS*/
+
+.similar_games_section {
+	margin-top: 20px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	background-color: rgba(0, 19, 77, 0.7);
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.similar_games_title {
+	color: white;
+	text-decoration: underline;
+}
+
+.info_games_list {
+	padding-left: 0px;
+}
+
+.similar_game_box_art {
+	width: 25%;
+	max-width: 150px;
+}
+
+.info_game_title {
+	font-size: 1.2em;
+}
+
+.info_game_link {
+	color: white;
+}

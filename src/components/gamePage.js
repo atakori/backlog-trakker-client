@@ -80,7 +80,7 @@ export class GamePage extends React.Component {
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
         		</div>
-        		<div className= "simiar_games_section">
+        		<div className= "simiar_games_container">
         			<SimilarGames gameName= {this.props.match.params.game} similarGamesList={this.props.similarGamesList}/>
         		</div>
 			</main>

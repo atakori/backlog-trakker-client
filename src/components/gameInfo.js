@@ -15,7 +15,7 @@ export class GameInfo extends React.Component {
 		Url= Url.replace("thumb", "cover_big");
 		return(
 			<div className= "Game_Art_container">
-				<img src= {Url} alt="Game Box Art" className= "game_box_art"/>
+				<img src= {Url} alt="Game Box Art" className= "info_game_box_art"/>
 			</div>
 			)
 	}
@@ -23,12 +23,14 @@ export class GameInfo extends React.Component {
 	render() {
 	return ( 
 		<div className= "game_information">
-			<h1 className= "main_game_title">{this.props.gameName.replace(/-/g, " ")}</h1>
-			{this.renderGameArt()}
-			{/*only renders time to beat if available*/}
-			{this.props.completionTime && <p className= "completion_time"> Estimated time to beat: {this.props.completionTime} Hours</p>}
-			{this.props.gameSummary}
-			<p className= "game_genre"> Genre: {this.props.gameGenres}</p>
+		<h1 className= "info_main_game_title">{this.props.gameName.replace(/-/g, " ")}</h1>
+			<div className= "main_game_info_container">
+				{this.renderGameArt()}
+				{/*only renders time to beat if available*/}
+				{this.props.completionTime && <p className= "info_completion_time"> Estimated time to beat: {this.props.completionTime} Hours</p>}
+				<p className= "info_game_summary">{this.props.gameSummary}</p>
+				<p className= "info_game_genre"> Genre: {this.props.gameGenres}</p>
+			</div>
 			<Ratings userAvgRating= {this.props.userScore} criticAvgRating={this.props.criticScore} />
 		</div>
 		)

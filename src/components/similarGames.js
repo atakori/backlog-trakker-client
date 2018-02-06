@@ -19,8 +19,8 @@ export class SimilarGames extends React.Component {
 		console.log(transformedArray)
 		let gamesList = transformedArray.map((game, index) => (
 			<li className= "game" key= {index}>
-			  <img src= {game.game_art_url} alt="Game Box Art" className= "game_box_art"/>
-            <p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
+			  <img src= {game.game_art_url} alt="Game Box Art" className= "similar_game_box_art"/>
+            <p className= "info_game_title"><a className= "info_game_link" href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
             </li>)
 		)
 		return gamesList;
@@ -34,7 +34,7 @@ export class SimilarGames extends React.Component {
 	return (
 		<section className= "similar_games_section">
 			<h2 className= "similar_games_title"> You might also like...</h2>
-			<ul className= "games_list">
+			<ul className= "info_games_list">
 				{this.renderSimilarGames()}
 			</ul>
 		</section>
