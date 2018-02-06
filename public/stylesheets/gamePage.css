@@ -128,8 +128,8 @@
 	}
 	.info_scores  {
     	border: 2px solid black;
-		margin-left: 2%;
-		margin-right: 2%;
+		margin-left: 15%;
+    	margin-right: 15%;
 	}
 
 	.info_scores_container {
@@ -158,13 +158,33 @@
 }
 
 @media(min-width:1050px) {
+	.main_game_info_container{
+		text-align: left;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+	}
 	.info_game_art_container {
-		float: left;
+		width: 40%;
+    	display: inline-block;
+    	margin-bottom: 10px;
+	}
+
+	.info_game_box_art {
+		width: 100%;
+    	max-width: 300px;
 	}
 
 	.info_completion_time {
 		display: inline-block;
 	}
-	.info_game_summary{
-		
+
+	.info_summary_and_genre{
+		width: 40%;
+    	display: inline-block;
+    	text-align: center;
+	}
+
+	.info_completion_time{
+		text-decoration: underline;
 	}

@@ -14,7 +14,7 @@ export class CurrentGameProgress extends React.Component{
 			          <img className= "dash_game_box_art" src= {this.props.gameArtURL} alt="game_image" height= "100%" width="50%"/>
 			          <div className= "progress_stats">
 			          	<p className= "dash_percent_title"> Percentage complete</p>
-			          	<Progress width= {200} className="dash_progress_circle" type= "circle" percent= {this.props.progress}/>
+			          	<Progress width= {200} className="dash_progress_circle" type= "circle" percent= {this.props.progress} format={() => <span style={{color: "white"}}>{this.props.progress}%</span>}/>
 			          </div>
 			        </div>  
 				</div>
