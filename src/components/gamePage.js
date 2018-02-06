@@ -89,7 +89,8 @@ export class GamePage extends React.Component {
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>
 					<div className= "not_found_message">
-						<h1 className="not_found_title"> Sorry, {this.props.gameName} was not found :(</h1>
+						<h1 className="not_found_title">Sorry, {this.props.gameName} was not found</h1>
+						<img className= "no_game_image" src= "../images/controller2.png" alt="controller_image"/>
 						<p className="not_found_subtitle"> Please search for another game</p>
 					</div>
 				</main>
@@ -101,7 +102,8 @@ export class GamePage extends React.Component {
 		return(
 				<main role="main" style= {{paddingTop: "65px"}}>
 					<div className= "not_found_message">
-						<h1 className="not_found_title"> Sorry, "{gameName}" was not found :(</h1>
+						<h1 className="not_found_title">Sorry, "{gameName}" was not found</h1>
+						<img className= "no_game_image" src= "../images/controller2.png" alt="controller_image"/>
 						<p className="not_found_subtitle"> Please search for another game</p>
 					</div>
 				</main>
