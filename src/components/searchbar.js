@@ -58,7 +58,7 @@ export class MockSearch extends React.Component {
       >
       <input ref={input => (this.input = input)}/>
     </AutoComplete>
-    <button type= "submit"> Search</button>
+    <button className= "btn btn-primary search_games_button" type= "submit"> Search</button>
     </form>
   );
 }

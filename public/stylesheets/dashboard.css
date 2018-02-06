@@ -44,6 +44,16 @@
 	font-family: 'Audiowide', cursive;
 }
 
+/*Navbar CSS*/
+
+.game_search {
+	margin-top: 8px;
+}
+
+.search_games_button {
+	margin-left: 5px;
+}
+
 /*<CurrentGameProgress> CSS*/
 .welcome_title {
 	text-align: center;
