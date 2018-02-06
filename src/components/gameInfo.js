@@ -14,7 +14,7 @@ export class GameInfo extends React.Component {
 		Url= "http:" + Url;
 		Url= Url.replace("thumb", "cover_big");
 		return(
-			<div className= "Game_Art_container">
+			<div className= "info_game_art_container">
 				<img src= {Url} alt="Game Box Art" className= "info_game_box_art"/>
 			</div>
 			)

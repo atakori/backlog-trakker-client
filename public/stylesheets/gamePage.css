@@ -117,3 +117,54 @@
 .info_game_link {
 	color: white;
 }
+
+/*Responsive Design CSS*/
+
+@media(min-width:700px) {
+	.main_game_info_container  {
+		margin-left: 2%;
+    	margin-right: 2%;
+    	border: 2px solid black;
+	}
+	.info_scores  {
+    	border: 2px solid black;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	.info_scores_container {
+		display: flex;
+		align-items: center;
+    	justify-content: space-evenly;
+    	padding-left: 5%;
+    	padding-right: 15%;
+	}
+	.info_games_list {
+		display: flex;
+    	justify-content: space-around;
+    	align-items: flex-end;
+    	flex-wrap: wrap;
+	}
+	.similar_games_section {
+		margin-left: 3%;
+		margin-right: 3%;
+	}
+	.similar_game_box_art {
+		width: 100%;
+    	max-width: 100px;
+    	max-height: 200px;
+	}
+
+}
+
+@media(min-width:1050px) {
+	.info_game_art_container {
+		float: left;
+	}
+
+	.info_completion_time {
+		display: inline-block;
+	}
+	.info_game_summary{
+		
+	}
