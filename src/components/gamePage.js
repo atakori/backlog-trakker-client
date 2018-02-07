@@ -69,19 +69,22 @@ export class GamePage extends React.Component {
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
 		let responseGameName= this.props.gameName;
-		console.log(responseGameName)
-		console.log(gameName)
-		if(gameName.toLowerCase() == responseGameName.toLowerCase()) {
+		
+		let compareGameName= gameName.replace(/\s/g, "");
+		let compareResponseGameName= responseGameName.replace(/\s|-|:/g, "");
+		console.log(compareResponseGameName)
+		console.log(compareGameName)
+		if(compareGameName.toLowerCase() == compareResponseGameName.toLowerCase()) {
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">
-					<GameInfo gameName= {this.props.match.params.game} gameArtURL={this.props.gameArtURL} completionTime={this.props.completionTime && this.getCompletionTime()} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
+					<GameInfo gameName= {responseGameName} gameArtURL={this.props.gameArtURL} completionTime={this.props.completionTime && this.getCompletionTime()} gameSummary={this.props.gameSummary} criticScore={this.props.criticScore} userScore={this.props.userScore} gameGenres={this.props.gameGenres}/>
 				</div>
 				<div className= "add_game_to_collection_section">
            			{this.gameCollectionStatus()}
         		</div>
         		<div className= "simiar_games_container">
-        			<SimilarGames gameName= {this.props.match.params.game} similarGamesList={this.props.similarGamesList}/>
+        			<SimilarGames gameName= {responseGameName} similarGamesList={this.props.similarGamesList}/>
         		</div>
 			</main>
 				)

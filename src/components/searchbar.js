@@ -50,7 +50,7 @@ export class MockSearch extends React.Component {
   return (
     <form className= "game_search" onSubmit= {(e) => this.onSubmit(e)}>
     <AutoComplete
-      style={{ width: 200}}
+      style={{ width: 250}}
       dataSource={this.props.dataSource}
       placeholder="Enter Game here"
       filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
