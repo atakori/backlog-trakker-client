@@ -22,7 +22,7 @@ export class LandingPage extends React.Component {
 				</div> 
 				<section className= "landing_page_info">
 				<div className= "more_info info_one">
-					<h2 className= "landing_page_title"><i className="fas fa-tasks"></i>  <span className="title_text"> Never lose track of your game progress</span>  <i className="fas fa-tasks"></i></h2>
+					<h2 className= "landing_page_title"><i className="fas fa-tasks"></i>  <span className="title_text info_one_title"> Never lose track of your game progress</span>  <i className="fas fa-tasks"></i></h2>
 					<div className= "home_character_container">
 						<img width= "426" height= "426" className= "crash_character" src= "/images/crash.png" alt= "login character" />
 					</div>

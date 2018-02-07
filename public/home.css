@@ -89,4 +89,98 @@ hr.style11 {
 	height: 6px;
 	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
     border: 0;
+    clear: both;
+}
+
+@media (min-width: 880px) {
+	.home_character_container {
+		float: left;
+    	margin-left: 16%;
+    	position: relative;
+    	top: -72px;
+	}
+
+	.info_one {
+		padding-top: 20px;		
+	}
+
+	.info_one_title {
+		margin-top: 5px;
+	}
+
+	.landing_page_title {
+		margin-left: 45%;
+    	margin-right: 10%;
+
+	}
+	.landing_page_details{
+		margin-left: 45%;
+    	margin-right: 10%;
+	}
+}
+
+@media (min-width: 1150px) {
+	.title_text {
+		font-size: 1.5em;
+	}
+	.landing_page_details {
+		font-size: 1.7em;
+	}
+
+	.home_character_container {
+    	margin-left: 17%;
+    	top: -117px;
+	}
+
+	.crash_character {
+		max-width: 325px;
+    	max-height: 325px;
+	}
+
+	.layton_character {
+		max-width: 325px;
+    	max-height: 325px;
+    	margin-top: 10px;
+	}
+
+	.mario_character {
+		max-width: 325px;
+    	max-height: 325px;
+    	margin-top: 20px;
+	}
+	hr.style11{
+		position: relative;
+		top:-35px;
+	}
+
+}
+
+@media(min-width: 1450px) {
+	.mario_character {
+		margin-top:40px;
+	}
+	hr.style11{
+		top:-53px;
+	}
+}
+
+@media(min-width: 1580px) {
+	.layton_character {
+		margin-top: 40px;
+	}
+}
+
+@media(min-width: 1650px) {
+	.home_character_container {
+    	margin-left: 17%;
+    	top: -117px;
+	}
+
+	.landing_page_title {
+	    margin-left: 38%;
+	}
+	.landing_page_details{
+		margin-left: 38%;
+	}
+}
 }
