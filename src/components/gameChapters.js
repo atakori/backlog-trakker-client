@@ -43,8 +43,6 @@ export class CurrentGameChapters extends React.Component {
 		//makes state change to show which chapter was crossed off
 		// causes progress bar to increase/decrease
 		//add chapter to db or retract from db list and 
-		console.log(chapter)
-		console.log("working");
 		let gameName= this.props.currentGame;
 		this.props.handleChapterChange(gameName, chapter);
 		//this.renderGameChapters(mockchapter);

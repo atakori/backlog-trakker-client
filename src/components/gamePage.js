@@ -72,8 +72,6 @@ export class GamePage extends React.Component {
 		
 		let compareGameName= gameName.replace(/\s/g, "");
 		let compareResponseGameName= responseGameName.replace(/\s|-|:/g, "");
-		console.log(compareResponseGameName)
-		console.log(compareGameName)
 		if(compareGameName.toLowerCase() == compareResponseGameName.toLowerCase()) {
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>

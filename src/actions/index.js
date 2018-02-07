@@ -230,7 +230,6 @@ export function getGameCollection(gameName) {
 	if (gameName) {
 		return function(dispatch) {
 		console.log("GameName was provided!")
-		console.log(gameName);
 		axios.get(`${API_URL}/api/user`, {
 			headers: {authorization: localStorage.getItem('token')}})
 		.then(res => {
@@ -285,14 +284,12 @@ export function getGameCollection(gameName) {
 
 export function handleChapterChange(gameName, chapter) {
 	return function(dispatch) {
-		console.log("works")
 		axios.get(`${API_URL}/api/user`, {
 			headers: {authorization: localStorage.getItem('token')}})
 		.then(res => {
 			const username= res.data;
 			axios.get(`${API_URL}/api/user/handleChapter?username=${username}&name=${gameName}&chapter=${chapter}`)
 			.then(gameCollection => {
-				console.log(gameCollection);
 				dispatch({
 					type:GET_GAME_COLLECTION,
 					payload: gameCollection.data

@@ -18,7 +18,6 @@ export class CurrentBacklog extends React.Component {
 
 	renderGameInfoButton(gameName) {
 		let gameUrl= gameName.replace(/\s+/g, "-");
-		console.log(gameUrl);
 		return (
 			<a href={`/gameInfo/${gameUrl}`}> <button className= "game_info_button btn btn-primary"> Game Info</button> </a>
 			)
