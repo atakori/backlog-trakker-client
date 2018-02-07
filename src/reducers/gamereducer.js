@@ -60,6 +60,7 @@ export default function (state=initialState, action) {
 			return{...state, error:action.payload}
 		case NULL_ERROR:
 			return{...state, error:action.payload}
+		default:
 	}
 	return state;
 }

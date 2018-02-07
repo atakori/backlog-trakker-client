@@ -70,12 +70,6 @@ export class Dashboard extends React.Component {
 	//dashboard will check to see if there is a game set as the props
 	//to render the game and its info
 
-	renderNoGamesPage() {
-		<main role="main" className= "main" style= {{paddingTop: "65px"}}>
-			<h1> Looks like you need to add some games</h1>
-		</main>
-	}
-
 	renderDashboardView() {
 		if(!this.props.gameCollection | !this.props.userBacklog) {
 		return(
@@ -86,8 +80,8 @@ export class Dashboard extends React.Component {
 	} else if (this.props.gameCollection[0] === undefined) {
 		return(
 			<main role="main" className= "main" style= {{paddingTop: "65px"}}>
-				<h1 className= "no_games_title_container"><img height= "50" height= "50" className= "dpad" src= "./images/Dpad-up.png" alt= "Dpad_Up" />     
-  				<span className= "no_games_title">{this.props.currentUser}'s Dashboard</span> <img height= "50" height= "50" className= "dpad" src= "./images/Dpad-up.png" alt= "Dpad_Up" />
+				<h1 className= "no_games_title_container"><img height= "50" className= "dpad" src= "./images/Dpad-up.png" alt= "Dpad_Up" />     
+  				<span className= "no_games_title">{this.props.currentUser}'s Dashboard</span> <img height= "50" className= "dpad" src= "./images/Dpad-up.png" alt= "Dpad_Up" />
 				</h1>
 				<div className= "welcome_message_container">
 						<h2 className=  "welcome_message">Welcome to Checkpoint!</h2>

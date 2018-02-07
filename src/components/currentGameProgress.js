@@ -2,9 +2,9 @@ import React from 'react';
 import { Progress } from 'antd';
 
 export class CurrentGameProgress extends React.Component{
-	constructor(props) {
+/*	constructor(props) {
 		super(props)
-	}
+	}*/
 	render() {
 		return (
 				<div className= "main_dashboard"> 

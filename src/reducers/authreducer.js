@@ -16,6 +16,7 @@ export default function (state=initialState, action) {
 			return{...state, currentUser: action.payload}
 		case FETCH_MESSAGE: 
 			return {...state, message: action.payload}
+		default:
 	}
 	return state;
 }

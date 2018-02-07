@@ -1,6 +1,5 @@
 import React from 'react';
 import { Progress } from 'antd';
-import LoadingScreen from './loading';
 
 export function Ratings(props) {
 	return (

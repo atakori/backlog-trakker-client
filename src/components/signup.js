@@ -29,6 +29,12 @@ export class SignUp extends React.Component {
 		}
 	}
 
+	handlefieldsWarning(firstname,lastname,username,password,passwordConfirm) {
+		if(firstname === undefined | lastname === undefined | username === undefined | password === undefined |passwordConfirm) {
+
+		} 
+	}
+
 	render(){
 		const {handleSubmit, fields: {firstname, lastname, username, password, passwordConfirm}} = this.props;
 	return (
@@ -72,6 +78,7 @@ export class SignUp extends React.Component {
 						</div>
 					</div>
 			</main>
+			{this.handlefieldsWarning(firstname,lastname,username,password,passwordConfirm)}
 		</section>
 		)
 	}

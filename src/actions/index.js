@@ -6,7 +6,6 @@ import {
 	LOADING_FINISHED,
 	GET_CURRENT_USER,
 	FETCH_MESSAGE,
-	FETCH_GAME_INFO,
 	FETCH_GAME_NAME,
 	FETCH_GAME_SUMMARY,
 	FETCH_GAME_GENRE_IDS,
@@ -18,7 +17,6 @@ import {
 	ADD_GAME_TO_COLLECTION,
 	CHECK_GAME_COLLECTION,
 	GET_GAME_COLLECTION,
-	HANDLE_CHAPTER_CHANGE,
 	FETCH_ENTIRE_BACKLOG,
 	SEARCH_FOR_GAME,
 	SEND_ERROR,
@@ -312,6 +310,7 @@ export function searchForGame(value) {
 			let resultsArray= [];
 			resultsObject.map(resultObject => {
 				resultsArray.push(resultObject.name)
+				return console.log("searching for Game")
 			})
 			dispatch({
 				type: SEARCH_FOR_GAME,

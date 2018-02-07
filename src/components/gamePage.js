@@ -27,7 +27,6 @@ export class GamePage extends React.Component {
 	gameCollectionStatus() {
 		//checks for whether or not the game is in the users
 		//collection or not
-		
 		if(this.props.gameAdded) {
 			return (<button className= "add_to_collection_button btn btn-primary in_collection_button"> Game In Collection</button>
 )
@@ -72,7 +71,7 @@ export class GamePage extends React.Component {
 		
 		let compareGameName= gameName.replace(/\s/g, "");
 		let compareResponseGameName= responseGameName.replace(/\s|-|:/g, "");
-		if(compareGameName.toLowerCase() == compareResponseGameName.toLowerCase()) {
+		if(compareGameName.toLowerCase() === compareResponseGameName.toLowerCase()) {
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>
 				<div className= "game_information">

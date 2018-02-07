@@ -14,7 +14,7 @@ export class MockSearch extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    if(this.input == undefined) {
+    if(this.input === undefined) {
       this.setState({
       location: null
     })

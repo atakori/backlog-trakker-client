@@ -11,7 +11,7 @@ export class CurrentGameChapters extends React.Component {
 	checkCompletedChapters(level) {
 		let result= false;
 		this.props.completedChapters.forEach(function(completedChapter){
-			if(completedChapter == level) {
+			if(completedChapter === level) {
 				result= true;
 			}
 		});

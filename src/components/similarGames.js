@@ -1,9 +1,9 @@
 import React from 'react';
 
 export class SimilarGames extends React.Component {
-	constructor(props) {
+/*	constructor(props) {
 		super(props)
-	}
+	}*/
 
 	renderSimilarGames() {
 		//renders Similar Games section with game names and Box Arts

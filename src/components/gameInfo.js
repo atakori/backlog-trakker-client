@@ -2,12 +2,12 @@ import React from 'react';
 import { Ratings } from './ratings.js'
 
 export class GameInfo extends React.Component {
-	constructor(props) {
+/*	constructor(props) {
 		super(props)
-		/*this.state= {
+		this.state= {
 			loading: false
-		}*/
-	}
+		}
+	}*/
 
 	renderGameArt() {
 		let Url= this.props.gameArtURL;
