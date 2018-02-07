@@ -7,7 +7,19 @@ import {NavigationBar}  from './navbar';
 
 let store= createStore(backlogReducer)
 
+
+	
+
 describe('<NavigationBar />', () => {
+		beforeAll(() => {
+	   global.localStorage = {
+	      i2x_token: 'someToken',
+	      getItem: function () {
+	         return 'someToken'
+	      }
+	   };
+	});
+
 	it('Renders without crashing', () => {
 		const dispatch = jest.fn();
 		shallow(<NavigationBar getCurrentUser= {() => dispatch}/>);
@@ -28,13 +40,13 @@ describe('<NavigationBar />', () => {
 		const wrapper= shallow(<NavigationBar authenticated= {true} currentUser= {'test_user'}getCurrentUser= {dispatch}/>)
 		console.log(wrapper.find('.navbar-brand'))
 		const expectedUrl = '/dashboard'
-		expect(wrapper.find({href: expectedUrl}).text()).toEqual(" Backlog Trakker ")
+		expect(wrapper.find({href: expectedUrl}).text()).toEqual(" Checkpoint ")
 	})
 	it('should direct the user to the landing page via the logo if not logged in', () => {
 		const dispatch= jest.fn();
 		const wrapper= shallow(<NavigationBar authenticated= {false} currentUser= {'test_user'}getCurrentUser= {dispatch}/>)
 		console.log(wrapper.find('.navbar-brand'))
 		const expectedUrl = '/'
-		expect(wrapper.find({href: expectedUrl}).text()).toEqual(" Backlog Trakker ")
+		expect(wrapper.find({href: expectedUrl}).text()).toEqual(" Checkpoint ")
 	})
 })

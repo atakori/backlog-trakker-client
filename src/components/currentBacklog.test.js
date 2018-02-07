@@ -28,9 +28,9 @@ describe('<CurrentBacklog />', () => {
 		const callback = jest.fn();
 		const secondCallback = jest.fn();
         const wrapper= mount(<CurrentBacklog gameCollection= {fakeCollection} getSpecificGame= {callback} scrollToTop= {secondCallback}/>)
-		console.log(wrapper.find('.game_title'))
-        const gameName= wrapper.find('.game_title').text()
-        wrapper.find('.game_title').simulate('click')
+		console.log(wrapper.find('.collection_game_title'))
+        const gameName= wrapper.find('.collection_game_title').text()
+        wrapper.find('.update_progress_button').simulate('click')
 		expect(callback).toHaveBeenCalledWith(gameName)
         expect(secondCallback).toHaveBeenCalled()
     })
