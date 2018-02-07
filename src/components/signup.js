@@ -58,7 +58,7 @@ export class SignUp extends React.Component {
 						</div>
 						<div className= "form_group"> 
 							<label className= "signup_label" htmlFor= "user_name" >Username </label>
-							<Field id= "username" name= "username" component={renderInput} type= "" />
+							<Field id= "username" name= "username" component={renderInput} type= "text" />
 						</div>
 						<div className= "form_group"> 
 							<label className= "signup_label" htmlFor= "password" >Password </label>

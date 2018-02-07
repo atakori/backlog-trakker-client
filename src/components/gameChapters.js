@@ -33,7 +33,7 @@ export class CurrentGameChapters extends React.Component {
 			onChange={that.handleChange.bind(this,chapter)}
 			ref={input => {(this.input = input)}} 
 			/>
-			<label for={chapter}>{<span className= {this.checkCompletedChapters(chapter)? "cross": ""}>{chapter}</span>}</label>
+			<label htmlFor={chapter}>{<span className= {this.checkCompletedChapters(chapter)? "cross": ""}>{chapter}</span>}</label>
 			</li>
 			))
 		)}
