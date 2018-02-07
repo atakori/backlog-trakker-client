@@ -90,7 +90,6 @@ export function fetchGameInfo(gameName) {
 		axios.get(`${API_URL}/games?name=${gameName}`)
 		.then( res => {
 			const game = res.data[0];
-			console.log(game.name);
 			const gameGenres= game.genres.join(',');
 			const similarGameIds= game.games.join(',');
 			dispatch({

@@ -20,7 +20,7 @@ export class ShowUserBacklog extends React.Component {
 		return (
 			<div className= "start_status">
 				<p className= "backlog_percent_header">Percentage complete</p>
-		        <Progress type= "circle" percent= {percentComplete.toFixed(2)}/>
+		        <Progress type= "circle" percent= {parseInt(percentComplete.toFixed(2), 10)} format={() => <span style={{color: "white"}}>{percentComplete.toFixed(2)}%</span>}/>
 			</div>
 			)
 	}
