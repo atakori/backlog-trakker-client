@@ -1,3 +1,15 @@
 a {
 	font-family: 'Audiowide', cursive;
 }
+
+.search_games_button {
+	font-family: 'Audiowide', cursive;
+}
+
+.game_search {
+	margin-top: 8px;
+}
+
+.search_games_button {
+	margin-left: 5px;
+}
