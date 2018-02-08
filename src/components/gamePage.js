@@ -12,7 +12,8 @@ export class GamePage extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state= {
-			loading: true
+			loading: true,
+			inCollection: false
 		}
 	}
 
@@ -29,9 +30,14 @@ export class GamePage extends React.Component {
 	gameCollectionStatus() {
 		//checks for whether or not the game is in the users
 		//collection or not
-		if(this.props.gameAdded) {
-			return (<button className= "add_to_collection_button btn btn-primary in_collection_button"> Game In Collection</button>
-)
+		if (this.props.cannotScrape) {
+			alert("Sorry! This game is not supported yet :(")
+			return(
+				<button className= "add_to_collection_button btn btn-primary in_collection_button" disabled= {true}>Game Not Available</button>
+				)
+		} else if(this.props.gameAdded | this.state.inCollection) {
+			console.log("first condition ran")
+			return (<button className= "add_to_collection_button btn btn-primary in_collection_button"> Game In Collection</button>)
 		} else { return (
 			<button className= "add_to_collection_button btn btn-danger add_button" onClick= {this.handleButtonClick.bind(this)}> Add to Game Collection</button>
 			)
@@ -46,10 +52,15 @@ export class GamePage extends React.Component {
 	handleButtonClick() {
 		//adds the game to the user's game collection list
 		//in the db
-		alert("game added");
+		this.setState({
+			inCollection: true
+		})
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
 		this.props.addGameToCollection(gameNameDashed, gameName)
+		this.setState({
+			inCollection: true
+		})
 	}
 
 	getCompletionTime() {
@@ -144,7 +155,8 @@ const mapStatetoProps= (state) => {
 		completionTime: state.game.completionTime,
 		username: state.auth.username,
 		gameAdded: state.game.gameAdded,
-		error: state.game.error
+		error: state.game.error,
+		cannotScrape: state.game.cannotScrape 
 	};
 }
 

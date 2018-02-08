@@ -15,7 +15,8 @@ import {LOADING_FINISHED,
 		FETCH_ENTIRE_BACKLOG,
 		SEARCH_FOR_GAME,
 		SEND_ERROR,
-		NULL_ERROR } from '../actions/types'
+		NULL_ERROR,
+		CANNOT_SCRAPE } from '../actions/types'
 
 const initialState = {
 	similarGamesList: []
@@ -60,6 +61,8 @@ export default function (state=initialState, action) {
 			return{...state, error:action.payload}
 		case NULL_ERROR:
 			return{...state, error:action.payload}
+		case CANNOT_SCRAPE: 
+			return{...state, cannotScrape: true}
 		default:
 	}
 	return state;

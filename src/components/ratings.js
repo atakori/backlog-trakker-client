@@ -1,6 +1,5 @@
 import React from 'react';
 import { Progress } from 'antd';
-import LoadingScreen from './loading';
 
 export class Ratings extends React.Component {
 /*  constructor(props) {
@@ -10,7 +9,7 @@ export class Ratings extends React.Component {
   renderCriticScore(){
     if(this.props.criticAvgRating === undefined) {
       return (
-        <LoadingScreen />
+      <Progress type= "circle" percent= {0} format={percent => `N/A`}/>
         )
     } else {
       return(
@@ -22,7 +21,7 @@ export class Ratings extends React.Component {
   renderUserScore(){
     if(this.props.userAvgRating === undefined) {
       return (
-        <LoadingScreen />
+        <Progress type= "circle" percent= {0} format={percent => `N/A`}/>
         )
     } else {
       return (

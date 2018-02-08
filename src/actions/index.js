@@ -20,7 +20,8 @@ import {
 	FETCH_ENTIRE_BACKLOG,
 	SEARCH_FOR_GAME,
 	SEND_ERROR,
-	NULL_ERROR } from './types';
+	NULL_ERROR,
+	CANNOT_SCRAPE } from './types';
 
 
 const API_URL= "http://localhost:8080";
@@ -167,7 +168,7 @@ export function addGameToCollection(gameNameDashed, gameName) {
 			const username= res.data;
 			/*console.log(gameName)*/
 			axios.get(`${API_URL}/games/chapters?gameName=${gameNameDashed}`)
-			.then( chapters => {
+			.then(chapters => {
 				/*chapters= chapters.data*/
 				axios.get(`${API_URL}/games?name=${gameName}`)
 				.then(gameObject => {
@@ -183,10 +184,21 @@ export function addGameToCollection(gameNameDashed, gameName) {
 					})
 				})
 				})
-				.catch(err=> {console.log(err)})
+			})
+			.catch(err=> {
+				console.log("cannot scrape error")
+				dispatch({
+					type: CANNOT_SCRAPE,
+					payload: err
+					})
+				})
+			})
+		.catch(err=> {
+			dispatch({
+				type: CANNOT_SCRAPE,
+				payload: err
 			})
 		})
-		.catch(err=> {console.log(err)})
 
 	}
 }

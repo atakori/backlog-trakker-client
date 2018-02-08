@@ -16,11 +16,10 @@ export class SimilarGames extends React.Component {
 			game_art_url= game_art_url.replace("thumb", "cover_small")
 			transformedArray.push({name: name, game_art_url: game_art_url})
 		}
-		console.log(transformedArray)
 		let gamesList = transformedArray.map((game, index) => (
 			<li className= "game" key= {index}>
 			  <img src= {game.game_art_url} alt="Game Box Art" className= "similar_game_box_art"/>
-            <p className= "info_game_title"><a className= "info_game_link" href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
+            <p className= "info_game_title"><a className= "info_game_link" href= {`/gameInfo/${game.name.replace(":", "").replace(/\s+/g,"-")}`}>{game.name}</a></p>
             </li>)
 		)
 		return gamesList;
