@@ -22,7 +22,6 @@ export class MockSearch extends React.Component {
 
     let game= this.input.value.trim()
     let gameUrl= game.replace(':', '').replace(/\s+/g, '-')
-    console.log(gameUrl)
     gameUrl= `/gameinfo/${gameUrl}`
 
     this.props.history.push(gameUrl)

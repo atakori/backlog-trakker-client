@@ -21,7 +21,7 @@ export class GameCollection extends React.Component {
 		return(
 			<section className= "signup_section">
 				<header role= "banner">
-					<NavigationBar />
+					<NavigationBar history= {this.props.history}/>
 				</header>
 				<main role="main" style= {{paddingTop: "65px"}}>
 					<LoadingScreen />
@@ -32,7 +32,7 @@ export class GameCollection extends React.Component {
 		return (
 			<section className= "game_collection_section"> 
 				<header role= "banner">
-					<NavigationBar />
+					<NavigationBar history= {this.props.history}/>
 				</header>
 				<main role= "main" className= "main" style= {{paddingTop: "65px"}}>
 		        	<h2 className= "collection_title"> My Game Collection</h2>

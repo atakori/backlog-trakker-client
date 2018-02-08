@@ -317,7 +317,7 @@ export function searchForGame(value) {
 			let resultsArray= [];
 			resultsObject.map(resultObject => {
 				resultsArray.push(resultObject.name)
-				return console.log("searching for Game")
+				return "searching for Game";
 			})
 			dispatch({
 				type: SEARCH_FOR_GAME,
