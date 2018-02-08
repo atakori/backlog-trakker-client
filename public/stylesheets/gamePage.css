@@ -132,12 +132,14 @@
 
 .not_found_title {
 	color: white;
+	font-family: 'Audiowide', cursive;
 }
 
 .not_found_subtitle{
 	font-size: 2.0em;
 	margin-top: 10px;
     margin-bottom: 10px;
+    font-family: 'Audiowide', cursive;
 }
 .no_game_image {
 	width:30%;

@@ -138,7 +138,6 @@ export function fetchGameInfo(gameName) {
 				})
 			})
 			.catch(err => {
-			console.log("ERROR")
 			dispatch({
 				type: SEND_ERROR,
 				payload: err
@@ -146,7 +145,6 @@ export function fetchGameInfo(gameName) {
 		})
 		})
 		.catch(err => {
-			console.log("ERROR")
 			dispatch({
 				type: SEND_ERROR,
 				payload: err
@@ -186,7 +184,6 @@ export function addGameToCollection(gameNameDashed, gameName) {
 				})
 			})
 			.catch(err=> {
-				console.log("cannot scrape error")
 				dispatch({
 					type: CANNOT_SCRAPE,
 					payload: err
@@ -314,7 +311,6 @@ export function handleChapterChange(gameName, chapter) {
 
 export function searchForGame(value) {
 	return function(dispatch) {
-		console.log(value)
 		axios.get(`${API_URL}/games/searchGames?value=${value}`)
 		.then( res=> {
 			let resultsObject= res.data;
