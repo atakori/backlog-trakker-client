@@ -13,3 +13,18 @@ a {
 .search_games_button {
 	margin-left: 5px;
 }
+
+/*<Footer /> CSS*/
+
+.footer_container {
+	margin-bottom: 0px;
+	margin-top: 13px;
+	padding: 5px 5px;
+	width: 100%;
+}
+
+.footer_text {
+	margin-bottom: 0px;
+	color: white;
+	text-align: center;
+}

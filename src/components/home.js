@@ -3,6 +3,7 @@ import NavigationBar from './navbar';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions'
+import Footer from './footer';
 
 export class LandingPage extends React.Component {
 	componentWillMount() {
@@ -49,6 +50,7 @@ export class LandingPage extends React.Component {
 				<Link to= "/signup"><button className= "home_sign_up_button btn btn-success">Click here to sign up</button> </Link>
 				</section>
 			</main>
+			<Footer />
 		</section>
 		)
 	}
