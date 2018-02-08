@@ -22,7 +22,7 @@ body {
 
 .main_title {
 	margin-top: 20px;
-	font-size: 5.5em;
+	font-size: 3.5em;
 	text-align: center;
 	font-family: 'Audiowide', cursive;
 	margin-left: 2%;
@@ -98,6 +98,10 @@ hr.style11 {
     	margin-left: 16%;
     	position: relative;
     	top: -72px;
+	}
+
+	.main_title {
+		font-size: 5.5em;
 	}
 
 	.info_one {

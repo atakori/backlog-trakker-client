@@ -47,7 +47,7 @@
 /*<CurrentGameProgress> CSS*/
 .welcome_title {
 	text-align: center;
-	font-size: 3.0em;
+	font-size: 1.5em;
 	text-decoration: underline;
 	font-family: 'Bungee Inline', cursive;
 }
@@ -160,6 +160,9 @@
 } Increase for bigger box arts*/
   }
 @media(min-width:700px) {
+	.welcome_title {
+		font-size: 3.0em;
+	}
   /*<CurrentGameChapters/> CSS*/
 	.currentGameProgress_contents {
 		border: 2px solid black;
