@@ -3,6 +3,7 @@ import NavigationBar from './navbar';
 import * as actions from '../actions';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+import Footer from './footer';
 
 function renderInput(field) { 
 	return (<div>
@@ -79,6 +80,7 @@ export class SignUp extends React.Component {
 					</div>
 			</main>
 			{this.handlefieldsWarning(firstname,lastname,username,password,passwordConfirm)}
+			<Footer />
 		</section>
 		)
 	}

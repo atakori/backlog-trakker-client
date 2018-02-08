@@ -3,8 +3,10 @@ import { GameInfo } from './gameInfo'
 import NavigationBar from './navbar';
 import { SimilarGames } from './similarGames'
 import { connect } from 'react-redux';
-import * as actions from '../actions'
+import * as actions from '../actions';
 import LoadingScreen from './loading';
+import Footer from './footer';
+import FixedFooter from './collectionFooter'
 
 export class GamePage extends React.Component {
 	constructor(props) {
@@ -83,6 +85,7 @@ export class GamePage extends React.Component {
         		<div className= "simiar_games_container">
         			<SimilarGames gameName= {responseGameName} similarGamesList={this.props.similarGamesList}/>
         		</div>
+        		<Footer />
 			</main>
 				)
 		} else {
@@ -93,6 +96,7 @@ export class GamePage extends React.Component {
 						<img className= "no_game_image" src= "../images/controller2.png" alt="controller_image"/>
 						<p className="not_found_subtitle"> Please search for another game</p>
 					</div>
+					<FixedFooter />
 				</main>
 				)
 		}
@@ -106,6 +110,7 @@ export class GamePage extends React.Component {
 						<img className= "no_game_image" src= "../images/controller2.png" alt="controller_image"/>
 						<p className="not_found_subtitle"> Please search for another game</p>
 					</div>
+					<FixedFooter />
 				</main>
 				)
 	} else {

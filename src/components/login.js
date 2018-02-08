@@ -3,6 +3,7 @@ import NavigationBar from './navbar';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
+import Footer from './footer';
 
 const renderInput = field => 
 	<div>
@@ -62,6 +63,7 @@ export class Login extends Component {
 					<img width= "300" height= "300" className= "login_character" src= "Pac-man.png" alt= "login character" />
 				</div>
 			</main>
+			<Footer />
 		</section>
 		)
 	}

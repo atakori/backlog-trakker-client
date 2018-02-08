@@ -4,6 +4,7 @@ import { ShowUserBacklog } from './userBacklog';
 import { connect } from 'react-redux';
 import LoadingScreen from './loading';
 import * as actions from '../actions';
+import CollectionFooter from './collectionFooter';
 
 export class GameCollection extends React.Component {
 	//on click of the backlog game to bring to dashboard
@@ -37,6 +38,7 @@ export class GameCollection extends React.Component {
 		        	<h2 className= "collection_title"> My Game Collection</h2>
 					<ShowUserBacklog gameCollection= {this.props.gameCollection} />
 				</main>
+				<CollectionFooter />
 			</section>
 			)
 		}

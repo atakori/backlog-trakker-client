@@ -16,6 +16,10 @@ a {
 
 /*<Footer /> CSS*/
 
+.placeholder_block{
+
+}
+
 .footer_container {
 	margin-bottom: 0px;
 	margin-top: 13px;
@@ -27,4 +31,10 @@ a {
 	margin-bottom: 0px;
 	color: white;
 	text-align: center;
+	font-family: 'Audiowide', cursive;
+}
+
+.collection_footer {
+	position: fixed;
+	bottom: 0px;
 }

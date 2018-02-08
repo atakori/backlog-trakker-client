@@ -3,9 +3,11 @@ import NavigationBar from './navbar';
 import {CurrentGameProgress} from './currentGameProgress';
 import CurrentGameChapters from './gameChapters'
 import { CurrentBacklog } from './currentBacklog';
-import { connect } from 'react-redux'
-import * as actions from '../actions'
-import LoadingScreen from './loading'
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import LoadingScreen from './loading';
+import Footer from './footer';
+import FixedFooter from './collectionFooter.js'
 
 export class Dashboard extends React.Component {
 	constructor(props) {
@@ -61,6 +63,7 @@ export class Dashboard extends React.Component {
 				<CurrentGameProgress user= {this.props.currentUser} currentGame= {this.props.gameCollection[0].name} progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= {this.renderGameArtUrl()}/>
 				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters} />
 				<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)} scrollToTop={()=> this.scrollToTop()}/>
+				<Footer />
 			</main>
 			)
 	}
@@ -91,7 +94,7 @@ export class Dashboard extends React.Component {
 					<h2 className= "nogames_subtitle">Looks like You don't have any games in your collection</h2>
 					<h3 className= "start_searching_message">Start searching for games and build your virtual collection in the searchbar above</h3>
 				</div>
-				
+				<FixedFooter />
 			</main>
 			)
 	} else {
@@ -101,6 +104,7 @@ export class Dashboard extends React.Component {
 				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters} />
 				<br/>
 				<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)} scrollToTop={()=> this.scrollToTop()}/>
+				<Footer />
 			</main>
 			)
 		}
