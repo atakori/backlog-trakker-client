@@ -24,7 +24,7 @@ import {
 	CANNOT_SCRAPE } from './types';
 
 
-const API_URL= "http://localhost:8080";
+const API_URL= "https://enigmatic-headland-13307.herokuapp.com/";
 //current port server is running on 
 
 export function loginUser({username, password}, history) {
