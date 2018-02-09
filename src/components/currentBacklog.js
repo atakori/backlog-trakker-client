@@ -34,7 +34,8 @@ export class CurrentBacklog extends React.Component {
 			let gameslist= games.map((game,index) => (
 			<div key= {index}className= "game">
 				<p className= "Box Art Here"> {this.renderGameArt(game.gameArtUrl)}</p>
-				<p className= "game_title">{game.name} </p>
+				<p className= "collection_game_title">{game.name} </p>
+				<button className= "update_progress_button btn btn-danger" onClick= {() => this.getSpecificGame(game.name)}>Update Progress</button>
 				{this.renderGameInfoButton(game.name)}
 			</div>))
 			return gameslist;

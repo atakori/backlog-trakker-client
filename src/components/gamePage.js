@@ -30,13 +30,12 @@ export class GamePage extends React.Component {
 	gameCollectionStatus() {
 		//checks for whether or not the game is in the users
 		//collection or not
-		console.log(this.state.inCollection)
 		if (this.props.cannotScrape) {
 			alert("Sorry! This game is not supported yet :(")
 			return(
 				<button className= "add_to_collection_button btn btn-primary in_collection_button" disabled= {true}>Game Not Available</button>
 				)
-		} else if(this.props.gameAdded | this.state.inCollection) {
+		} else if(this.props.gameAdded || this.state.inCollection) {
 			return (<button className= "add_to_collection_button btn btn-primary in_collection_button"> Game In Collection</button>)
 		} else { 
 			return (

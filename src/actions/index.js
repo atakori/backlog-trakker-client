@@ -255,10 +255,16 @@ export function getGameCollection(gameName) {
 					type:GET_GAME_COLLECTION,
 					payload: gameCollection.data
 				})
+				axios.get(`${API_URL}/api/user/getUserBacklog?username=${username}`)
+				.then( userBacklog=> {
+				dispatch({
+					type: FETCH_ENTIRE_BACKLOG,
+					payload: userBacklog.data
+				})
 			})
 		})
-		}
-	} else {
+		})
+	}} else {
 	//else return full gameCollection and pick at random
 	//get username
 	return function(dispatch) {
