@@ -28,10 +28,10 @@ export class NavigationBar extends React.Component {
                 ];
         } else {
         return [
-                <li className= "nav-item" key= {1}>
+                <li className= "nav-item" key= {3}>
                   <a href="/login">Login</a>
                 </li>,
-                <li className= "nav-item" key= {2}>
+                <li className= "nav-item" key= {4}>
                   <a href="/signup"> Sign Up </a>
                 </li>
                 ];

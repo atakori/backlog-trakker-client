@@ -8,7 +8,8 @@ import {LOADING_FINISHED,
 		FETCH_SIMILAR_GAME_IDS, 
 		FETCH_GAME_ART,
 		FETCH_COMPLETION_TIME,
-		ADD_GAME_TO_COLLECTION, 
+		ADD_GAME_TO_COLLECTION,
+		ADD_FALSE_COLLECTION_STATE, 
 		CHECK_GAME_COLLECTION,
 		GET_GAME_COLLECTION,
 		HANDLE_CHAPTER_CHANGE,
@@ -50,6 +51,8 @@ export default function (state=initialState, action) {
 			return{...state, gameAdded: action.payload}
 		case CHECK_GAME_COLLECTION:
 			return {...state, gameAdded: action.payload}
+		case ADD_FALSE_COLLECTION_STATE:
+			return{...state, inCollection: false}
 		case GET_GAME_COLLECTION:
 			return{...state, gameCollection: action.payload}
 		case HANDLE_CHAPTER_CHANGE:

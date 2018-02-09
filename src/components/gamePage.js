@@ -30,7 +30,7 @@ export class GamePage extends React.Component {
 	gameCollectionStatus() {
 		//checks for whether or not the game is in the users
 		//collection or not
-		console.log(this.props.cannotScrape)
+		console.log(this.state.inCollection)
 		if (this.props.cannotScrape) {
 			alert("Sorry! This game is not supported yet :(")
 			return(
@@ -38,29 +38,22 @@ export class GamePage extends React.Component {
 				)
 		} else if(this.props.gameAdded | this.state.inCollection) {
 			return (<button className= "add_to_collection_button btn btn-primary in_collection_button"> Game In Collection</button>)
-		} else { return (
+		} else { 
+			return (
 			<button className= "add_to_collection_button btn btn-danger add_button" onClick= {this.handleButtonClick.bind(this)}> Add to Game Collection</button>
 			)
 		}
 	}
 
-	getSimilarGames(gameName) {
-		// AJAX call to get a list of similar games
-		return ["Nier Automata", "Demon's Souls", "Hollow Knight", "Dragon's Dogma"]
-	}
-
 	handleButtonClick() {
 		//adds the game to the user's game collection list
 		//in the db
-		this.setState({
-			inCollection: true
-		})
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
 		this.props.addGameToCollection(gameNameDashed, gameName)
-		this.setState({
+/*		this.setState({
 			inCollection: true
-		})
+		})*/
 	}
 
 	getCompletionTime() {
@@ -156,7 +149,8 @@ const mapStatetoProps= (state) => {
 		username: state.auth.username,
 		gameAdded: state.game.gameAdded,
 		error: state.game.error,
-		cannotScrape: state.game.cannotScrape 
+		cannotScrape: state.game.cannotScrape, 
+		inCollection: state.game.inCollection
 	};
 }
 

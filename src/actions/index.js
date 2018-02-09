@@ -15,6 +15,7 @@ import {
 	FETCH_GAME_ART,
 	FETCH_COMPLETION_TIME,
 	ADD_GAME_TO_COLLECTION,
+	ADD_FALSE_COLLECTION_STATE,
 	CHECK_GAME_COLLECTION,
 	GET_GAME_COLLECTION,
 	FETCH_ENTIRE_BACKLOG,
@@ -22,11 +23,11 @@ import {
 	SEND_ERROR,
 	NULL_ERROR,
 	CANNOT_SCRAPE,
-	RESET_SCRAPE } from './types';
-
+	RESET_SCRAPE,
+	 } from './types';
 
 const API_URL= "https://enigmatic-headland-13307.herokuapp.com";
-				/*"http://localhost:8080"*/
+				/*FOR TESTING:"http://localhost:8080"*/
 //current port server is running on 
 
 export function loginUser({username, password}, history) {
@@ -92,6 +93,9 @@ export function fetchGameInfo(gameName) {
 	return function(dispatch) {
 		dispatch({
 				type: RESET_SCRAPE
+		})
+		dispatch({
+			type: ADD_FALSE_COLLECTION_STATE
 		})
 		axios.get(`${API_URL}/games?name=${gameName}`)
 		.then( res => {
