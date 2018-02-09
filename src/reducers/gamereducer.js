@@ -16,7 +16,8 @@ import {LOADING_FINISHED,
 		SEARCH_FOR_GAME,
 		SEND_ERROR,
 		NULL_ERROR,
-		CANNOT_SCRAPE } from '../actions/types'
+		CANNOT_SCRAPE,
+		RESET_SCRAPE } from '../actions/types'
 
 const initialState = {
 	similarGamesList: []
@@ -63,6 +64,8 @@ export default function (state=initialState, action) {
 			return{...state, error:action.payload}
 		case CANNOT_SCRAPE: 
 			return{...state, cannotScrape: true}
+		case RESET_SCRAPE:
+			return{...state, cannotScrape: false}
 		default:
 	}
 	return state;

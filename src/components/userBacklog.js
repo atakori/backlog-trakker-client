@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export class ShowUserBacklog extends React.Component {
 	
 	renderGameArtUrl(url) {
-		let transformedUrl= "http:" + url;
+		let transformedUrl= "https:" + url;
 		transformedUrl= transformedUrl.replace("thumb", "cover_big");
 		return transformedUrl;
 	}

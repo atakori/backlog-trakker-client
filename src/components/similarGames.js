@@ -12,7 +12,7 @@ export class SimilarGames extends React.Component {
 		for(let i=0; i< recommendedGamesArray.length; i++) {
 			let name= recommendedGamesArray[i].name;
 			let game_art_url= recommendedGamesArray[i].gameArtUrl;
-			game_art_url= "http:" + game_art_url;
+			game_art_url= "https:" + game_art_url;
 			game_art_url= game_art_url.replace("thumb", "cover_small")
 			transformedArray.push({name: name, game_art_url: game_art_url})
 		}

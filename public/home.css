@@ -87,7 +87,7 @@ body {
 hr.style11 {
 	width: 50%;
 	height: 6px;
-	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+	background: url("/images/hr-11.png") repeat-x 0 0;
     border: 0;
     clear: both;
 }

@@ -52,7 +52,7 @@ export class Dashboard extends React.Component {
 
 	renderGameArtUrl() {
 		let url= this.props.gameCollection[0].gameArtUrl;
-		url= "http:" + url;
+		url= "https:" + url;
 		url= url.replace("thumb", "cover_big");
 		return url;
 	}

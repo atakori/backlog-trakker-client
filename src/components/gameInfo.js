@@ -11,7 +11,7 @@ export class GameInfo extends React.Component {
 
 	renderGameArt() {
 		let Url= this.props.gameArtURL;
-		Url= "http:" + Url;
+		Url= "https:" + Url;
 		Url= Url.replace("thumb", "cover_big");
 		return(
 			<div className= "info_game_art_container">

@@ -21,10 +21,12 @@ import {
 	SEARCH_FOR_GAME,
 	SEND_ERROR,
 	NULL_ERROR,
-	CANNOT_SCRAPE } from './types';
+	CANNOT_SCRAPE,
+	RESET_SCRAPE } from './types';
 
 
 const API_URL= "https://enigmatic-headland-13307.herokuapp.com";
+				/*"http://localhost:8080"*/
 //current port server is running on 
 
 export function loginUser({username, password}, history) {
@@ -88,6 +90,9 @@ export function fetchMessage() {
 export function fetchGameInfo(gameName) {
 	//gets game information for GamePage component
 	return function(dispatch) {
+		dispatch({
+				type: RESET_SCRAPE
+		})
 		axios.get(`${API_URL}/games?name=${gameName}`)
 		.then( res => {
 			const game = res.data[0];
