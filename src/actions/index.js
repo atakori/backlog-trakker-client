@@ -24,7 +24,7 @@ import {
 	NULL_ERROR,
 	CANNOT_SCRAPE,
 	RESET_SCRAPE,
-	 } from './types';
+	} from './types';
 
 const API_URL= "https://enigmatic-headland-13307.herokuapp.com";
 				/*FOR TESTING:"http://localhost:8080"*/

@@ -48,7 +48,10 @@ export class GamePage extends React.Component {
 		//adds the game to the user's game collection list
 		//in the db
 		let gameNameDashed = this.props.match.params.game;
+		gameNameDashed = gameNameDashed.replace("'", "");
 		let gameName = gameNameDashed.replace(/-/g, ' ');
+		console.log(gameName)
+		console.log(gameNameDashed)
 		this.props.addGameToCollection(gameNameDashed, gameName)
 /*		this.setState({
 			inCollection: true
