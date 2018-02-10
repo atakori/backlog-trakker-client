@@ -26,8 +26,8 @@ import {
 	RESET_SCRAPE,
 	} from './types';
 
-const API_URL= "https://enigmatic-headland-13307.herokuapp.com";
-				/*FOR TESTING:"http://localhost:8080"*/
+const API_URL= /*"https://enigmatic-headland-13307.herokuapp.com"*/
+				/*FOR TESTING:*/"http://localhost:8080";
 //current port server is running on 
 
 export function loginUser({username, password}, history) {

@@ -95,10 +95,13 @@ export class GamePage extends React.Component {
 			</main>
 				)
 		} else {
+			console.log("first Not found ran (Game Names don't match)");
+			let gameNameDashed = this.props.match.params.game;
+			let gameName = gameNameDashed.replace(/-/g, ' ');
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>
 					<div className= "not_found_message">
-						<h1 className="not_found_title">Sorry, {this.props.gameName} was not found</h1>
+						<h1 className="not_found_title">Sorry, {gameName} was not found</h1>
 						<img className= "no_game_image" src= "../images/controller2.png" alt="controller_image"/>
 						<p className="not_found_subtitle"> Please search for another game</p>
 					</div>
@@ -109,6 +112,7 @@ export class GamePage extends React.Component {
 	} else if (this.props.error) {
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
+		console.log("second 'Game Not Found Error Ran (error from server)'")
 		return(
 				<main role="main" style= {{paddingTop: "65px"}}>
 					<div className= "not_found_message">
