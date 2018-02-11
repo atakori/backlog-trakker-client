@@ -30,6 +30,11 @@ export class GamePage extends React.Component {
 	gameCollectionStatus() {
 		//checks for whether or not the game is in the users
 		//collection or not
+		if (this.props.attemptAddGame) {
+			return(
+				<LoadingScreen />
+				)
+		}
 		if (this.props.cannotScrape) {
 			alert("Sorry! This game is not supported yet :(")
 			return(
@@ -50,12 +55,7 @@ export class GamePage extends React.Component {
 		let gameNameDashed = this.props.match.params.game;
 		gameNameDashed = gameNameDashed.replace("'", "");
 		let gameName = gameNameDashed.replace(/-/g, ' ');
-		console.log(gameName)
-		console.log(gameNameDashed)
 		this.props.addGameToCollection(gameNameDashed, gameName)
-/*		this.setState({
-			inCollection: true
-		})*/
 	}
 
 	getCompletionTime() {
@@ -154,7 +154,8 @@ const mapStatetoProps= (state) => {
 		gameAdded: state.game.gameAdded,
 		error: state.game.error,
 		cannotScrape: state.game.cannotScrape, 
-		inCollection: state.game.inCollection
+		inCollection: state.game.inCollection,
+		attemptAddGame: state.game.attemptAddGame
 	};
 }
 

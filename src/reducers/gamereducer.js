@@ -19,7 +19,8 @@ import {LOADING_FINISHED,
 		SEND_ERROR,
 		NULL_ERROR,
 		CANNOT_SCRAPE,
-		RESET_SCRAPE } from '../actions/types'
+		RESET_SCRAPE,
+		ATTEMPT_ADD_GAME } from '../actions/types'
 
 const initialState = {
 	similarGamesList: []
@@ -51,7 +52,9 @@ export default function (state=initialState, action) {
 		case FETCH_COMPLETION_TIME:
 			return {...state, completionTime: action.payload}
 		case ADD_GAME_TO_COLLECTION:
-			return{...state, gameAdded: action.payload}
+			return{...state, gameAdded: action.payload, attemptAddGame: false}
+		case ATTEMPT_ADD_GAME:
+			return{...state, attemptAddGame: true}
 		case CHECK_GAME_COLLECTION:
 			return {...state, gameAdded: action.payload}
 		case ADD_FALSE_COLLECTION_STATE:
@@ -69,7 +72,7 @@ export default function (state=initialState, action) {
 		case NULL_ERROR:
 			return{...state, error:action.payload}
 		case CANNOT_SCRAPE: 
-			return{...state, cannotScrape: true}
+			return{...state, cannotScrape: true, attemptAddGame: false}
 		case RESET_SCRAPE:
 			return{...state, cannotScrape: false}
 		default:

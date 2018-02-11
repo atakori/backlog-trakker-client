@@ -25,6 +25,7 @@ import {
 	NULL_ERROR,
 	CANNOT_SCRAPE,
 	RESET_SCRAPE,
+	ATTEMPT_ADD_GAME
 	} from './types';
 
 const API_URL= /*"https://enigmatic-headland-13307.herokuapp.com"*/
@@ -181,6 +182,9 @@ export function addGameToCollection(gameNameDashed, gameName) {
 	return function(dispatch) {
 		//first get the currentUserName
 		//(Can delete first api call)
+		dispatch({
+			type:ATTEMPT_ADD_GAME
+		})
 		axios.get(`${API_URL}/api/user`, {
 			headers: {authorization: localStorage.getItem('token')}})
 		.then(res => {
