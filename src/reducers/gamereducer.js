@@ -1,4 +1,5 @@
 import {LOADING_FINISHED, 
+		RESET_GAMEINFO,
 		FETCH_GAME_INFO, 
 		FETCH_GAME_NAME,
 		FETCH_GAME_SUMMARY, 
@@ -29,6 +30,8 @@ export default function (state=initialState, action) {
 	switch(action.type) {
 		case LOADING_FINISHED:
 			return {...state, loading: false}
+		case RESET_GAMEINFO: 
+			return{...state, data: null, gameName: null, error: null}
 		case FETCH_GAME_INFO: 
 			return {...state, data: action.payload.data}
 		case FETCH_GAME_NAME:

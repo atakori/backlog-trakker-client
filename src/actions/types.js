@@ -27,3 +27,4 @@ export const SEND_ERROR= 'send_error';
 export const NULL_ERROR= 'null_error';
 export const CANNOT_SCRAPE= 'cannot_scrape'
 export const RESET_SCRAPE= 'reset_scrape';
+export const RESET_GAMEINFO= 'reset_gameinfo';

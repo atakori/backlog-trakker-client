@@ -6,6 +6,7 @@ import {
 	LOADING_FINISHED,
 	GET_CURRENT_USER,
 	FETCH_MESSAGE,
+	RESET_GAMEINFO,
 	FETCH_GAME_NAME,
 	FETCH_GAME_SUMMARY,
 	FETCH_GAME_GENRE_IDS,
@@ -91,6 +92,9 @@ export function fetchMessage() {
 export function fetchGameInfo(gameName) {
 	//gets game information for GamePage component
 	return function(dispatch) {
+		dispatch({
+			type: RESET_GAMEINFO
+		})
 		dispatch({
 				type: RESET_SCRAPE
 		})
