@@ -19,8 +19,8 @@ class App extends Component {
 	      		<Route exact path= '/login' component= {Login}/>
 	      		<Route exact path= '/signup' component= {SignUp}/>
 	    		<Route exact path= '/dashboard' component= {RequireAuth(Dashboard)}/>
-	    		<Route exact path= '/mygamelibrary/:userID' component= {GameCollection} />
-	    		<Route exact path= '/gameInfo/:game' component= {GamePage}/>
+	    		<Route exact path= '/mygamelibrary/:userID' component= {RequireAuth(GameCollection)} />
+	    		<Route exact path= '/gameInfo/:game' component= {RequireAuth(GamePage)}/>
 	    	</Switch>
 	    </Router>
     );
