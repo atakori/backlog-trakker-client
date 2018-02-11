@@ -100,8 +100,28 @@ export function fetchGameInfo(gameName) {
 		axios.get(`${API_URL}/games?name=${gameName}`)
 		.then( res => {
 			const game = res.data[0];
-			const gameGenres= game.genres.join(',');
-			const similarGameIds= game.games.join(',');
+			//does not send back genre info if unavailable
+			if(game.genres !== undefined) {
+				const gameGenres= game.genres.join(',');
+				axios.get(`${API_URL}/games/genre?ids=${gameGenres}`)
+				.then(res => {
+				dispatch({
+					type:FETCH_GAME_GENRE_IDS,
+					payload: res.data.join(', ')
+				})
+			})
+			}
+			//does not send back genre info if unavailable
+			if(game.games !== undefined) {
+				const similarGameIds= game.games.join(',');
+				axios.get(`${API_URL}/games/similarGames?gameIds=${similarGameIds}`)
+				.then(res => {
+				dispatch({
+				type: FETCH_SIMILAR_GAME_IDS,
+				payload: res.data
+				})
+			})
+			}
 			dispatch({
 				type: FETCH_GAME_SUMMARY,
 				payload: game.summary
@@ -126,19 +146,6 @@ export function fetchGameInfo(gameName) {
 				type: FETCH_COMPLETION_TIME,
 				payload: game.time_to_beat
 			})
-			axios.get(`${API_URL}/games/genre?ids=${gameGenres}`)
-			.then(res => {
-				dispatch({
-					type:FETCH_GAME_GENRE_IDS,
-					payload: res.data.join(', ')
-				})
-			})
-			axios.get(`${API_URL}/games/similarGames?gameIds=${similarGameIds}`)
-			.then(res => {
-				dispatch({
-				type: FETCH_SIMILAR_GAME_IDS,
-				payload: res.data
-				})
 			})
 			.then(res => {
 				dispatch({
@@ -147,13 +154,14 @@ export function fetchGameInfo(gameName) {
 				})
 			})
 			.catch(err => {
+				console.log(err)
 			dispatch({
 				type: SEND_ERROR,
 				payload: err
 			})
 		})
-		})
 		.catch(err => {
+			console.log(err)
 			dispatch({
 				type: SEND_ERROR,
 				payload: err

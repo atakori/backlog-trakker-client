@@ -8,6 +8,11 @@ export class SimilarGames extends React.Component {
 	renderSimilarGames() {
 		//renders Similar Games section with game names and Box Arts
 		const recommendedGamesArray= this.props.similarGamesList
+		if(recommendedGamesArray.length === 0) {
+			return (
+				<h2 className= "no_similar_games_message">Please visit the base game's page for recommended games!</h2>
+				)
+		}
 		let transformedArray= []
 		for(let i=0; i< recommendedGamesArray.length; i++) {
 			let name= recommendedGamesArray[i].name;

@@ -73,12 +73,12 @@ export class GamePage extends React.Component {
 
 	renderGamePage() {
 		if(this.props.gameName) {
-		let gameNameDashed = this.props.match.params.game;
-		let gameName = gameNameDashed.replace(/-/g, ' ');
-		let responseGameName= this.props.gameName;
+		const gameNameDashed = this.props.match.params.game;
+		const gameName = gameNameDashed.replace(/-/g, ' ');
+		const responseGameName= this.props.gameName;
 		
-		let compareGameName= gameName.replace(/\s/g, "");
-		let compareResponseGameName= responseGameName.replace(/\s|-|:/g, "");
+		const compareGameName= gameName.replace(/\s/g, "");
+		const compareResponseGameName= responseGameName.replace(/\s|-|:/g, "");
 		if(compareGameName.toLowerCase() === compareResponseGameName.toLowerCase()) {
 			return(
 				<main role="main" style= {{paddingTop: "65px"}}>

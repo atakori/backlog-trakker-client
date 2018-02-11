@@ -99,6 +99,12 @@
 	padding-top: 10px;
 }
 
+.no_similar_games_message {
+	color: white;
+	font-size: 1.1em;
+	font-family: 'Audiowide', cursive;
+}
+
 .info_games_list {
 	padding-left: 0px;
 }
