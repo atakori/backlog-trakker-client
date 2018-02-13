@@ -181,7 +181,6 @@ export function addGameToCollection(gameNameDashed, gameName) {
 	//Locate user in db and add game + chapters
 	return function(dispatch) {
 		//first get the currentUserName
-		//(Can delete first api call)
 		dispatch({
 			type:ATTEMPT_ADD_GAME
 		})
@@ -189,10 +188,8 @@ export function addGameToCollection(gameNameDashed, gameName) {
 			headers: {authorization: localStorage.getItem('token')}})
 		.then(res => {
 			const username= res.data;
-			/*console.log(gameName)*/
 			axios.get(`${API_URL}/games/chapters?gameName=${gameNameDashed}`)
 			.then(chapters => {
-				/*chapters= chapters.data*/
 				axios.get(`${API_URL}/games?name=${gameName}`)
 				.then(gameObject => {
 					const gameArtUrl = gameObject.data[0].cover.url;
@@ -354,6 +351,5 @@ export function searchForGame(value) {
 				payload: resultsArray
 			})
 		})
-		// access api /games/?search=${value}&fields=name&limit=10
 	}
 }
