@@ -77,7 +77,7 @@ export class Dashboard extends React.Component {
 				<div className= "welcome_message_container">
 						<h2 className=  "welcome_message">Welcome to Checkpoint!</h2>
 					<div className= "dashboard_image_container">
-						<img height= "150" className= "empty_case_image" src= "./images/no_game.jpg" alt= "Dpad_Up" />
+						<img height= "150" className= "empty_case_image" src= "./images/no_game.jpg" alt= "empty_case" />
 					</div>
 					<h2 className= "nogames_subtitle">Looks like You don't have any games in your collection</h2>
 					<h3 className= "start_searching_message">Start searching for games and build your virtual collection in the searchbar above</h3>
