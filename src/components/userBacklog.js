@@ -58,11 +58,6 @@ export class ShowUserBacklog extends React.Component {
 			return gameslist;
 	}	
 
-	/*<li className= "game" key= {index}>
-			  <img src= {game.game_art_url} alt="Game Box Art" className= "game_box_art"/>
-            <p className= "game_title"><a href= {`/gameInfo/${game.name.replace(/\s/g, "-")}`}>{game.name}</a></p>
-            </li>)*/
-
 	render() {
 	return (
 			<div className= "user_games">

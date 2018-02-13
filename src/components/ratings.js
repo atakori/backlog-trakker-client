@@ -2,10 +2,6 @@ import React from 'react';
 import { Progress } from 'antd';
 
 export class Ratings extends React.Component {
-/*  constructor(props) {
-    super(props)
-  }*/
-
   renderCriticScore(){
     if(this.props.criticAvgRating === undefined) {
       return (

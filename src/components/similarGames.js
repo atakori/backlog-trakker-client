@@ -1,10 +1,6 @@
 import React from 'react';
 
 export class SimilarGames extends React.Component {
-/*	constructor(props) {
-		super(props)
-	}*/
-
 	renderSimilarGames() {
 		//renders Similar Games section with game names and Box Arts
 		const recommendedGamesArray= this.props.similarGamesList
@@ -29,11 +25,7 @@ export class SimilarGames extends React.Component {
 		)
 		return gamesList;
 	}
-
-	renderGames(list) {
-		return list
-	}
-
+	
 	render() {
 	return (
 		<section className= "similar_games_section">

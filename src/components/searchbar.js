@@ -31,17 +31,6 @@ export class MockSearch extends React.Component {
   }  
 }
 
-/*  componentWillMount() {
-    //before rendering of components
-    let gameNameDashed = this.props.match.params.game;
-    let gameName = gameNameDashed.replace(/-/g, ' ');
-    this.props.fetchGameInfo(gameName); 
-    ////this should go through the db to check if the game
-    //is already in the users collection
-    this.props.checkGameCollection(gameName);
-  }*/
-
-
   render() {
      if(this.state.location) {
       return <Redirect to= {this.state.location}/>
