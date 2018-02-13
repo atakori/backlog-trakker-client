@@ -3,6 +3,7 @@ export const UNAUTH_USER= 'unauth_user';
 export const AUTH_ERROR= 'auth_error';
 export const GET_CURRENT_USER= 'get_current_user';
 export const FETCH_MESSAGE= 'fetch_message';
+export const LOADING_START= 'loading_start';
 export const LOADING_FINISHED= 'loading_finished';
 //IGDB API
 export const FETCH_GAME_INFO= 'fetch_game_info';

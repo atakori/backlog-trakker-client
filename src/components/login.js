@@ -35,7 +35,6 @@ export class Login extends Component {
 
 	render() {
 	const { handleSubmit } = this.props;
-
 	return (
 		<section className= "login_section">
 			<header role= "banner">
@@ -56,7 +55,7 @@ export class Login extends Component {
 							<Field id="password" name= "password" component={renderInput} type= "password" />
 						</div>
 						<hr className="style2"/>
-						<button className= "login_button btn btn-danger" type= "submit">Login</button>
+						{this.props.loading ? <img width= "100" alt="loading" src="/images/pacman_loading.gif" /> : <button className= "login_button btn btn-danger" type= "submit">Login</button>}
 					</form>
 				</div>
 				<div className= "login_character_container">
@@ -70,7 +69,9 @@ export class Login extends Component {
 }
 
 function mapStateToProps(state) {
-	return {errorMessage: state.auth.error }
+	return {errorMessage: state.auth.error,
+			loading: state.auth.loading 
+		}
 }
 
 export default reduxForm({

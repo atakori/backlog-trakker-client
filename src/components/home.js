@@ -35,7 +35,7 @@ export class LandingPage extends React.Component {
 					<div className= "home_character_container">
 						<img width= "426" height= "426" className= "layton_character" src= "/images/professorL.png" alt= "login character" />
 					</div>
-					<p className= "landing_page_details"> Build your virtual game library and always have a list of your current backlog so you never lose sight of your current backlog even when new games come out</p>
+					<p className= "landing_page_details"> Build your virtual game library and always have an up to date list of your gaming backlog so you never lose sight of your game progress even when you add more to your collection</p>
 					<hr className= "style11"/> 
 				</div>
 				<div className= "more_info info_three">
@@ -43,7 +43,7 @@ export class LandingPage extends React.Component {
 					<div className= "home_character_container">
 						<img width= "426" height= "426" className= "mario_character" src= "/images/mario.png" alt= "login character" />
 					</div>
-					<p className= "landing_page_details"> Have access to the latest game information for new games to help you decide if you should just add one more game to your backlog</p>
+					<p className= "landing_page_details"> Have access to the latest game information to help you decide if you should add just one more game to your ever expanding game collection</p>
 					<hr className= "style11"/> 
 				</div>
 				<h3 className= "ready_button_title"> Ready to Crush your Backlog? </h3>

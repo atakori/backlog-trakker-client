@@ -3,6 +3,7 @@ import {
 	AUTH_USER, 
 	AUTH_ERROR,
 	UNAUTH_USER,
+	LOADING_START,
 	LOADING_FINISHED,
 	GET_CURRENT_USER,
 	FETCH_MESSAGE,
@@ -34,11 +35,15 @@ const API_URL= /*"https://enigmatic-headland-13307.herokuapp.com"*/
 
 export function loginUser({username, password}, history) {
 	return function(dispatch) {
+	dispatch({
+		type:LOADING_START
+	})
 	//submits username and password to server
 	axios.post(`${API_URL}/login`, {username, password},)
 	.then(res => {
 		//if request is good, update state with authenticated user
 		dispatch({type: AUTH_USER })
+		dispatch({type: LOADING_FINISHED})
 		//save JWT token to local storage
 		localStorage.setItem('token', res.data.token);
 		//redirect to route /dashboard
@@ -47,6 +52,9 @@ export function loginUser({username, password}, history) {
 	.catch(() => {
 		//if request is bad, show an error to the user
 		dispatch(authError('Incorrect username or password'))
+		dispatch({
+			type: LOADING_FINISHED
+		})
 	})
 	}
 }

@@ -1,7 +1,7 @@
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, GET_CURRENT_USER, FETCH_MESSAGE } from '../actions/types'
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, GET_CURRENT_USER, FETCH_MESSAGE, LOADING_START, LOADING_FINISHED} from '../actions/types'
 
 const initialState = {
-
+	loading: false
 }
 
 export default function (state=initialState, action) {
@@ -16,6 +16,10 @@ export default function (state=initialState, action) {
 			return{...state, currentUser: action.payload}
 		case FETCH_MESSAGE: 
 			return {...state, message: action.payload}
+		case LOADING_START:
+			return{...state, loading: true}
+		case LOADING_FINISHED:
+			return{...state, loading:false}
 		default:
 	}
 	return state;
