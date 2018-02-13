@@ -53,8 +53,7 @@ Then open [`localhost:3000`](http://localhost:3000) in a browser.
       <li><a href="http://www.passportjs.org/">Passport JS</a> -- Authentication</li>
       <li>MongoDB -- Database</li>
       <li>Mocha + Chai -- Testing</li>
-      <li>T<a href="https://travis-ci.org/">Travis CI</a> -- Continuous Integration and Deployment</li>
-      <li>
+      <li><a href="https://travis-ci.org/">Travis CI</a> -- Continuous Integration and Deployment</li>
     </ul>
   
 <h3>Security</h3>
