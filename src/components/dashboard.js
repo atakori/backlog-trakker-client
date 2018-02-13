@@ -57,22 +57,10 @@ export class Dashboard extends React.Component {
 		return url;
 	}
 
-	renderGameProgress() {
-		return(
-			<main role="main" className= "main" style= {{paddingTop: "65px"}}>
-				<CurrentGameProgress user= {this.props.currentUser} currentGame= {this.props.gameCollection[0].name} progress= {this.calculateProgress()} criticRating= "7.4" userRating= "9.3" gameArtURL= {this.renderGameArtUrl()}/>
-				<CurrentGameChapters currentGame= {this.props.gameCollection[0].name} gameChapters= {this.props.gameCollection[0].gameChapters} completedChapters= {this.props.gameCollection[0].completedChapters} />
-				<CurrentBacklog gameCollection= {this.props.userBacklog} getSpecificGame= {(gameName) => this.props.getGameCollection(gameName)} scrollToTop={()=> this.scrollToTop()}/>
-				<Footer />
-			</main>
-			)
-	}
-
 	//on click of the backlog game to bring to dashboard
 	//make sure to dispatch an action to update the currentGame state
 	//dashboard will check to see if there is a game set as the props
 	//to render the game and its info
-
 	renderDashboardView() {
 		if(!this.props.gameCollection | !this.props.userBacklog) {
 		return(
@@ -129,9 +117,6 @@ const mapStatetoProps= (state) => {
 		gameCollection: state.game.gameCollection,
 		userBacklog: state.game.userBacklog,
 		loading: state.game.loading
-		/*selectedGame: state.game.selectedGame*/
-		/*above is for checking if there was a specific
-		game selected by user from their collection*/
 	};
 }
 

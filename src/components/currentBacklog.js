@@ -2,10 +2,6 @@ import React from 'react';
 
  
 export class CurrentBacklog extends React.Component {
-/*	constructor(props) {
-		super(props);
-	}*/
-
 	renderGameArt(url) {
 		//AJAX call to get game art
 		let game_art_url= "http:" + url;
