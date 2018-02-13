@@ -1,6 +1,6 @@
 <h1>Checkpoint - Backlog Trakker</h1>
 
-Checkpoint is a responsive full-stack app that allows gamers to keep track of their video game backlog by allowing them to document their progress for each game in their gaming collection and to see how close they are to completing them
+Checkpoint is a responsive full-stack app that allows gamers to keep track of their video game backlog by allowing them to add games to their virtual gaming collection, document their game progress, and see how close they are to completing their games and overall backlog.
 
 <img width=48% alt="Landing_Page_View" src="/assets/Checkpoint_Banner.png"> <img width=48% alt="Landing_Page_View" src="/assets/Checkpoint_Description.png">
 <img width=48% alt="Landing_Page_View" src="/assets/Collection.png"> <img width=48% alt="Landing_Page_View" src="/assets/Game_Chapters.png">
@@ -31,11 +31,11 @@ Then open [`localhost:3000`](http://localhost:3000) in a browser.
 >   npm test
 ```
 <h2>Introduction</h2>
-<p> Checkpoint was made to help gamers keep their gaming backlogs under control. With more and more great quality games coming out, it becomes easy for gamers to gaina collection of great games. At the same time, adding more and more games to a collection can quickly become overwhelming as gamers buy more games faster than they can complete them. This leads to gamers starting games and,soon afterwards, stopping to play another recently released game. Checkpoint was made to alleviate this problem. With Checkpoint, gamers can add games to their virtual collection, see relevant game info, and most importantly see exactly how close they are to completing a game. With Checkpoint, gamers can finally keep track of their game progress even as they build their gaming collection.</p>
+<p> Checkpoint was made to help gamers keep their gaming backlogs under control. With more and more great quality games coming out in such quick succession, it has become easy for gamers to gain a massive collection of games. That said, adding more and more games to a collection can quickly become overwhelming as gamers buy games faster than they can complete them. This leads to gamers starting games and,soon afterwards, stopping to play another recently released game. Checkpoint was made to alleviate this problem. With Checkpoint, gamers can add games to their virtual collection, see relevant game info, and most importantly see exactly how close they are to completing a game. With Checkpoint, gamers can finally keep track of their game progress even as they continue build their gaming collection.</p>
 
 <h2>How it Works</h2>
 <h3>Accessing IGDB API</h3>
-<p>Checkpoint uses the <a href="https://www.igdb.com/api">IGDB API</a> to get the most up to date gaming information for gamers. It pulls infomation from the database to give gamers access to gaming summaries, ratings, and recommendations.</p>
+<p>Checkpoint uses the <a href="https://www.igdb.com/api">IGDB API</a> to get the most up to date gaming information to display to users. It pulls infomation from the database to give gamers access to gaming summaries, ratings, and recommendations.</p>
 <h3>Data Scraping</h3>
 <p> Since game chapters are not readily available in any online database, Checkpoint uses data scraping in order to get game chapters for each game that a user wants to add to their collection. Upon request to add a game to a user's backlog, Checkpoint data scrapes <a href="www.ign.com">ign.com</a> to see if there are any walkthroughs for the cooresponding game. If so, the server will scrape the game chapter names from the site. If not, the server will respond by telling the user the game is currently not suported. </p>
 
