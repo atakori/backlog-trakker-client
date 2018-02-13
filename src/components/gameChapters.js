@@ -45,7 +45,6 @@ export class CurrentGameChapters extends React.Component {
 		//add chapter to db or retract from db list and 
 		let gameName= this.props.currentGame;
 		this.props.handleChapterChange(gameName, chapter);
-		//this.renderGameChapters(mockchapter);
 	}
 
 	render() {
@@ -60,13 +59,5 @@ export class CurrentGameChapters extends React.Component {
 	}
 }
 
-const mapStatetoProps= (state) => {
-	return { 
-		/*selectedGame: state.game.selectedGame*/
-		/*above is for checking if there was a specific
-		game selected by user from their collection*/
-	};
-}
-
-export default connect(mapStatetoProps, actions)(CurrentGameChapters);
+export default connect(null, actions)(CurrentGameChapters);
 
