@@ -7,10 +7,7 @@ import * as actions from '../actions';
 import CollectionFooter from './collectionFooter';
 
 export class GameCollection extends React.Component {
-	//on click of the backlog game to bring to dashboard
-	//make sure to dispatch an action to update the currentGame state
-	//dashboard will check to see if there is a game set as the props
-	//to render the game and its info
+	//displays the currentUser's gameCollection
 	componentWillMount() {
 		this.props.getCurrentUser();
 		this.props.getGameCollection();

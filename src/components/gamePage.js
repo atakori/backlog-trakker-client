@@ -18,7 +18,6 @@ export class GamePage extends React.Component {
 	}
 
 	componentWillMount() {
-		//before rendering of components
 		let gameNameDashed = this.props.match.params.game;
 		let gameName = gameNameDashed.replace(/-/g, ' ');
 		this.props.fetchGameInfo(gameName);	
@@ -29,7 +28,7 @@ export class GamePage extends React.Component {
 
 	gameCollectionStatus() {
 		//checks for whether or not the game is in the users
-		//collection or not
+		//collection
 		if (this.props.attemptAddGame) {
 			return(
 				<LoadingScreen />
