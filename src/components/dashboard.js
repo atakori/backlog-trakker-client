@@ -8,6 +8,7 @@ import * as actions from '../actions';
 import LoadingScreen from './loading';
 import Footer from './footer';
 import FixedFooter from './collectionFooter.js'
+import { Modal } from 'antd';
 
 export class Dashboard extends React.Component {
 	constructor(props) {
@@ -18,7 +19,8 @@ export class Dashboard extends React.Component {
 			loading: true,
 			intervalId: 0,
 			scrollStepInPx: "50",
-			delayInMs: "18"
+			delayInMs: "18",
+			visible: true
     	}
 	}
 
@@ -32,6 +34,28 @@ export class Dashboard extends React.Component {
 		}
 	}
 
+	//Modal functions
+
+	showModal= () => {
+	    this.setState({
+	      visible: true
+	    });
+	}
+
+ 	handleOk= (e) =>{
+    	this.setState({
+      	  visible: false
+    	});
+  	}
+
+  	handleCancel= (e)=> {
+    	this.setState({
+          visible: false
+    	});
+  	}
+
+  	//Scroll functions
+
 	scrollStep() {
     if (window.pageYOffset === 0) {
         clearInterval(this.state.intervalId);
@@ -44,6 +68,7 @@ export class Dashboard extends React.Component {
 	  this.setState({ intervalId: intervalId });
 	}
 
+	//Dashboard functions
 	calculateProgress(){
 		let completedChapters= this.props.gameCollection[0].completedChapters;
 		let totalGameChapters= this.props.gameCollection[0].gameChapters;
@@ -55,6 +80,24 @@ export class Dashboard extends React.Component {
 		url= "https:" + url;
 		url= url.replace("thumb", "cover_big");
 		return url;
+	}
+
+	renderHowToUseText() {
+		return (
+			<div>
+				<p>Hey there!</p>
+				<p>Checkpoint currently searches external sites 
+				to find game chapters for the games you want to add to your collection.
+				However, if a game's chapters are not currently available then you 
+				won't be able to add the game to your collection :(</p>
+				<p>Games typically affected by this are super new or old games, but don't fret!
+				 We are currently working on making sure that all games are supported!</p>
+				<p>In the meantime, most popular games like Dark Souls, Celeste, and Uncharted
+				 are supported so give them a search! 
+				 </p>
+				 <p> Happy Gaming!!!</p> 
+			</div>
+			)
 	}
 
 	//on click of the backlog game to bring to dashboard
@@ -71,6 +114,9 @@ export class Dashboard extends React.Component {
 	} else if (this.props.gameCollection[0] === undefined) {
 		return(
 			<main role="main" className= "main" style= {{paddingTop: "65px"}}>
+				<Modal title= "Welcome to Checkpoint!" visible={this.state.visible} onOk={this.handleOk} onCancel={this.handleCancel} okText="Awesome">
+					{this.renderHowToUseText()}
+				</Modal>
 				<h1 className= "no_games_title_container"><img height= "50" className= "dpad" src= "./images/Dpad-up.png" alt= "Dpad_Up" />     
   				<span className= "no_games_title">{this.props.currentUser}'s Dashboard</span> <img height= "50" className= "dpad" src= "./images/Dpad-up.png" alt= "Dpad_Up" />
 				</h1>
