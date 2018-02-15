@@ -12,11 +12,11 @@ let mockData= {
 describe('<GamePage />', () => {
 	it('Renders without crashing', () => {
 		const callback= jest.fn();
-		shallow(<GamePage match={mockData} addGameToCollection={callback} fetchGameInfo= {()=> console.log('fetch info')} checkGameCollection= {()=> console.log('fetch collection')}/>);
+		shallow(<GamePage match={mockData} addGameToCollection={callback} fetchGameInfo= {()=> console.log('fetch info')} checkGameCollection= {()=> console.log('fetch collection')} checkGameChapterAvailability={(gameName) => console.log("Checking Availability")}/>);
 	})
 	it('Calls addGameToCollection callback on click', () => {
 		const callback= jest.fn();
-		const wrapper= shallow(<GamePage error= {false} gameName= {"Fake Game"} match={mockData} addGameToCollection={callback} fetchGameInfo= {()=> console.log('fetch info')} checkGameCollection= {()=> console.log('fetch collection')}/>)
+		const wrapper= shallow(<GamePage error= {false} gameName= {"Fake Game"} match={mockData} addGameToCollection={callback} fetchGameInfo= {()=> console.log('fetch info')} checkGameCollection= {()=> console.log('fetch collection')} checkGameChapterAvailability= {(gameName) => console.log("Checking Availability")}/>)
 		wrapper.find('.btn').simulate('click')
 		expect(callback).toHaveBeenCalled()
 	})

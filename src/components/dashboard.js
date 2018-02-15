@@ -84,7 +84,7 @@ export class Dashboard extends React.Component {
 
 	renderHowToUseText() {
 		return (
-			<div>
+			<div className="modal_text">
 				<p>Hey there!</p>
 				<p>Checkpoint currently searches external sites 
 				to find game chapters for the games you want to add to your collection.
@@ -93,7 +93,7 @@ export class Dashboard extends React.Component {
 				<p>Games typically affected by this are super new or old games, but don't fret!
 				 We are currently working on making sure that all games are supported!</p>
 				<p>In the meantime, most popular games like Dark Souls, Celeste, Uncharted, and 
-				The Legend of Zelda: Breath of the Wild are supported so give them a search! 
+				The Legend of Zelda: Breath of the Wild are all currently supported so give them a search! 
 				 </p>
 				 <p> Happy Gaming!!!</p> 
 			</div>
