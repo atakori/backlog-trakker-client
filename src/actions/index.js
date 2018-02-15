@@ -201,7 +201,6 @@ export function addGameToCollection(gameNameDashed, gameName) {
 				axios.get(`${API_URL}/games?name=${gameName}`)
 				.then(gameObject => {
 					const gameArtUrl = gameObject.data[0].cover.url;
-					console.log(gameArtUrl);
 					axios.post(`${API_URL}/api/user?username=${username}&name=${gameName}&gameChapters=${chapters.data}&gameArtUrl=${gameArtUrl}`, {
 					headers: {authorization: localStorage.getItem('token')}})
 					.then(postedRes=> {
@@ -227,6 +226,32 @@ export function addGameToCollection(gameNameDashed, gameName) {
 			})
 		})
 
+	}
+}
+
+export function checkGameChapterAvailability(gameNameDashed) {
+	//checks pre-render whether or not a game is available
+	return function(dispatch) {
+		axios.get(`${API_URL}/api/user`, {
+			headers: {authorization: localStorage.getItem('token')}})
+		.then(res => {
+			axios.get(`${API_URL}/games/chapters?gameName=${gameNameDashed}`)
+			.then(chapters => {
+				dispatch({
+					type: RESET_SCRAPE
+				})
+			})
+			.catch(err => {
+			dispatch({
+				type: CANNOT_SCRAPE,
+			})
+			})
+		})
+		.catch(err => {
+			dispatch({
+				type: CANNOT_SCRAPE,
+			})
+		})
 	}
 }
 

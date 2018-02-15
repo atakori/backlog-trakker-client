@@ -21,12 +21,14 @@ export class MockSearch extends React.Component {
     } else{
 
     let game= this.input.value.trim()
-    let gameUrl= game.replace(':', '').replace(/\s+/g, '-')
+    let gameNameDashed= game.replace(':', '').replace(/\s+/g, '-');
+    let gameUrl= gameNameDashed;
     gameUrl= `/gameinfo/${gameUrl}`
 
     this.props.history.push(gameUrl)
     this.props.fetchGameInfo(game); 
     this.props.checkGameCollection(game);
+    this.props.checkGameChapterAvailability(gameNameDashed)
 
   }  
 }

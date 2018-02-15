@@ -92,8 +92,8 @@ export class Dashboard extends React.Component {
 				won't be able to add the game to your collection :(</p>
 				<p>Games typically affected by this are super new or old games, but don't fret!
 				 We are currently working on making sure that all games are supported!</p>
-				<p>In the meantime, most popular games like Dark Souls, Celeste, and Uncharted
-				 are supported so give them a search! 
+				<p>In the meantime, most popular games like Dark Souls, Celeste, Uncharted, and 
+				The Legend of Zelda: Breath of the Wild are supported so give them a search! 
 				 </p>
 				 <p> Happy Gaming!!!</p> 
 			</div>

@@ -24,6 +24,7 @@ export class GamePage extends React.Component {
 		////this should go through the db to check if the game
 		//is already in the users collection
 		this.props.checkGameCollection(gameName);
+		this.props.checkGameChapterAvailability(gameNameDashed)
 	}
 
 	gameCollectionStatus() {
@@ -35,7 +36,7 @@ export class GamePage extends React.Component {
 				)
 		}
 		if (this.props.cannotScrape) {
-			alert("Sorry! This game is not supported yet :(")
+			/*alert("Sorry! This game is not supported yet :(")*/
 			return(
 				<button className= "add_to_collection_button btn btn-primary in_collection_button" disabled= {true}>Game Not Available</button>
 				)
@@ -154,7 +155,7 @@ const mapStatetoProps= (state) => {
 		error: state.game.error,
 		cannotScrape: state.game.cannotScrape, 
 		inCollection: state.game.inCollection,
-		attemptAddGame: state.game.attemptAddGame
+		attemptAddGame: state.game.attemptAddGame,
 	};
 }
 
